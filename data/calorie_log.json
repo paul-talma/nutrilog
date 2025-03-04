@@ -1,0 +1,652 @@
+{
+	"user": "Paul",
+	"logs": [
+		{
+			"date": "2025-02-25",
+			"meals": [
+				{
+					"name": "breakfast",
+					"time": "08:00",
+					"items": [
+						{
+							"name": "low-fat greek yogurt",
+							"weight": null,
+							"cal": 160
+						},
+						{
+							"name": "almond butter",
+							"weight": 8,
+							"cal": null
+						},
+						{
+							"name": "honey",
+							"weight": 7,
+							"cal": null
+						},
+						{
+							"name": "freeze-dried berries",
+							"weight": 7,
+							"cal": null
+						}
+					]
+				},
+				{
+					"name": "lunch",
+					"time": null,
+					"items": [
+						{
+							"name": "carrot",
+							"weight": 115,
+							"cal": null,
+							"quantity": 1
+						},
+						{
+							"name": "cheddar",
+							"weight": 40,
+							"cal": null,
+							"quantity": null
+						},
+						{
+							"name": "fried tofu",
+							"weight": 40,
+							"cal": null,
+							"quantity": null
+						},
+						{
+							"name": "brocollini",
+							"weight": 115,
+							"cal": null,
+							"quantity": null
+						},
+						{
+							"name": "olive oil",
+							"weight": 2,
+							"cal": null,
+							"quantity": null
+						},
+						{
+							"name": "clementine",
+							"weight": null,
+							"cal": null,
+							"quantity": 1
+						}
+					]
+				},
+				{
+					"name": "dinner",
+					"time": "07:00",
+					"items": [
+						{
+							"name": "mushroom meat",
+							"weight": null,
+							"cal": null,
+							"quantity": null
+						},
+						{
+							"name": "flour tortilla",
+							"weight": 130,
+							"quantity": 3,
+							"cal": 390
+						},
+						{
+							"name": "cheddar",
+							"weight": 15,
+							"cal": null
+						},
+						{
+							"name": "orange",
+							"weight": null,
+							"cal": null,
+							"quantity": 1
+						},
+						{
+							"name": "gouda",
+							"weight": 20
+						},
+						{
+							"name": "chocolate",
+							"weight": 12
+						},
+						{
+							"name": "clementine",
+							"quantity": 1
+						}
+					]
+				},
+				{
+					"name": "snack",
+					"time": null,
+					"items": [
+						{
+							"name": "kelp knot",
+							"weight": null,
+							"cal": 15,
+							"quantity": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"date": "2025-02-26",
+			"meals": [
+				{
+					"name": "breakfast",
+					"items": [
+						{
+							"name": "low-fat greek yogurt",
+							"weight": 170
+						},
+						{
+							"name": "almond butter",
+							"weight": 14
+						},
+						{
+							"name": "honey",
+							"weight": 7
+						},
+						{
+							"name": "freeze-dried berries",
+							"weight": 4
+						},
+						{
+							"name": "orange",
+							"quantity": 1
+						}
+					]
+				},
+				{
+					"name": "lunch",
+					"items": [
+						{
+							"name": "white rice (dry)",
+							"weight": 60
+						},
+						{
+							"name": "lamb",
+							"weight": 60
+						},
+						{
+							"name": "macaron",
+							"quantity": 2
+						},
+						{
+							"name": "cod",
+							"weight": 60
+						},
+						{
+							"name": "misc",
+							"cal": 200
+						}
+					]
+				},
+				{
+					"name": "dinner",
+					"items": [
+						{
+							"name": "drunken noodles",
+							"cal": null
+						},
+						{
+							"name": "rice",
+							"weight": 100
+						},
+						{
+							"name": "coconut water",
+							"quantity": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"date": "2025-02-27",
+			"meals": [
+				{
+					"name": "breakfast",
+					"items": [
+						{
+							"name": "orange",
+							"quantity": 1
+						},
+						{
+							"name": "almonds",
+							"weight": 25
+						}
+					]
+				},
+				{
+					"name": "lunch",
+					"items": [
+						{
+							"name": "lettuce",
+							"weight": 200
+						},
+						{
+							"name": "tuna",
+							"weight": 100
+						},
+						{
+							"name": "cherry tomato",
+							"weight": 110
+						},
+						{
+							"name": "cucumber",
+							"weight": 100
+						},
+						{
+							"name": "vinaigrette",
+							"weight": 25
+						},
+						{
+							"name": "harvest mix",
+							"weight": 40
+						},
+						{
+							"name": "clementine",
+							"quantity": 1
+						}
+					]
+				},
+				{
+					"name": "dinner",
+					"items": [
+						{
+							"name": "lettuce",
+							"weight": 200
+						},
+						{
+							"name": "tuna",
+							"weight": 100
+						},
+						{
+							"name": "cherry tomato",
+							"weight": 110
+						},
+						{
+							"name": "cucumber",
+							"weight": 100
+						},
+						{
+							"name": "olive oil",
+							"weight": 15
+						},
+						{
+							"name": "balsamic vinegar",
+							"weight": 8
+						},
+						{
+							"name": "corn",
+							"weight": 110
+						},
+						{
+							"name": "parmesan",
+							"weight": 10
+						},
+						{
+							"name": "butter",
+							"weight": 25
+						},
+						{
+							"name": "king oyster mushroom",
+							"quantity": 2
+						}
+					]
+				},
+				{
+					"date": "2025-02-28",
+					"meals": [
+						{
+							"name": "breakfast",
+							"items": [
+								{
+									"name": "banana",
+									"quantity": 1
+								},
+								{
+									"name": "orange",
+									"quantity": 1
+								},
+								{
+									"name": "almonds",
+									"weight": 30
+								}
+							]
+						},
+						{
+							"name": "lunch",
+							"items": [
+								{
+									"name": "cherry tomato",
+									"weight": 80
+								},
+								{
+									"name": "cucumber",
+									"weight": 80
+								},
+								{
+									"name": "lettuce",
+									"weight": 250
+								},
+								{
+									"name": "harvest mix",
+									"weight": 60
+								},
+								{
+									"name": "olive oil",
+									"weight": 10
+								},
+								{
+									"name": "balsamic vinegar",
+									"weight": 10
+								},
+								{
+									"name": "corn",
+									"weight": 165
+								},
+								{
+									"name": "carrot",
+									"weight": 90
+								},
+								{
+									"name": "tuna",
+									"weight": 100
+								}
+							]
+						},
+						{
+							"name": "dinner",
+							"items": [
+								{
+									"name": "taro balls",
+									"weight": 45
+								},
+								{
+									"name": "mushroom meat",
+									"weight": 100
+								},
+								{
+									"name": "sweet red bean",
+									"weight": 30
+								},
+								{
+									"name": "flour tortilla",
+									"quantity": 1
+								}
+							]
+						},
+						{
+							"date": "2025-03-01",
+							"meals": [
+								{
+									"name": "breakfast",
+									"items": [
+										{
+											"name": "banana",
+											"quantity": 1
+										},
+										{
+											"name": "orange",
+											"quantity": 1
+										}
+									]
+								},
+								{
+									"name": "lunch",
+									"items": [
+										{
+											"name": "massaman curry",
+											"weight": 300
+										},
+										{
+											"name": "white rice (dry)",
+											"weight": 65
+										},
+										{
+											"name": "carrot",
+											"weight": 50
+										}
+									]
+								},
+								{
+									"name": "dinner",
+									"items": [
+										{
+											"name": "russett potato",
+											"weight": 135
+										},
+										{
+											"name": "butter",
+											"weight": 25
+										},
+										{
+											"name": "wheat flour",
+											"weight": 40
+										},
+										{
+											"name": "egg",
+											"quantity": 1
+										},
+										{
+											"name": "mushroom",
+											"weight": 153
+										},
+										{
+											"name": "clementine",
+											"quantity": 1
+										},
+										{
+											"name": "chocolate",
+											"cal": 65
+										}
+									]
+								},
+								{
+									"name": "snack",
+									"items": [
+										{
+											"name": "almonds",
+											"weight": 18
+										},
+										{
+											"name": "pecans",
+											"weight": 10
+										},
+										{
+											"name": "kelp knot",
+											"quantity": 1
+										}
+									]
+								}
+							]
+						},
+						{
+							"date": "ENTER DATE",
+							"meals": [
+								{
+									"name": "breakfast",
+									"items": [
+										{
+											"name": "low-fat greek yogurt",
+											"weight": 190
+										},
+										{
+											"name": "almond butter",
+											"weight": 16
+										},
+										{
+											"name": "banana",
+											"quantity": 1
+										},
+										{
+											"name": "freeze-dried berries",
+											"weight": 10
+										},
+										{
+											"name": "orange",
+											"quantity": 1
+										}
+									]
+								},
+								{
+									"name": "lunch",
+									"items": [
+										{
+											"name": "olive oil",
+											"weight": 12
+										},
+										{
+											"name": "balsamic vinegar",
+											"weight": 9
+										},
+										{
+											"name": "honey",
+											"weight": 6
+										},
+										{
+											"name": "lettuce",
+											"weight": 190
+										},
+										{
+											"name": "gai lan",
+											"weight": 0
+										},
+										{
+											"name": "marinated artichoke",
+											"weight": 60
+										},
+										{
+											"name": "tuna",
+											"weight": 100
+										}
+									]
+								},
+								{
+									"name": "dinner",
+									"items": [
+										{
+											"name": "mushroom tacos",
+											"cal": 1200
+										}
+									]
+								},
+								{
+									"name": "snack",
+									"items": [
+										{
+											"name": "bread",
+											"weight": 105
+										}
+									]
+								},
+								{
+									"date": "2025-03-03",
+									"meals": [
+										{
+											"name": "breakfast",
+											"items": [
+												{
+													"name": "low-fat greek yogurt",
+													"weight": 130
+												},
+												{
+													"name": "almond butter",
+													"weight": 10
+												},
+												{
+													"name": "banana",
+													"quantity": 1
+												},
+												{
+													"name": "orange",
+													"quantity": 1
+												},
+												{
+													"name": "flour tortilla",
+													"cal": 130
+												}
+											]
+										},
+										{
+											"name": "lunch",
+											"items": [
+												{
+													"name": "white rice (dry)",
+													"weight": 65
+												},
+												{
+													"name": "massaman curry",
+													"weight": 250
+												}
+											]
+										},
+										{
+											"name": "dinner",
+											"items": [
+												{
+													"name": "sage butter gnocchi",
+													"quantity": 1
+												}
+											]
+										},
+										{
+											"name": "snack",
+											"items": [
+												{
+													"name": "tortilla chips",
+													"weight": 50
+												},
+												{
+													"name": "guacamole",
+													"weight": 125
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"date": "2025-03-04",
+							"meals": [
+								{
+									"name": "breakfast",
+									"items": [
+										{
+											"name": "low-fat greek yogurt",
+											"weight": 110
+										},
+										{
+											"name": "honey",
+											"weight": 7
+										},
+										{
+											"name": "orange",
+											"quantity": 1
+										},
+										{
+											"name": "banana",
+											"quantity": 1
+										}
+									]
+								},
+								{
+									"name": "lunch",
+									"items": []
+								},
+								{
+									"name": "dinner",
+									"items": []
+								},
+								{
+									"name": "snack",
+									"items": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

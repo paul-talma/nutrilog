@@ -1,0 +1,21 @@
+{
+	"date": "ENTER DATE",
+	"meals": [
+		{
+			"name": "breakfast",
+			"items": []
+		},
+		{
+			"name": "lunch",
+			"items": []
+		},
+		{
+			"name": "dinner",
+			"items": []
+		},
+		{
+			"name": "snack",
+			"items": []
+		}
+	]
+}
