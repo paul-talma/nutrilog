@@ -1,0 +1,44 @@
+:root {
+    --brown: #654321;
+    --background: #fff1e7;
+    --title: #263743;
+    --text: #263743;
+    --royal_blue: #4169e1;
+    --slate_grey: #2f4f4f;
+}
+
+body {
+    font-family: "JetBrains Mono";
+    margin: 2em;
+    background-color: var(--background);
+    color: var(--text);
+}
+
+h1 {
+    text-align: center;
+}
+
+#form-desc {
+    max-width: 400px;
+    padding: 1em;
+    border: 3px solid var(--slate_grey);
+    border-radius: 7px;
+}
+
+form div {
+    margin: 1em auto;
+}
+
+form button {
+    font-family: "JetBrains Mono";
+}
+
+/* .description { */
+/*     max-width: 600px; */
+/*     margin: 1em auto; */
+/*     padding: 1em; */
+/*     border: 1px solid #ccc; */
+/*     border-radius: 5px; */
+/* } */
+/**/
+
