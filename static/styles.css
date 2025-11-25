@@ -1,16 +1,22 @@
 :root {
-    --brown: #654321;
-    --background: #fff1e7;
-    --title: #263743;
+    --bg: #fff1e7;
     --text: #263743;
-    --royal_blue: #4169e1;
+    --link: #4169e1;
+    --title: #263743;
     --slate_grey: #2f4f4f;
+    --brown: #654321;
+}
+
+[data-theme="dark"] {
+    --bg: #1e2021;
+    --text: #fff1e7;
+    --link: #4169e1;
 }
 
 body {
     font-family: "JetBrains Mono";
     margin: 2em;
-    background-color: var(--background);
+    background-color: var(--bg);
     color: var(--text);
 }
 
@@ -41,4 +47,3 @@ form button {
 /*     border-radius: 5px; */
 /* } */
 /**/
-

@@ -4,13 +4,12 @@ import os
 import re  # Import the regex module
 from pathlib import Path
 
-import ipdb
 import requests
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
-from src.models import DailyLog, FoodItem, Meal, NewFoodEntry, UserLog
+from src.models import DailyLog, FoodEntry, FoodItem, Meal, UserLog
 
 # Configure logging to write informational messages and above to 'app.log'.
 # 'filemode='a'' appends to the log file if it exists, otherwise creates it.
@@ -94,8 +93,8 @@ def get_usda_food_info(query: str, api_key: str = API_KEY) -> list:
     """
     url = 'https://api.nal.usda.gov/fdc/v1/foods/search'
     foods = []
-    if 'yogurt' in query:
-        ipdb.set_trace()
+    # if 'yogurt' in query:
+    #     ipdb.set_trace()
 
     # get results in order of source
     for datatype in ['Foundation', 'SR Legacy', 'Survey (FNDDS)', 'Branded']:
@@ -273,7 +272,7 @@ def read_log(date: str):
 
 # API endpoint to add a new food entry to the logs.
 @app.post('/logs')
-def add_log(entry: NewFoodEntry):
+def add_log(entry: FoodEntry):
     # Log the received new food entry for debugging purposes.
     logging.info(f'Received new food entry: {entry.model_dump_json(indent=2)}')
     try:
@@ -337,12 +336,6 @@ def add_log(entry: NewFoodEntry):
 
 
 # API endpoint for the root URL, serving the main HTML page.
-@app.get('/')
-async def read_index():
-    # Return the 'index.html' file as the response.
-    return FileResponse('static/index.html')
-
-
 @app.get('/')
 async def read_root():
     return FileResponse('static/index.html')
