@@ -136,7 +136,7 @@ async def read_root():
     return FileResponse('static/index.html')
 
 
-@app.post('/new_entry')
+@app.post('/logs/new_entry')
 async def new_entry(entry: FoodEntry):
     logger.info(f'Received new food entry: {entry.model_dump_json(indent=2)}')
 
@@ -296,3 +296,16 @@ async def get_today_logs():
             return log
     logger.info('No daily log found')
     return None
+
+
+@app.delete('/logs/delete_entry/{data_id}')
+async def delete_entry(data_id: str):
+    logger.info(f'Removing item #{data_id} from the logs.')
+    user_log = get_user_log()
+    for day in user_log.logs:
+        for meal in day.meals:
+            for item in meal.items:
+                if item.data_id == data_id:
+                    meal.items.remove(item)
+                    write_user_log(user_log)
+                    return
