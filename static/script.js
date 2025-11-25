@@ -1,62 +1,42 @@
 // script.js
-function populateFormWithDefault() {
-    document.getElementById("meal").value = "breakfast";
-    document.getElementById("date").value = new Date()
-        .toISOString()
-        .split("T")[0];
-    document.getElementById("food_name").value = "greek yogurt";
-    document.getElementById("weight").value = 100;
-}
-function toggleTheme() {
-    document.documentElement.dataset.theme = "dark";
-}
+// DOM element references
+const todayBtn = document.querySelector("#today-btn");
+const summary = document.querySelector("#daily-summary-table");
+const form = document.querySelector("#form");
 
-document.addEventListener("DOMContentLoaded", () => {
-    toggleTheme();
-    populateFormWithDefault();
-    updateDailyPanel();
-});
+// rendering
+function drawDailySummary(log) {
+    summary.replaceChildren();
 
-document.getElementById("form").addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const data = Object.fromEntries(new FormData(e.target));
-
-    const response = await fetch("/new_entry", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(data),
-    });
-
-    const result = await response.json();
-
-    updateDailyPanel();
-});
-
-async function updateDailyPanel() {
-    const table = document.getElementById("daily-summary-table");
-    table.replaceChildren();
-    let header = document.createElement("tr");
+    // draw header
+    const thead = document.createElement("thead");
+    const header = document.createElement("tr");
     ["meal", "food", "weight", "calories"].forEach((text) => {
-        head = document.createElement("td");
-        head.textContent = text;
-        header.append(head);
+        const th = document.createElement("th");
+        th.textContent = text;
+        header.append(th);
     });
-    table.appendChild(header);
+    thead.appendChild(header);
+    summary.appendChild(thead);
 
-    const response = await fetch("/logs/today", {
-        method: "GET",
-        headers: { "content-type": "application/json" },
-    });
-    const log = await response.json();
+    // draw data
+    const tbody = document.createElement("tbody");
 
     for (let meal of log.meals) {
-        // put meal name in first column
+        let isFirstItem = true;
         let row = document.createElement("tr");
+
         const mealName = document.createElement("td");
         mealName.textContent = meal.name;
         row.appendChild(mealName);
+
         for (let foodItem of meal.items) {
+            const row = document.createElement("tr");
+            const mealCell = document.createElement("td");
+            if (isFirstItem) {
+                mealCell.textContent = meal.name;
+                isFirstItem = false;
+            }
             const foodName = document.createElement("td");
             foodName.textContent = foodItem.name;
             const weight = document.createElement("td");
@@ -68,18 +48,96 @@ async function updateDailyPanel() {
 
             const delButton = document.createElement("button");
             delButton.textContent = "remove";
+            delButton.classList.add("delete-btn");
             const delCell = document.createElement("td");
             delCell.appendChild(delButton);
 
-            if (row.children.length === 0) {
-                row.appendChild(document.createElement("td"));
-            }
-            row.append(foodName, weight, calories, delCell);
+            row.append(mealCell, foodName, weight, calories, delCell);
 
             row.dataset.id = foodItem.data_id;
-            table.appendChild(row);
-
-            row = document.createElement("tr");
+            tbody.appendChild(row);
         }
     }
+    summary.appendChild(tbody);
 }
+
+function populateFormWithDefault() {
+    document.querySelector("#meal").value = "breakfast";
+    document.querySelector("#date").value = new Date().toLocaleDateString(
+        "en-CA",
+    );
+    document.querySelector("#food_name").value = "greek yogurt";
+    document.querySelector("#weight").value = 100;
+}
+
+function toggleTheme() {
+    if (document.documentElement.dataset.theme === "dark") {
+        document.documentElement.dataset.theme = "dark";
+    } else {
+        document.documentElement.dataset.theme = "dark";
+    }
+}
+
+// data functions
+async function getCurrentLog() {
+    const response = await fetch("/logs/today", {
+        method: "GET",
+        headers: { "content-type": "application/json" },
+    });
+    const log = await response.json();
+    console.log(log);
+    return log;
+}
+
+// action functions
+async function newEntry(e) {
+    e.preventDefault();
+
+    const data = Object.fromEntries(new FormData(e.target));
+    const response = await fetch("/logs/new_entry", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+    const log = await getCurrentLog();
+    drawDailySummary(log);
+}
+
+async function deleteEntry(dataId) {
+    // send DELETE request to backend
+    const response = await fetch(`/logs/delete_entry/${dataId}`, {
+        method: "DELETE",
+    });
+    // redraw table
+    const log = await getCurrentLog();
+    drawDailySummary(log);
+}
+
+// set up event listeners
+function setupEventListeners() {
+    summary.addEventListener("click", (e) => {
+        if (e.target.classList.contains("delete-btn")) {
+            const row = e.target.closest("tr");
+            deleteEntry(row.dataset.id);
+        }
+    });
+
+    todayBtn.addEventListener("click", (e) => {
+        document.querySelector("#date").value = new Date().toLocaleDateString(
+            "en-CA",
+        );
+    });
+
+    form.addEventListener("submit", newEntry);
+}
+
+// initialization
+document.addEventListener("DOMContentLoaded", async () => {
+    toggleTheme();
+    populateFormWithDefault();
+    setupEventListeners();
+    const log = await getCurrentLog();
+    drawDailySummary(log);
+});
