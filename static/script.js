@@ -1,14 +1,57 @@
 // script.js
 // DOM element references
 const todayBtn = document.querySelector("#today-btn");
-const summary = document.querySelector("#daily-summary-table");
+const dailySummary = document.querySelector("#daily-summary");
+const dailyLog = document.querySelector("#daily-log");
 const form = document.querySelector("#form");
 
 // rendering
 function drawDailySummary(log) {
-    summary.replaceChildren();
+    dailySummary.replaceChildren();
+    const title = document.createElement("h3");
+    title.textContent = "Daily Summary";
+    dailySummary.append(title);
+
+    const table = document.createElement("table");
+    const thead = document.createElement("thead");
+    const tbody = document.createElement("tbody");
+    const header = document.createElement("tr");
+    thead.append(header);
+
+    ["nutrient", "value"].forEach((text) => {
+        const th = document.createElement("th");
+        th.textContent = text;
+        header.append(th);
+    });
+
+    ["calories", "protein", "carbs", "fat"].forEach((text) => {
+        const row = document.createElement("tr");
+        const nameCell = document.createElement("td");
+        nameCell.textContent =
+            text === "calories" ? `${text} (kcal):` : `${text}:`;
+        const valueCell = document.createElement("td");
+        const units = text === "calories" ? "" : "g";
+        valueCell.textContent = log[`total_${text}`].toFixed(0) + units;
+        valueCell.style.textAlign = "right";
+
+        row.append(nameCell, valueCell);
+        tbody.append(row);
+    });
+    table.append(tbody);
+    table.append(thead);
+    dailySummary.append(table);
+}
+
+function drawDailyLog(log) {
+    dailyLog.replaceChildren();
+
+    // draw title
+    const title = document.createElement("h3");
+    title.textContent = "Daily Log";
+    dailyLog.append(title);
 
     // draw header
+    const dailyLogTable = document.createElement("table");
     const thead = document.createElement("thead");
     const header = document.createElement("tr");
     ["meal", "food", "weight", "calories"].forEach((text) => {
@@ -17,7 +60,7 @@ function drawDailySummary(log) {
         header.append(th);
     });
     thead.appendChild(header);
-    summary.appendChild(thead);
+    dailyLogTable.appendChild(thead);
 
     // draw data
     const tbody = document.createElement("tbody");
@@ -35,6 +78,7 @@ function drawDailySummary(log) {
             const mealCell = document.createElement("td");
             if (isFirstItem) {
                 mealCell.textContent = meal.name;
+                mealCell.style["font-weight"] = "bold";
                 isFirstItem = false;
             }
             const foodName = document.createElement("td");
@@ -58,7 +102,8 @@ function drawDailySummary(log) {
             tbody.appendChild(row);
         }
     }
-    summary.appendChild(tbody);
+    dailyLogTable.appendChild(tbody);
+    dailyLog.append(dailyLogTable);
 }
 
 function populateFormWithDefault() {
@@ -85,7 +130,6 @@ async function getCurrentLog() {
         headers: { "content-type": "application/json" },
     });
     const log = await response.json();
-    console.log(log);
     return log;
 }
 
@@ -103,6 +147,7 @@ async function newEntry(e) {
     const result = await response.json();
     const log = await getCurrentLog();
     drawDailySummary(log);
+    drawDailyLog(log);
 }
 
 async function deleteEntry(dataId) {
@@ -113,11 +158,12 @@ async function deleteEntry(dataId) {
     // redraw table
     const log = await getCurrentLog();
     drawDailySummary(log);
+    drawDailyLog(log);
 }
 
 // set up event listeners
 function setupEventListeners() {
-    summary.addEventListener("click", (e) => {
+    dailyLog.addEventListener("click", (e) => {
         if (e.target.classList.contains("delete-btn")) {
             const row = e.target.closest("tr");
             deleteEntry(row.dataset.id);
@@ -140,4 +186,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     setupEventListeners();
     const log = await getCurrentLog();
     drawDailySummary(log);
+    drawDailyLog(log);
 });
