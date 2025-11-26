@@ -6,70 +6,78 @@
         <link rel="stylesheet" href="static/styles.css" />
     </head>
     <body>
-        <header>
-            <h1>NutriLog</h1>
-        </header>
-        <main>
-            <section>
-                <div id="form-desc">
-                    <h2>Today's Meals</h2>
-                    <p>
-                        Enter what you ate today, one key ingredient at a time.
-                    </p>
-                    <form id="form">
-                        <div>
-                            <label for="date">Date:</label>
-                            <input type="date" id="date" name="date" required />
-                            <button type="button" id="today-btn">today</button>
-                        </div>
+        <div id="loading">
+            <p>⏳ Server starting up...</p>
+            <p>This may take up to 40 seconds.</p>
+        </div>
+        <div id="app" style="display: none">
+            <header>
+                <h1>NutriLog</h1>
+            </header>
+            <main>
+                <section>
+                    <div id="form-desc">
+                        <h2>Today's Meals</h2>
+                        <p>
+                            Enter what you ate today, one key ingredient at a
+                            time.
+                        </p>
+                        <form id="form">
+                            <div>
+                                <label for="date">date:</label>
+                                <input
+                                    type="date"
+                                    id="date"
+                                    name="date"
+                                    required
+                                />
+                                <button type="button" id="today-btn">
+                                    today
+                                </button>
+                            </div>
 
-                        <div>
-                            <label for="meal">Meal:</label>
-                            <select id="meal" name="meal" required>
-                                <option value="">Select</option>
-                                <option value="breakfast">Breakfast</option>
-                                <option value="lunch">Lunch</option>
-                                <option value="dinner">Dinner</option>
-                                <option value="snack">Snack</option>
-                            </select>
-                        </div>
+                            <div>
+                                <label for="meal">meal:</label>
+                                <select id="meal" name="meal" required>
+                                    <option value="">Select</option>
+                                    <option value="breakfast">Breakfast</option>
+                                    <option value="lunch">Lunch</option>
+                                    <option value="dinner">Dinner</option>
+                                    <option value="snack">Snack</option>
+                                </select>
+                            </div>
 
-                        <div>
-                            <label for="food_name">Food:</label>
-                            <input
-                                type="text"
-                                name="food_name"
-                                id="food_name"
-                                required
-                            />
-                        </div>
+                            <div>
+                                <label for="food_name">food:</label>
+                                <input
+                                    type="text"
+                                    name="food_name"
+                                    id="food_name"
+                                    required
+                                />
+                            </div>
 
-                        <div>
-                            <label for="weight">Weight:</label>
-                            <input
-                                type="number"
-                                name="weight"
-                                id="weight"
-                                required
-                            />
-                        </div>
+                            <div>
+                                <label for="weight">weight:</label>
+                                <input
+                                    type="number"
+                                    name="weight"
+                                    id="weight"
+                                    required
+                                />
+                            </div>
 
-                        <div>
-                            <button type="submit">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </section>
-        </main>
+                            <div>
+                                <button type="submit">submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </main>
 
-        <div id="daily-info">
-            <div id="daily-summary">
-                <h2>Daily Summary</h2>
-                <table></table>
-            </div>
-            <div id="daily-log">
-                <h2>Daily Log</h2>
-                <table></table>
+            <div id="daily-info">
+                <div id="daily-summary"></div>
+                <div id="daily-log"></div>
             </div>
         </div>
 

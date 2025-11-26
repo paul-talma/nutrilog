@@ -11,7 +11,12 @@ function drawDailySummary(log) {
     const title = document.createElement("h2");
     title.textContent = "Daily Summary";
     dailySummary.append(title);
-
+    if (!log || isEmpty(log)) {
+        const p = document.createElement("p");
+        p.textContent = "No entries yet!";
+        dailySummary.append(p);
+        return;
+    }
     const table = document.createElement("table");
     const thead = document.createElement("thead");
     const tbody = document.createElement("tbody");
@@ -43,8 +48,18 @@ function drawDailySummary(log) {
 }
 
 function drawDailyLog(log) {
+    dailyLog.replaceChildren();
+    const title = document.createElement("h2");
+    title.textContent = "Daily Log";
+    dailyLog.append(title);
+    if (!log || isEmpty(log)) {
+        const p = document.createElement("p");
+        p.textContent = "No entries yet!";
+        dailyLog.append(p);
+        return;
+    }
     // draw header
-    const dailyLogTable = dailyLog.querySelector("table");
+    const dailyLogTable = document.createElement("table");
     const thead = document.createElement("thead");
     const header = document.createElement("tr");
     ["meal", "food", "weight (g)", "calories (kcal)"].forEach((text) => {
@@ -96,6 +111,16 @@ function drawDailyLog(log) {
         }
     }
     dailyLogTable.appendChild(tbody);
+    dailyLog.append(dailyLogTable);
+}
+
+function isEmpty(log) {
+    for (let meal of log.meals) {
+        if (meal.items.length > 0) {
+            return false;
+        }
+    }
+    return true;
 }
 
 function populateFormWithDefault() {
@@ -173,10 +198,19 @@ function setupEventListeners() {
 
 // initialization
 document.addEventListener("DOMContentLoaded", async () => {
+    const loading = document.querySelector("#loading");
+    const app = document.querySelector("#app");
     // toggleTheme();
-    populateFormWithDefault();
-    setupEventListeners();
-    const log = await getCurrentLog();
-    drawDailySummary(log);
-    drawDailyLog(log);
+    try {
+        populateFormWithDefault();
+        setupEventListeners();
+        const log = await getCurrentLog();
+        drawDailySummary(log);
+        drawDailyLog(log);
+
+        loading.style.display = "none";
+        app.style.display = "block";
+    } catch (error) {
+        loading.textContent = "❌ Failed to load. Please refresh.";
+    }
 });
