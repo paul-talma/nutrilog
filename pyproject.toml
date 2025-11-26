@@ -1,7 +1,7 @@
 [project]
-name = "calorie-tracker"
+name = "Nutrilog"
 version = "0.1.0"
-description = "Add your description here"
+description = "Nutrition tracking app"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
