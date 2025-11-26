@@ -8,5 +8,13 @@ wheels/
 
 # Virtual environments
 .venv
+.ruff_cache/
 
 data*
+trash/
+test.py
+todo.md
+challenges.md
+planning.md
+
+.DS_Store
