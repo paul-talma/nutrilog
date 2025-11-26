@@ -41,6 +41,8 @@ async def lifespan(app: FastAPI):
     global NUTRIENTS
     NUTRIENTS = {
         'calories': 1008,
+        'energy_atwater_general': 2047,
+        'energy_atwater_specific': 2048,
         'protein': 1003,
         'carbs': 1005,
         'fat': 1004,
@@ -192,7 +194,6 @@ def get_food_info(name: str) -> FoodInfo:
     if food_info:
         logger.info(f'Fetched info for {name} from cache.')
     else:
-        # TODO: this throws an error but gets the info anyway?
         food_info = get_food_info_from_api(name)
         update_food_cache(name, food_info)
         write_food_cache()
@@ -255,8 +256,13 @@ def get_nutrient(nutrient_id: int, nutrients: dict):
 def get_calories_from_nutrients(nutrients: dict) -> float:
     # TODO: validate
     for n in nutrients:
-        if n['nutrientId'] == 1008:
+        if n['nutrientId'] == NUTRIENTS['calories']:
             return float(n['value'])
+        elif n['nutrientId'] == NUTRIENTS['energy_atwater_specific']:
+            return float(n['value'])
+        elif n['nutrientId'] == NUTRIENTS['energy_atwater_general']:
+            return float(n['value'])
+
     raise ValueError('No energy value found.')
 
 
@@ -307,5 +313,6 @@ async def delete_entry(data_id: str):
             for item in meal.items:
                 if item.data_id == data_id:
                     meal.items.remove(item)
+                    day.calculate_totals()
                     write_user_log(user_log)
                     return
