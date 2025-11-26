@@ -8,6 +8,7 @@ from datetime import date
 from pathlib import Path
 
 import requests
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -34,8 +35,10 @@ async def lifespan(app: FastAPI):
     # Startup: load cache once when server starts
     global food_cache
     food_cache = get_food_cache()
+    load_dotenv()
     global API_KEY
-    API_KEY = get_api_key()
+    API_KEY = os.environ['USDA_API_KEY']
+    # API_KEY = get_api_key()
     global API_URL
     API_URL = 'https://api.nal.usda.gov/fdc/v1/foods/search'
     global NUTRIENTS
@@ -54,8 +57,8 @@ app = FastAPI(lifespan=lifespan)
 app.mount('/static', StaticFiles(directory='static'), name='static')
 
 
-def get_api_key() -> str:
-    return open('data/usda_database_api_key.txt').read().strip()
+# def get_api_key() -> str:
+#     return open('data/usda_database_api_key.txt').read().strip()
 
 
 def get_food_cache() -> FoodCache:

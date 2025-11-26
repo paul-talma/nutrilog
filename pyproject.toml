@@ -8,5 +8,5 @@ dependencies = [
     "fastapi",
     "uvicorn",
     "requests",
-    "ipdb>=0.13.13",
+    "dotenv>=0.9.9",
 ]
