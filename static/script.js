@@ -8,7 +8,7 @@ const form = document.querySelector("#form");
 // rendering
 function drawDailySummary(log) {
     dailySummary.replaceChildren();
-    const title = document.createElement("h3");
+    const title = document.createElement("h2");
     title.textContent = "Daily Summary";
     dailySummary.append(title);
 
@@ -43,18 +43,11 @@ function drawDailySummary(log) {
 }
 
 function drawDailyLog(log) {
-    dailyLog.replaceChildren();
-
-    // draw title
-    const title = document.createElement("h3");
-    title.textContent = "Daily Log";
-    dailyLog.append(title);
-
     // draw header
-    const dailyLogTable = document.createElement("table");
+    const dailyLogTable = dailyLog.querySelector("table");
     const thead = document.createElement("thead");
     const header = document.createElement("tr");
-    ["meal", "food", "weight", "calories"].forEach((text) => {
+    ["meal", "food", "weight (g)", "calories (kcal)"].forEach((text) => {
         const th = document.createElement("th");
         th.textContent = text;
         header.append(th);
@@ -87,7 +80,7 @@ function drawDailyLog(log) {
             weight.textContent = foodItem.weight;
             weight.style.textAlign = "right";
             const calories = document.createElement("td");
-            calories.textContent = foodItem.calories;
+            calories.textContent = foodItem.calories.toFixed();
             calories.style.textAlign = "right";
 
             const delButton = document.createElement("button");
@@ -103,7 +96,6 @@ function drawDailyLog(log) {
         }
     }
     dailyLogTable.appendChild(tbody);
-    dailyLog.append(dailyLogTable);
 }
 
 function populateFormWithDefault() {
@@ -181,7 +173,7 @@ function setupEventListeners() {
 
 // initialization
 document.addEventListener("DOMContentLoaded", async () => {
-    toggleTheme();
+    // toggleTheme();
     populateFormWithDefault();
     setupEventListeners();
     const log = await getCurrentLog();
