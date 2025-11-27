@@ -41,8 +41,10 @@ form div {
     margin: 0.5rem auto;
 }
 
+input,
+select,
 button {
-    font-family: "JetBrains Mono";
+    font: inherit;
 }
 
 /* table */
