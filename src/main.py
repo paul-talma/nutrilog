@@ -38,7 +38,6 @@ async def lifespan(app: FastAPI):
     load_dotenv()
     global API_KEY
     API_KEY = os.environ['USDA_API_KEY']
-    # API_KEY = get_api_key()
     global API_URL
     API_URL = 'https://api.nal.usda.gov/fdc/v1/foods/search'
     global NUTRIENTS
@@ -57,10 +56,6 @@ app = FastAPI(lifespan=lifespan)
 app.mount('/static', StaticFiles(directory='static'), name='static')
 
 
-# def get_api_key() -> str:
-#     return open('data/usda_database_api_key.txt').read().strip()
-
-
 def get_food_cache() -> FoodCache:
     try:
         with open(FOOD_CACHE_PATH) as f:
@@ -71,20 +66,6 @@ def get_food_cache() -> FoodCache:
     except (FileNotFoundError, json.JSONDecodeError, ValidationError):
         logger.warning('Invalid food cache. Starting with an empty cache.')
         return {}
-
-    # if not os.path.exists(FOOD_CACHE_PATH):
-    #     FOOD_CACHE_PATH.touch()
-    #     return {}
-    # with open(FOOD_CACHE_PATH, 'r') as f:
-    #     try:
-    #         cache_dict = json.load(f)
-    #         return {name: FoodInfo(**data) for name, data in cache_dict.items()}
-    #     except json.JSONDecodeError:
-    #         logger.error(
-    #             f'Could not decode {FOOD_CACHE_PATH}, starting with an empty cache.'
-    #         )
-    #         return {}
-    #
 
 
 def update_food_cache(name: str, food_info: FoodInfo):
