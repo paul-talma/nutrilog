@@ -1,7 +1,11 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
+        <meta
+            charset="UTF-8"
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
         <title>NutriLog</title>
         <link rel="stylesheet" href="static/styles.css" />
     </head>
@@ -39,7 +43,6 @@
                             <div>
                                 <label for="meal">meal:</label>
                                 <select id="meal" name="meal" required>
-                                    <option value="">Select</option>
                                     <option value="breakfast">Breakfast</option>
                                     <option value="lunch">Lunch</option>
                                     <option value="dinner">Dinner</option>
@@ -81,6 +84,8 @@
             </div>
         </div>
 
+        <canvas id="nutritionChart" width="400" height="200"></canvas>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
         <script src="static/script.js"></script>
     </body>
 </html>
