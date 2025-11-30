@@ -24,9 +24,26 @@ class FoodItem(BaseModel):
 
 
 class Meal(BaseModel):
-    name: str  # The name of the meal (e.g., "Breakfast", "Lunch", "Snack").
-    time: Optional[str] = None  # The time the meal was consumed (e.g., "08:00").
-    items: list[FoodItem]  # A list of FoodItem objects included in this meal.
+    # meal on a given day
+    name: str
+    time: Optional[str] = None
+    items: list[FoodItem]
+    meal_calories: float = 0
+    meal_protein: float = 0
+    meal_carbs: float = 0
+    meal_fat: float = 0
+
+    def compute_totals(self):
+        self.meal_calories = 0
+        self.meal_protein = 0
+        self.meal_carbs = 0
+        self.meal_fat = 0
+        for item in self.items:
+            for nutri in ['calories', 'protein', 'carbs', 'fat']:
+                curr = getattr(self, f'meal_{nutri}')
+                item_nutri = getattr(item, nutri)
+                if item_nutri is not None:
+                    setattr(self, f'meal_{nutri}', curr + item_nutri)
 
 
 class DailyLog(BaseModel):
@@ -39,38 +56,20 @@ class DailyLog(BaseModel):
     total_fat: float = 0
 
     # Method to calculate the total nutritional values for the day.
-    def calculate_totals(self):
-        # Sums up calories from all items across all meals, ignoring None values.
-        self.total_calories = sum(
-            item.calories
-            for meal in self.meals
-            for item in meal.items
-            if item.calories is not None
-        )
-        # Sums up protein from all items across all meals, ignoring None values.
-        self.total_protein = sum(
-            item.protein
-            for meal in self.meals
-            for item in meal.items
-            if item.protein is not None
-        )
-        # Sums up carbohydrates from all items across all meals, ignoring None values.
-        self.total_carbs = sum(
-            item.carbs
-            for meal in self.meals
-            for item in meal.items
-            if item.carbs is not None
-        )
-        # Sums up fat from all items across all meals, ignoring None values.
-        self.total_fat = sum(
-            item.fat
-            for meal in self.meals
-            for item in meal.items
-            if item.fat is not None
-        )
+    def compute_totals(self):
+        self.total_calories = 0
+        self.total_protein = 0
+        self.total_carbs = 0
+        self.total_fat = 0
+        for meal in self.meals:
+            meal.compute_totals()
+            for nutri in ['calories', 'protein', 'carbs', 'fat']:
+                curr = getattr(self, f'total_{nutri}')
+                setattr(self, f'total_{nutri}', curr + getattr(meal, f'meal_{nutri}'))
+
+        logger.info(f'Computed totals for {self.date}.')
 
 
-# UserLog model represents the entire collection of daily logs for a user.
 class UserLog(BaseModel):
     # all daily logs
     user: str  # The name or ID of the user.
