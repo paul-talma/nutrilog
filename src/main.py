@@ -348,6 +348,15 @@ async def get_today_logs():
     return None
 
 
+@app.get('/logs/all')
+async def get_all_logs():
+    user_log = get_user_log()
+    daily_logs = user_log.logs
+    for day in daily_logs:
+        day.compute_totals()
+    return daily_logs
+
+
 @app.delete('/logs/delete_entry/{data_id}')
 async def delete_entry(data_id: str):
     logger.info(f'Removing item #{data_id} from the logs.')
