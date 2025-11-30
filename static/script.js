@@ -7,6 +7,10 @@ const form = document.querySelector("#form");
 let chart = null;
 
 // rendering
+/**
+ * Renders the daily nutritional summary table.
+ * @param {object} log - The daily log object containing total nutrition data.
+ */
 function drawDailySummary(log) {
     dailySummary.replaceChildren();
     const title = document.createElement("h2");
@@ -48,6 +52,10 @@ function drawDailySummary(log) {
     dailySummary.append(table);
 }
 
+/**
+ * Renders the detailed daily log of food entries, organized by meal.
+ * @param {object} log - The daily log object containing meal and food item details.
+ */
 function drawDailyLog(log) {
     dailyLog.replaceChildren();
     const title = document.createElement("h2");
@@ -118,6 +126,9 @@ function drawDailyLog(log) {
     dailyLog.append(div);
 }
 
+/**
+ * Fetches all historical logs and renders a chart displaying calorie trends over time.
+ */
 async function drawChart() {
     const allLogs = await getAllLogs();
     // const chartData = getChartData(allLogs);
@@ -152,6 +163,11 @@ async function drawChart() {
     }
 }
 
+/**
+ * Checks if a given log object contains any food entries.
+ * @param {object} log - The log object to check.
+ * @returns {boolean} - True if the log is empty, false otherwise.
+ */
 function isEmpty(log) {
     for (let meal of log.meals) {
         if (meal.items.length > 0) {
@@ -161,6 +177,9 @@ function isEmpty(log) {
     return true;
 }
 
+/**
+ * Populates the food entry form with default values for meal, date, food name, and weight.
+ */
 function populateFormWithDefault() {
     document.querySelector("#meal").value = "breakfast";
     document.querySelector("#date").value = new Date().toLocaleDateString(
@@ -170,6 +189,9 @@ function populateFormWithDefault() {
     document.querySelector("#weight").value = 100;
 }
 
+/**
+ * Toggles the application's visual theme between light and dark modes.
+ */
 function toggleTheme() {
     if (document.documentElement.dataset.theme === "dark") {
         document.documentElement.dataset.theme = "dark";
@@ -179,6 +201,10 @@ function toggleTheme() {
 }
 
 // data functions
+/**
+ * Fetches today's daily log from the backend API.
+ * @returns {Promise<object>} - A promise that resolves to the daily log object for today.
+ */
 async function getTodayLog() {
     const response = await fetch("/logs/today", {
         method: "GET",
@@ -188,6 +214,10 @@ async function getTodayLog() {
     return log;
 }
 
+/**
+ * Fetches all historical daily logs from the backend API.
+ * @returns {Promise<Array<object>>} - A promise that resolves to an array of all daily log objects.
+ */
 async function getAllLogs() {
     const response = await fetch("/logs/all", {
         method: "GET",
@@ -197,6 +227,11 @@ async function getAllLogs() {
     return logs;
 }
 
+/**
+ * Processes raw log data into a format suitable for charting.
+ * @param {Array<object>} logs - An array of daily log objects.
+ * @returns {Array<object>} - An array of objects with date and total calorie information, sorted by date.
+ */
 function getChartData(logs) {
     const result = [];
     for (let log of logs) {
@@ -216,6 +251,11 @@ function getChartData(logs) {
 }
 
 // action functions
+/**
+ * Handles the submission of a new food entry form.
+ * Sends the new entry data to the backend API and then updates the displayed daily summary and log.
+ * @param {Event} e - The submit event object.
+ */
 async function newEntry(e) {
     e.preventDefault();
 
@@ -231,6 +271,11 @@ async function newEntry(e) {
     drawDailyLog(log);
 }
 
+/**
+ * Deletes a specific food entry from the log via the backend API.
+ * After deletion, it refreshes the daily summary and log display.
+ * @param {string} dataId - The unique identifier of the food item to delete.
+ */
 async function deleteEntry(dataId) {
     const response = await fetch(`/logs/delete_entry/${dataId}`, {
         method: "DELETE",
@@ -241,6 +286,10 @@ async function deleteEntry(dataId) {
 }
 
 // set up event listeners
+/**
+ * Sets up all necessary event listeners for user interactions.
+ * This includes handling delete button clicks, setting today's date, and form submissions.
+ */
 function setupEventListeners() {
     dailyLog.addEventListener("click", (e) => {
         if (e.target.classList.contains("delete-btn")) {
@@ -259,6 +308,11 @@ function setupEventListeners() {
 }
 
 // initialization
+/**
+ * Initializes the application once the DOM is fully loaded.
+ * Populates the form, sets up event listeners, fetches and displays today's log, and draws the chart.
+ * Handles display of loading indicators and error states.
+ */
 document.addEventListener("DOMContentLoaded", async () => {
     const loading = document.querySelector("#loading");
     const app = document.querySelector("#app");

@@ -32,6 +32,14 @@ FOOD_LOG_PATH = Path('data/food_log.json')
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    """Handles application startup.
+
+    Initializes the food cache, loads API keys from environment variables,
+    and processes existing user log data to calculate nutritional values.
+
+    Args:
+        app (FastAPI): The FastAPI application instance.
+    """
     # Startup: load cache once when server starts
     global food_cache
     food_cache = get_food_cache()
@@ -58,6 +66,11 @@ app.mount('/static', StaticFiles(directory='static'), name='static')
 
 
 def get_food_cache() -> FoodCache:
+    """Loads the food cache from a JSON file.
+
+    Returns:
+        FoodCache: A dictionary-like object mapping food names to their nutritional info.
+    """
     try:
         with open(FOOD_CACHE_PATH) as f:
             cache_dict = json.load(f)
@@ -70,11 +83,18 @@ def get_food_cache() -> FoodCache:
 
 
 def update_food_cache(name: str, food_info: FoodInfo):
+    """Adds or updates an entry in the in-memory food cache.
+
+    Args:
+        name (str): The name of the food item.
+        food_info (FoodInfo): The nutritional information for the food item.
+    """
     food_cache[name] = food_info
     logger.info(f'Added {name} to cache.')
 
 
 def write_food_cache():
+    """Persists the current in-memory food cache to a JSON file."""
     dict_cache = convert_cache_to_dict()
     with tempfile.NamedTemporaryFile(
         'w', dir=FOOD_CACHE_PATH.parent, delete=False
@@ -85,11 +105,24 @@ def write_food_cache():
 
 
 def convert_cache_to_dict():
+    """Converts the FoodCache object to a dictionary for JSON serialization.
+
+    Returns:
+        dict: The food cache as a dictionary.
+    """
     dict_cache = {k: v.model_dump() for k, v in food_cache.items()}
     return dict_cache
 
 
 def migrate_log_data(log_data: dict) -> dict:
+    """Migrates old log data by adding unique `data_id` to food items if missing.
+
+    Args:
+        log_data (dict): The raw log data loaded from the JSON file.
+
+    Returns:
+        dict: The migrated log data with `data_id` fields ensured.
+    """
     if 'logs' in log_data:
         for day in log_data['logs']:
             if 'meals' in day:
@@ -102,6 +135,14 @@ def migrate_log_data(log_data: dict) -> dict:
 
 
 def get_user_log() -> UserLog:
+    """Loads the user's food log from a JSON file.
+
+    Performs data migration if necessary and validates the data against the UserLog model.
+    If the file is not found, corrupted, or invalid, an empty log is returned and initialized.
+
+    Returns:
+        UserLog: The user's food log.
+    """
     try:
         with open(FOOD_LOG_PATH) as f:
             log_data = json.load(f)
@@ -124,6 +165,7 @@ def get_user_log() -> UserLog:
 
 
 def make_generic_user_log():
+    """Creates a new, empty user log file at the specified FOOD_LOG_PATH."""
     data = {
         'user': 'Paul',
         'logs': [],
@@ -134,6 +176,11 @@ def make_generic_user_log():
 
 
 def write_user_log(user_log: UserLog):
+    """Writes the current UserLog object to a JSON file.
+
+    Args:
+        user_log (UserLog): The user log object to write.
+    """
     with tempfile.NamedTemporaryFile('w', dir=FOOD_LOG_PATH.parent, delete=False) as f:
         f.write(user_log.model_dump_json(indent=2))
         temp_path = f.name
@@ -142,6 +189,11 @@ def write_user_log(user_log: UserLog):
 
 
 def initialize_user_log():
+    """Initializes the user log by populating nutritional information for existing entries.
+
+    Retrieves food information for each item from the cache or API,
+    calculates macros, and computes daily totals for all logs.
+    """
     user_log = get_user_log()
     for day in user_log.logs:
         for meal in day.meals:
@@ -161,11 +213,27 @@ def initialize_user_log():
 
 @app.get('/')
 async def read_root():
+    """Serves the main HTML page for the application.
+
+    Returns:
+        FileResponse: The 'index.html' file from the static directory.
+    """
     return FileResponse('static/index.html')
 
 
 @app.post('/logs/new_entry')
 async def new_entry(entry: FoodEntry):
+    """Adds a new food entry to the user's log.
+
+    Retrieves nutritional information for the food item, adds it to the
+    appropriate meal and daily log, and then persists the updated log.
+
+    Args:
+        entry (FoodEntry): The food entry data submitted by the user.
+
+    Returns:
+        dict: A confirmation message.
+    """
     logger.info(f'Received new food entry: {entry.model_dump_json(indent=2)}')
 
     entry_id = str(uuid.uuid4())
@@ -191,6 +259,17 @@ async def new_entry(entry: FoodEntry):
 
 
 def get_meal_for_day(meal_name: str, meals: list[Meal]) -> Meal:
+    """Retrieves a meal object for a given meal name from a list of meals.
+
+    If the meal does not exist, a new Meal object is created and added to the list.
+
+    Args:
+        meal_name (str): The name of the meal (e.g., 'breakfast', 'lunch').
+        meals (list[Meal]): A list of Meal objects for a specific day.
+
+    Returns:
+        Meal: The found or newly created Meal object.
+    """
     for meal in meals:
         if meal.name == meal_name:
             return meal
@@ -200,6 +279,18 @@ def get_meal_for_day(meal_name: str, meals: list[Meal]) -> Meal:
 
 
 def get_daily_log(date: str, logs: list[DailyLog]) -> DailyLog:
+    """Retrieves a DailyLog object for a given date from a list of daily logs.
+
+    If the log for the specified date does not exist, a new DailyLog object
+    is created and added to the list.
+
+    Args:
+        date (str): The date in 'YYYY-MM-DD' format.
+        logs (list[DailyLog]): A list of DailyLog objects.
+
+    Returns:
+        DailyLog: The found or newly created DailyLog object.
+    """
     for log in logs:
         if log.date == date:
             return log
@@ -209,6 +300,15 @@ def get_daily_log(date: str, logs: list[DailyLog]) -> DailyLog:
 
 
 def add_info(item: FoodItem, food_info: FoodInfo):
+    """Calculates and assigns nutritional values to a FoodItem.
+
+    Based on the item's weight and the provided FoodInfo, it computes
+    calories, protein, carbs, and fat.
+
+    Args:
+        item (FoodItem): The food item to update.
+        food_info (FoodInfo): The nutritional information per 100g.
+    """
     # TODO: handle quantity instead of weight
     if item.weight is not None:
         factor = item.weight / 100
@@ -221,6 +321,17 @@ def add_info(item: FoodItem, food_info: FoodInfo):
 
 
 def get_food_info(name: str) -> FoodInfo:
+    """Retrieves nutritional information for a food item.
+
+    First checks the in-memory cache, then queries the external API if not found.
+    Results from the API are cached for future use.
+
+    Args:
+        name (str): The name of the food item.
+
+    Returns:
+        FoodInfo: The nutritional information for the food item.
+    """
     food_info = food_cache.get(name, None)
     if food_info:
         logger.info(f'Fetched info for {name} from cache.')
@@ -233,6 +344,17 @@ def get_food_info(name: str) -> FoodInfo:
 
 
 def get_food_info_from_api(query: str) -> FoodInfo:
+    """Fetches food nutritional information from the USDA API.
+
+    Args:
+        query (str): The search query for the food item.
+
+    Returns:
+        FoodInfo: The processed nutritional information.
+
+    Raises:
+        HTTPException: If no nutrition data is found for the query.
+    """
     api_response = query_api(query)
     if not api_response:
         raise HTTPException(
@@ -245,6 +367,17 @@ def get_food_info_from_api(query: str) -> FoodInfo:
 
 
 def query_api(query: str):
+    """Queries the USDA FoodData Central API for food items.
+
+    Searches across different data types (Foundation, SR Legacy, Survey, Branded)
+    and aggregates the results.
+
+    Args:
+        query (str): The search term for food items.
+
+    Returns:
+        list[dict]: A list of dictionaries, each representing a food item from the API.
+    """
     foods = []
     for datatype in ['Foundation', 'SR Legacy', 'Survey (FNDDS)', 'Branded']:
         params = {
@@ -270,6 +403,14 @@ def query_api(query: str):
 
 
 def convert_api_response_to_FoodInfo(food_info_list: list[dict]) -> FoodInfo:
+    """Converts a raw API response list of food information into a structured FoodInfo object.
+
+    Args:
+        food_info_list (list[dict]): A list of food dictionaries from the API response.
+
+    Returns:
+        FoodInfo: A Pydantic model containing the extracted nutritional information.
+    """
     # TODO: better sort through options
     food_info = food_info_list[0]
     nutrients = food_info['foodNutrients']
@@ -287,7 +428,19 @@ def convert_api_response_to_FoodInfo(food_info_list: list[dict]) -> FoodInfo:
 
 
 # TODO: abstract get_X_from_nutrients into this
-def get_nutrient(nutrient_id: int, nutrients: dict):
+def get_nutrient(nutrient_id: int, nutrients: dict) -> float:
+    """Extracts a specific nutrient value from a list of nutrient dictionaries.
+
+    Args:
+        nutrient_id (int): The ID of the nutrient to retrieve.
+        nutrients (dict): A dictionary containing nutrient information.
+
+    Returns:
+        float: The value of the requested nutrient.
+
+    Raises:
+        ValueError: If the specified nutrient ID is not found.
+    """
     for n in nutrients:
         if n['nutrientId'] == nutrient_id:
             return float(n['value'])
@@ -295,6 +448,16 @@ def get_nutrient(nutrient_id: int, nutrients: dict):
 
 
 def get_calories_from_nutrients(nutrients: dict) -> float:
+    """Extracts calorie information from a list of nutrients.
+
+    Checks for specific calorie nutrient IDs (calories, energy_atwater_specific, energy_atwater_general).
+
+    Args:
+        nutrients (dict): A dictionary containing nutrient information.
+
+    Returns:
+        float: The calorie value, or 0 if not found.
+    """
     # TODO: validate
     for n in nutrients:
         if n['nutrientId'] == NUTRIENTS['calories']:
@@ -308,6 +471,14 @@ def get_calories_from_nutrients(nutrients: dict) -> float:
 
 
 def get_protein_from_nutrients(nutrients: dict) -> float:
+    """Extracts protein information from a list of nutrients.
+
+    Args:
+        nutrients (dict): A dictionary containing nutrient information.
+
+    Returns:
+        float: The protein value, or 0 if not found.
+    """
     # TODO: validate
     for n in nutrients:
         if n['nutrientId'] == 1003:
@@ -317,6 +488,14 @@ def get_protein_from_nutrients(nutrients: dict) -> float:
 
 
 def get_carbs_from_nutrients(nutrients: dict) -> float:
+    """Extracts carbohydrate information from a list of nutrients.
+
+    Args:
+        nutrients (dict): A dictionary containing nutrient information.
+
+    Returns:
+        float: The carbohydrate value, or 0 if not found.
+    """
     # TODO: validate
     for n in nutrients:
         if n['nutrientId'] == 1005:
@@ -326,6 +505,14 @@ def get_carbs_from_nutrients(nutrients: dict) -> float:
 
 
 def get_fat_from_nutrients(nutrients: dict) -> float:
+    """Extracts fat information from a list of nutrients.
+
+    Args:
+        nutrients (dict): A dictionary containing nutrient information.
+
+    Returns:
+        float: The fat value, or 0 if not found.
+    """
     # TODO: validate
     for n in nutrients:
         if n['nutrientId'] == 1004:
@@ -336,6 +523,11 @@ def get_fat_from_nutrients(nutrients: dict) -> float:
 
 @app.get('/logs/today')
 async def get_today_logs():
+    """Retrieves the daily log for the current date.
+
+    Returns:
+        DailyLog: The DailyLog object for today, or None if no entries exist.
+    """
     day = str(date.today())
     logger.info(f'Fetching daily panel data for {day}.')
 
@@ -350,6 +542,13 @@ async def get_today_logs():
 
 @app.get('/logs/all')
 async def get_all_logs():
+    """Retrieves all historical daily logs for the user.
+
+    Computes and updates the total nutritional values for each daily log before returning.
+
+    Returns:
+        list[DailyLog]: A list of all DailyLog objects.
+    """
     user_log = get_user_log()
     daily_logs = user_log.logs
     for day in daily_logs:
@@ -359,6 +558,14 @@ async def get_all_logs():
 
 @app.delete('/logs/delete_entry/{data_id}')
 async def delete_entry(data_id: str):
+    """Deletes a specific food entry from the user's log.
+
+    Identifies the food item by its unique `data_id`, removes it from the log,
+    recomputes daily totals, and persists the updated log.
+
+    Args:
+        data_id (str): The unique identifier of the food item to delete.
+    """
     logger.info(f'Removing item #{data_id} from the logs.')
     user_log = get_user_log()
     for day in user_log.logs:
