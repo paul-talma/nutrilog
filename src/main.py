@@ -49,6 +49,7 @@ async def lifespan(app: FastAPI):
         'carbs': 1005,
         'fat': 1004,
     }
+    initialize_user_log()
     yield
 
 
@@ -88,19 +89,41 @@ def convert_cache_to_dict():
     return dict_cache
 
 
+def migrate_log_data(log_data: dict) -> dict:
+    if 'logs' in log_data:
+        for day in log_data['logs']:
+            if 'meals' in day:
+                for meal in day['meals']:
+                    if 'items' in meal:
+                        for item in meal['items']:
+                            if 'data_id' not in item or not item['data_id']:
+                                item['data_id'] = str(uuid.uuid4())
+    return log_data
+
+
 def get_user_log() -> UserLog:
     try:
         with open(FOOD_LOG_PATH) as f:
-            return UserLog.model_validate_json(f.read())
-    except (FileNotFoundError, json.JSONDecodeError, ValidationError):
-        logger.warning('Invalid user logs. Starting with a fresh log.')
-        user_log = UserLog(user='Paul', logs=[])
+            log_data = json.load(f)
+        log_data = migrate_log_data(log_data)
+        user_log = UserLog.model_validate(log_data)
         write_user_log(user_log)
         return user_log
+    except FileNotFoundError as e:
+        logger.warning(f'No log file found at {e}.')
+        logger.info('Starting with empty log.')
+    except json.JSONDecodeError as e:
+        logger.warning(f'Could not decode log: {e}.')
+        logger.info('Starting with empty log.')
+    except ValidationError as e:
+        logger.warning(f'Invalid user logs: {e}')
+        logger.info('Starting with empty log.')
+    user_log = UserLog(user='Paul', logs=[])
+    write_user_log(user_log)
+    return user_log
 
 
-def make_user_log():
-    # TODO: generalize
+def make_generic_user_log():
     data = {
         'user': 'Paul',
         'logs': [],
@@ -115,6 +138,25 @@ def write_user_log(user_log: UserLog):
         f.write(user_log.model_dump_json(indent=2))
         temp_path = f.name
     os.replace(temp_path, FOOD_LOG_PATH)
+    logger.info('Saved user log.')
+
+
+def initialize_user_log():
+    user_log = get_user_log()
+    for day in user_log.logs:
+        for meal in day.meals:
+            for item in meal.items:
+                if not item.weight and not item.quantity:
+                    item.calories = item.protein = item.carbs = item.fat = None
+                    continue
+                try:
+                    item_info = get_food_info(item.name)
+                    add_info(item, item_info)
+                except HTTPException as e:
+                    logger.warning(e.detail)
+                    item.calories = item.protein = item.carbs = item.fat = None
+        day.compute_totals()
+    write_user_log(user_log)
 
 
 @app.get('/')
@@ -131,13 +173,18 @@ async def new_entry(entry: FoodEntry):
     user_log = get_user_log()
     daily_log = get_daily_log(date=entry.date, logs=user_log.logs)
     meal = get_meal_for_day(entry.meal, daily_log.meals)
-    food_item = FoodItem(name=entry.food_name, data_id=entry_id)
+    food_item = FoodItem(name=entry.food_name, data_id=entry_id, weight=entry.weight)
+
+    try:
+        print('HELLO')
+        food_info = get_food_info(food_item.name)
+    except HTTPException as e:
+        logger.warning(e.detail)
+        raise HTTPException(status_code=404, detail=e.detail)
+
+    add_info(food_item, food_info)
     meal.items.append(food_item)
-
-    food_item.weight = entry.weight
-    add_info(food_item)
-
-    daily_log.calculate_totals()
+    daily_log.compute_totals()
     write_user_log(user_log)
 
     return {'message': f'entry {entry} added successfully!'}
