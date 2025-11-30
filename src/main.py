@@ -9,7 +9,7 @@ from pathlib import Path
 
 import requests
 from dotenv import load_dotenv
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import ValidationError
@@ -194,30 +194,30 @@ def get_meal_for_day(meal_name: str, meals: list[Meal]) -> Meal:
     for meal in meals:
         if meal.name == meal_name:
             return meal
-    meals.append(Meal(name=meal_name, items=[]))
-    return meals[-1]
+    meal = Meal(name=meal_name, items=[])
+    meals.append(meal)
+    return meal
 
 
 def get_daily_log(date: str, logs: list[DailyLog]) -> DailyLog:
     for log in logs:
         if log.date == date:
             return log
-    logs.append(DailyLog(date=date, meals=[]))
-    return logs[-1]
+    log = DailyLog(date=date, meals=[])
+    logs.append(log)
+    return log
 
 
-def get_food_item(food_name: str) -> FoodItem:
-    return FoodItem(name=food_name)
-
-
-def add_info(item: FoodItem):
-    food_info = get_food_info(item.name)
-    assert item.weight is not None
-    factor = item.weight / 100
-    item.calories = food_info.calories_per_100g * factor
-    item.protein = food_info.protein_per_100g * factor
-    item.carbs = food_info.carbs_per_100g * factor
-    item.fat = food_info.fat_per_100g * factor
+def add_info(item: FoodItem, food_info: FoodInfo):
+    # TODO: handle quantity instead of weight
+    if item.weight is not None:
+        factor = item.weight / 100
+        item.calories = food_info.calories_per_100g * factor
+        item.protein = food_info.protein_per_100g * factor
+        item.carbs = food_info.carbs_per_100g * factor
+        item.fat = food_info.fat_per_100g * factor
+        return
+    item.calories = item.protein = item.carbs = item.fat = None
 
 
 def get_food_info(name: str) -> FoodInfo:
@@ -225,6 +225,7 @@ def get_food_info(name: str) -> FoodInfo:
     if food_info:
         logger.info(f'Fetched info for {name} from cache.')
     else:
+        logger.info(f'Querying API for {name}.')
         food_info = get_food_info_from_api(name)
         update_food_cache(name, food_info)
         write_food_cache()
@@ -232,12 +233,18 @@ def get_food_info(name: str) -> FoodInfo:
 
 
 def get_food_info_from_api(query: str) -> FoodInfo:
-    api_response = food_info_from_api(query)
+    api_response = query_api(query)
+    if not api_response:
+        raise HTTPException(
+            status_code=404,
+            detail=f'No nutrition data found for {query}. Check spelling or try another description.',
+        )
+
     food_info = convert_api_response_to_FoodInfo(api_response)
     return food_info
 
 
-def food_info_from_api(query: str):
+def query_api(query: str):
     foods = []
     for datatype in ['Foundation', 'SR Legacy', 'Survey (FNDDS)', 'Branded']:
         params = {
@@ -259,10 +266,12 @@ def food_info_from_api(query: str):
 
         foods.extend(results)
 
-    return foods[0]
+    return foods
 
 
-def convert_api_response_to_FoodInfo(food_info: dict) -> FoodInfo:
+def convert_api_response_to_FoodInfo(food_info_list: list[dict]) -> FoodInfo:
+    # TODO: better sort through options
+    food_info = food_info_list[0]
     nutrients = food_info['foodNutrients']
     # values = {
     #     f'{nutrient_name}_per_100g': get_nutrient(nutrient_id, nutrients)
@@ -277,6 +286,7 @@ def convert_api_response_to_FoodInfo(food_info: dict) -> FoodInfo:
     return FoodInfo(**values)
 
 
+# TODO: abstract get_X_from_nutrients into this
 def get_nutrient(nutrient_id: int, nutrients: dict):
     for n in nutrients:
         if n['nutrientId'] == nutrient_id:
@@ -293,8 +303,8 @@ def get_calories_from_nutrients(nutrients: dict) -> float:
             return float(n['value'])
         elif n['nutrientId'] == NUTRIENTS['energy_atwater_general']:
             return float(n['value'])
-
-    raise ValueError('No energy value found.')
+    logger.warning('No energy calue found.')
+    return 0
 
 
 def get_protein_from_nutrients(nutrients: dict) -> float:
@@ -302,7 +312,8 @@ def get_protein_from_nutrients(nutrients: dict) -> float:
     for n in nutrients:
         if n['nutrientId'] == 1003:
             return float(n['value'])
-    raise ValueError('No protein value found.')
+    logger.warning('No protein value found.')
+    return 0
 
 
 def get_carbs_from_nutrients(nutrients: dict) -> float:
@@ -310,7 +321,8 @@ def get_carbs_from_nutrients(nutrients: dict) -> float:
     for n in nutrients:
         if n['nutrientId'] == 1005:
             return float(n['value'])
-    raise ValueError('No carbs value found.')
+    logger.warning('No carbs value found.')
+    return 0
 
 
 def get_fat_from_nutrients(nutrients: dict) -> float:
@@ -318,7 +330,8 @@ def get_fat_from_nutrients(nutrients: dict) -> float:
     for n in nutrients:
         if n['nutrientId'] == 1004:
             return float(n['value'])
-    raise ValueError('No fat value found.')
+    logger.warning('No fat value found.')
+    return 0
 
 
 @app.get('/logs/today')
@@ -344,6 +357,6 @@ async def delete_entry(data_id: str):
             for item in meal.items:
                 if item.data_id == data_id:
                     meal.items.remove(item)
-                    day.calculate_totals()
+                    day.compute_totals()
                     write_user_log(user_log)
                     return
