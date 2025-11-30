@@ -4,6 +4,7 @@ const todayBtn = document.querySelector("#today-btn");
 const dailySummary = document.querySelector("#daily-summary");
 const dailyLog = document.querySelector("#daily-log");
 const form = document.querySelector("#form");
+let chart = null;
 
 // rendering
 function drawDailySummary(log) {
@@ -62,7 +63,7 @@ function drawDailyLog(log) {
     const dailyLogTable = document.createElement("table");
     const thead = document.createElement("thead");
     const header = document.createElement("tr");
-    ["meal", "food", "weight (g)", "calories (kcal)"].forEach((text) => {
+    ["meal", "food", "weight (g)", "calories (kcal)", ""].forEach((text) => {
         const th = document.createElement("th");
         th.textContent = text;
         header.append(th);
@@ -111,7 +112,44 @@ function drawDailyLog(log) {
         }
     }
     dailyLogTable.appendChild(tbody);
-    dailyLog.append(dailyLogTable);
+    const div = document.createElement("div");
+    div.classList.add("table-container");
+    div.appendChild(dailyLogTable);
+    dailyLog.append(div);
+}
+
+async function drawChart() {
+    const allLogs = await getAllLogs();
+    // const chartData = getChartData(allLogs);
+
+    // Create chart
+    if (!chart) {
+        const ctx = document.getElementById("nutritionChart").getContext("2d");
+        chart = new Chart(ctx, {
+            type: "line",
+            data: {
+                labels: allLogs.map((d) => d.date),
+                datasets: [
+                    {
+                        label: "Calories",
+                        data: allLogs.map((d) => d.total_calories),
+                        borderColor: "Red",
+                        tension: 0.1,
+                    },
+                ],
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true },
+                },
+            },
+        });
+    } else {
+        chart.data.labels = chartData.map((d) => d.date);
+        chart.data.datasets[0].data = chartData.map((d) => d.calories);
+        chart.update();
+    }
 }
 
 function isEmpty(log) {
@@ -141,13 +179,40 @@ function toggleTheme() {
 }
 
 // data functions
-async function getCurrentLog() {
+async function getTodayLog() {
     const response = await fetch("/logs/today", {
         method: "GET",
         headers: { "content-type": "application/json" },
     });
     const log = await response.json();
     return log;
+}
+
+async function getAllLogs() {
+    const response = await fetch("/logs/all", {
+        method: "GET",
+    });
+
+    const logs = await response.json();
+    return logs;
+}
+
+function getChartData(logs) {
+    const result = [];
+    for (let log of logs) {
+        const day = {
+            date: log.date,
+            totals: {
+                calories: log.total_calories,
+                protein: log.total_protein,
+                carbs: log.total_carbs,
+                fat: log.total_fat,
+            },
+            meals: {},
+        };
+        result.push(day);
+    }
+    return result.sort((a, b) => new Date(a.date) - new Date(b.date));
 }
 
 // action functions
@@ -161,19 +226,16 @@ async function newEntry(e) {
         body: JSON.stringify(data),
     });
 
-    const result = await response.json();
-    const log = await getCurrentLog();
+    const log = await getTodayLog();
     drawDailySummary(log);
     drawDailyLog(log);
 }
 
 async function deleteEntry(dataId) {
-    // send DELETE request to backend
     const response = await fetch(`/logs/delete_entry/${dataId}`, {
         method: "DELETE",
     });
-    // redraw table
-    const log = await getCurrentLog();
+    const log = await getTodayLog();
     drawDailySummary(log);
     drawDailyLog(log);
 }
@@ -204,9 +266,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
         populateFormWithDefault();
         setupEventListeners();
-        const log = await getCurrentLog();
+        const log = await getTodayLog();
         drawDailySummary(log);
         drawDailyLog(log);
+        drawChart();
 
         loading.style.display = "none";
         app.style.display = "block";
