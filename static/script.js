@@ -189,6 +189,14 @@ function populateFormWithDefault() {
     document.querySelector("#weight").value = 100;
 }
 
+function displayFetchError(detail) {
+    const foodNameField = form.querySelector("#food_name_field");
+    const errMsg = document.createElement("div");
+    errMsg.id = "err-msg";
+    errMsg.append(detail);
+    foodNameField.append(errMsg);
+}
+
 /**
  * Toggles the application's visual theme between light and dark modes.
  */
@@ -259,16 +267,25 @@ function getChartData(logs) {
 async function newEntry(e) {
     e.preventDefault();
 
+    const errDiv = form.querySelector("#err-msg");
+    if (errDiv) {
+        errDiv.remove();
+    }
     const data = Object.fromEntries(new FormData(e.target));
     const response = await fetch("/logs/new_entry", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(data),
     });
-
-    const log = await getTodayLog();
-    drawDailySummary(log);
-    drawDailyLog(log);
+    if (!response.ok) {
+        const error = await response.json();
+        displayFetchError(error.detail);
+    } else {
+        const log = await getTodayLog();
+        drawDailySummary(log);
+        drawDailyLog(log);
+        drawChart();
+    }
 }
 
 /**
