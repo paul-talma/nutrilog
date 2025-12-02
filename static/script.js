@@ -144,7 +144,7 @@ async function drawChart() {
                     {
                         label: "Calories",
                         data: allLogs.map((d) => d.total_calories),
-                        borderColor: "Red",
+                        borderColor: "#263743",
                         tension: 0.1,
                     },
                 ],
@@ -157,8 +157,8 @@ async function drawChart() {
             },
         });
     } else {
-        chart.data.labels = chartData.map((d) => d.date);
-        chart.data.datasets[0].data = chartData.map((d) => d.calories);
+        chart.data.labels = allLogs.map((d) => d.date);
+        chart.data.datasets[0].data = allLogs.map((d) => d.total_calories);
         chart.update();
     }
 }
@@ -300,6 +300,7 @@ async function deleteEntry(dataId) {
     const log = await getTodayLog();
     drawDailySummary(log);
     drawDailyLog(log);
+    drawChart();
 }
 
 // set up event listeners
