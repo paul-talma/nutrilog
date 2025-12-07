@@ -4,6 +4,10 @@ const todayBtn = document.querySelector("#today-btn");
 const dailySummary = document.querySelector("#daily-summary");
 const dailyLog = document.querySelector("#daily-log");
 const form = document.querySelector("#form");
+const chartDiv = document.querySelector("#chart-div");
+let todayLog = null;
+let allLogs = null;
+let showNutrients = false;
 let chart = null;
 
 // rendering
@@ -129,9 +133,36 @@ function drawDailyLog(log) {
 /**
  * Fetches all historical logs and renders a chart displaying calorie trends over time.
  */
-async function drawChart() {
-    const allLogs = await getAllLogs();
-    // const chartData = getChartData(allLogs);
+async function drawChart(allLogs) {
+    const calData = [
+        {
+            label: "Calories",
+            data: allLogs.map((d) => d.total_calories),
+            borderColor: "#263743",
+            tension: 0.1,
+        },
+    ];
+
+    const nutriData = [
+        {
+            label: "Protein",
+            data: allLogs.map((d) => d.total_protein),
+            borderColor: "blue",
+            tension: 0.1,
+        },
+        {
+            label: "Carbs",
+            data: allLogs.map((d) => d.total_carbs),
+            borderColor: "maroon",
+            tension: 0.1,
+        },
+        {
+            label: "Fat",
+            data: allLogs.map((d) => d.total_fat),
+            borderColor: "green",
+            tension: 0.1,
+        },
+    ];
 
     // Create chart
     if (!chart) {
@@ -140,17 +171,12 @@ async function drawChart() {
             type: "line",
             data: {
                 labels: allLogs.map((d) => d.date),
-                datasets: [
-                    {
-                        label: "Calories",
-                        data: allLogs.map((d) => d.total_calories),
-                        borderColor: "#263743",
-                        tension: 0.1,
-                    },
-                ],
+                datasets: calData,
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: true,
+                aspectRatio: 2,
                 scales: {
                     y: { beginAtZero: true },
                 },
@@ -158,9 +184,16 @@ async function drawChart() {
         });
     } else {
         chart.data.labels = allLogs.map((d) => d.date);
-        chart.data.datasets[0].data = allLogs.map((d) => d.total_calories);
+        chart.data.datasets = showNutrients ? nutriData : calData;
         chart.update();
     }
+}
+
+function toggleData() {
+    showNutrients = !showNutrients;
+    // chart.data.datasets = showNutrients ? nutriData : calData;
+    drawChart();
+    // chart.update();
 }
 
 /**
@@ -281,10 +314,11 @@ async function newEntry(e) {
         const error = await response.json();
         displayFetchError(error.detail);
     } else {
-        const log = await getTodayLog();
-        drawDailySummary(log);
-        drawDailyLog(log);
-        drawChart();
+        todayLog = await getTodayLog();
+        allLogs = await getAllLogs();
+        drawDailySummary(todayLog);
+        drawDailyLog(todayLog);
+        drawChart(allLogs);
     }
 }
 
@@ -297,10 +331,11 @@ async function deleteEntry(dataId) {
     const response = await fetch(`/logs/delete_entry/${dataId}`, {
         method: "DELETE",
     });
-    const log = await getTodayLog();
-    drawDailySummary(log);
-    drawDailyLog(log);
-    drawChart();
+    todayLog = await getTodayLog();
+    allLogs = await getTodayLog();
+    drawDailySummary(todayLog);
+    drawDailyLog(todayLog);
+    drawChart(allLogs);
 }
 
 // set up event listeners
@@ -323,6 +358,14 @@ function setupEventListeners() {
     });
 
     form.addEventListener("submit", newEntry);
+
+    document.querySelector("#toggleBtn").addEventListener("click", (e) => {
+        showNutrients = !showNutrients;
+        drawChart(allLogs);
+        document.querySelector("#toggleBtn").textContent = showNutrients
+            ? "Show Calories"
+            : "Show Nutrients";
+    });
 }
 
 // initialization
@@ -338,10 +381,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     try {
         populateFormWithDefault();
         setupEventListeners();
-        const log = await getTodayLog();
-        drawDailySummary(log);
-        drawDailyLog(log);
-        drawChart();
+        todayLog = await getTodayLog();
+        allLogs = await getAllLogs();
+        drawDailySummary(todayLog);
+        drawDailyLog(todayLog);
+        drawChart(allLogs);
 
         loading.style.display = "none";
         app.style.display = "block";
