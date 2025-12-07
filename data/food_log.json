@@ -1,0 +1,2440 @@
+{
+  "user": "Paul",
+  "logs": [
+    {
+      "date": "2025-02-25",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": "08:00",
+          "items": [
+            {
+              "name": "nonfat greek yogurt",
+              "weight": 0.0,
+              "quantity": 0,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "f1aaa2f6-e560-4369-82ef-64dcc3a6b31f"
+            },
+            {
+              "name": "almond butter",
+              "weight": 8.0,
+              "quantity": 0,
+              "calories": 51.6,
+              "protein": 1.6640000000000001,
+              "carbs": 1.696,
+              "fat": 4.24,
+              "data_id": "4b0de298-e011-4a96-9fa3-421c045c1fff"
+            },
+            {
+              "name": "honey",
+              "weight": 7.0,
+              "quantity": 0,
+              "calories": 21.28,
+              "protein": 0.021,
+              "carbs": 5.768000000000001,
+              "fat": 0.0,
+              "data_id": "1cb45370-b1ed-432e-a72f-fe6e020fc732"
+            },
+            {
+              "name": "freeze-dried berries",
+              "weight": 7.0,
+              "quantity": 0,
+              "calories": 26.320000000000004,
+              "protein": 5.593000000000001,
+              "carbs": 0.4214,
+              "fat": 0.045500000000000006,
+              "data_id": "2155916e-bec8-48d0-80f0-a88ed2cd0d97"
+            }
+          ],
+          "meal_calories": 99.2,
+          "meal_protein": 7.2780000000000005,
+          "meal_carbs": 7.885400000000001,
+          "meal_fat": 4.2855
+        },
+        {
+          "name": "lunch",
+          "time": null,
+          "items": [
+            {
+              "name": "carrot",
+              "weight": 115.0,
+              "quantity": 1,
+              "calories": 46.919999999999995,
+              "protein": 0.92575,
+              "carbs": 10.441999999999998,
+              "fat": 0.1587,
+              "data_id": "53721e14-f870-474d-8668-34e40d8f0358"
+            },
+            {
+              "name": "cheddar",
+              "weight": 40.0,
+              "quantity": 0,
+              "calories": 163.20000000000002,
+              "protein": 9.32,
+              "carbs": 0.976,
+              "fat": 13.600000000000001,
+              "data_id": "efcf37cd-597d-4b59-9f24-bd00bb68321d"
+            },
+            {
+              "name": "fried tofu",
+              "weight": 40.0,
+              "quantity": 0,
+              "calories": 69.60000000000001,
+              "protein": 1.536,
+              "carbs": 13.0,
+              "fat": 1.276,
+              "data_id": "1397e489-89f6-4ada-9b95-39c4de4c5d4f"
+            },
+            {
+              "name": "broccolini",
+              "weight": 115.0,
+              "quantity": 0,
+              "calories": 25.299999999999997,
+              "protein": 3.6454999999999997,
+              "carbs": 3.2775,
+              "fat": 0.5635,
+              "data_id": "a41d0931-7c38-42f2-be7e-e5645ebc8ff6"
+            },
+            {
+              "name": "olive oil",
+              "weight": 2.0,
+              "quantity": 0,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "11b9ad9f-f0fc-4969-9ac3-0719e5bd762c"
+            },
+            {
+              "name": "clementine",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "f59cc20b-3f98-4dd7-90c9-aebcc43ef994"
+            }
+          ],
+          "meal_calories": 305.02000000000004,
+          "meal_protein": 15.42725,
+          "meal_carbs": 27.6955,
+          "meal_fat": 15.5982
+        },
+        {
+          "name": "dinner",
+          "time": "07:00",
+          "items": [
+            {
+              "name": "mushroom meat",
+              "weight": 0.0,
+              "quantity": 0,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "a8f9ef56-68a1-4eeb-9daa-f09f2d71a711"
+            },
+            {
+              "name": "flour tortilla",
+              "weight": 130.0,
+              "quantity": 3,
+              "calories": 464.1,
+              "protein": 14.82,
+              "carbs": 96.72000000000001,
+              "fat": 1.9760000000000002,
+              "data_id": "8b992e1d-2fbf-4922-9c70-aed370c087a0"
+            },
+            {
+              "name": "cheddar",
+              "weight": 15.0,
+              "quantity": 0,
+              "calories": 61.199999999999996,
+              "protein": 3.495,
+              "carbs": 0.366,
+              "fat": 5.1,
+              "data_id": "dda1261e-8bc8-4529-8541-19dc236aadcb"
+            },
+            {
+              "name": "orange",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "d165540b-7fe2-49c8-9dad-cb54d4fc260a"
+            },
+            {
+              "name": "gouda",
+              "weight": 20.0,
+              "quantity": 0,
+              "calories": 71.2,
+              "protein": 4.98,
+              "carbs": 0.44400000000000006,
+              "fat": 5.48,
+              "data_id": "aa72e094-3c35-450a-aca1-e6ea6a2cef46"
+            },
+            {
+              "name": "chocolate",
+              "weight": 12.0,
+              "quantity": 0,
+              "calories": 33.48,
+              "protein": 0.252,
+              "carbs": 7.811999999999999,
+              "fat": 0.13559999999999997,
+              "data_id": "bb566937-4d67-4d76-81a4-dff8e0873cd1"
+            },
+            {
+              "name": "clementine",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "88ae0165-ba02-4d35-b8f9-67803ab50f79"
+            }
+          ],
+          "meal_calories": 629.9800000000001,
+          "meal_protein": 23.547,
+          "meal_carbs": 105.34200000000001,
+          "meal_fat": 12.691600000000001
+        },
+        {
+          "name": "snack",
+          "time": null,
+          "items": [
+            {
+              "name": "kelp knot",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "bc070973-70ff-4f66-813e-50607606c846"
+            }
+          ],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        }
+      ],
+      "total_calories": 1034.2000000000003,
+      "total_protein": 46.252250000000004,
+      "total_carbs": 140.92290000000003,
+      "total_fat": 32.5753
+    },
+    {
+      "date": "2025-02-26",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "nonfat greek yogurt",
+              "weight": 170.0,
+              "quantity": 0,
+              "calories": 103.7,
+              "protein": 17.51,
+              "carbs": 6.188,
+              "fat": 0.629,
+              "data_id": "a5d43c2e-db8c-4397-a079-e8d759836893"
+            },
+            {
+              "name": "almond butter",
+              "weight": 14.0,
+              "quantity": 0,
+              "calories": 90.30000000000001,
+              "protein": 2.9120000000000004,
+              "carbs": 2.968,
+              "fat": 7.420000000000001,
+              "data_id": "6168c53c-70ca-4f9e-9f2d-21264ea7f25e"
+            },
+            {
+              "name": "honey",
+              "weight": 7.0,
+              "quantity": 0,
+              "calories": 21.28,
+              "protein": 0.021,
+              "carbs": 5.768000000000001,
+              "fat": 0.0,
+              "data_id": "4c445cad-b8b0-4c62-b56f-02a16d5c96f0"
+            },
+            {
+              "name": "freeze-dried berries",
+              "weight": 4.0,
+              "quantity": 0,
+              "calories": 15.040000000000001,
+              "protein": 3.196,
+              "carbs": 0.2408,
+              "fat": 0.026000000000000002,
+              "data_id": "0c69450c-f34c-4494-9872-169d6ab98f67"
+            },
+            {
+              "name": "orange",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "186d2839-93b7-486f-a89a-c000eba16a3a"
+            }
+          ],
+          "meal_calories": 230.32,
+          "meal_protein": 23.639000000000003,
+          "meal_carbs": 15.1648,
+          "meal_fat": 8.075000000000001
+        },
+        {
+          "name": "lunch",
+          "time": null,
+          "items": [
+            {
+              "name": "white rice (dry)",
+              "weight": 60.0,
+              "quantity": 0,
+              "calories": 221.4,
+              "protein": 7.68,
+              "carbs": 45.42,
+              "fat": 1.02,
+              "data_id": "32573e8b-7f98-4013-8f4e-439a6c7cfc99"
+            },
+            {
+              "name": "lamb",
+              "weight": 60.0,
+              "quantity": 0,
+              "calories": 142.2,
+              "protein": 10.5,
+              "carbs": -0.15059999999999998,
+              "fat": 11.16,
+              "data_id": "527ff4c6-1d7c-41d0-8c98-dd29e724c05f"
+            },
+            {
+              "name": "macaron",
+              "weight": 0.0,
+              "quantity": 2,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "58049d63-9592-43ad-aafb-823bfb835f58"
+            },
+            {
+              "name": "cod",
+              "weight": 60.0,
+              "quantity": 0,
+              "calories": 39.6,
+              "protein": 9.66,
+              "carbs": 0.0,
+              "fat": 0.4008,
+              "data_id": "7ce01302-68f2-49db-aa30-67f6f5bf566d"
+            },
+            {
+              "name": "misc",
+              "weight": 0.0,
+              "quantity": 0,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "30139a80-d226-485c-ba8a-6dcfd1244692"
+            }
+          ],
+          "meal_calories": 403.20000000000005,
+          "meal_protein": 27.84,
+          "meal_carbs": 45.269400000000005,
+          "meal_fat": 12.5808
+        },
+        {
+          "name": "dinner",
+          "time": null,
+          "items": [
+            {
+              "name": "drunken noodles",
+              "weight": 0.0,
+              "quantity": 0,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "9ba60b66-ba22-44da-9794-b4d537bee753"
+            },
+            {
+              "name": "rice",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 365.0,
+              "protein": 7.19,
+              "carbs": 75.5,
+              "fat": 3.85,
+              "data_id": "16e9c65e-a038-48b2-a482-7e6e2e0e26b7"
+            },
+            {
+              "name": "coconut water",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "e841a7c1-fa02-4ccf-b322-1f0ec421dd52"
+            }
+          ],
+          "meal_calories": 365.0,
+          "meal_protein": 7.19,
+          "meal_carbs": 75.5,
+          "meal_fat": 3.85
+        }
+      ],
+      "total_calories": 998.52,
+      "total_protein": 58.669,
+      "total_carbs": 135.9342,
+      "total_fat": 24.5058
+    },
+    {
+      "date": "2025-03-01",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "banana",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "fe65a352-b007-46cf-ad25-1f1acf2f48c9"
+            },
+            {
+              "name": "orange",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "306cdf34-988f-4e48-bc70-3ea72fb92405"
+            }
+          ],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        },
+        {
+          "name": "lunch",
+          "time": null,
+          "items": [
+            {
+              "name": "massaman curry",
+              "weight": 300.0,
+              "quantity": 0,
+              "calories": 975.0,
+              "protein": 42.900000000000006,
+              "carbs": 167.39999999999998,
+              "fat": 42.0,
+              "data_id": "4992f345-05dd-4b6d-a977-7dd6e283a094"
+            },
+            {
+              "name": "white rice (dry)",
+              "weight": 65.0,
+              "quantity": 0,
+              "calories": 239.85,
+              "protein": 8.32,
+              "carbs": 49.205000000000005,
+              "fat": 1.105,
+              "data_id": "65861b12-4140-48db-ab8c-6646ee8cd6a2"
+            },
+            {
+              "name": "carrot",
+              "weight": 50.0,
+              "quantity": 0,
+              "calories": 20.4,
+              "protein": 0.4025,
+              "carbs": 4.54,
+              "fat": 0.069,
+              "data_id": "bef13f3b-2ccf-4316-80af-e6c2ac4b7ac0"
+            }
+          ],
+          "meal_calories": 1235.25,
+          "meal_protein": 51.62250000000001,
+          "meal_carbs": 221.14499999999998,
+          "meal_fat": 43.174
+        },
+        {
+          "name": "dinner",
+          "time": null,
+          "items": [
+            {
+              "name": "russett potato",
+              "weight": 135.0,
+              "quantity": 0,
+              "calories": 487.35,
+              "protein": 10.9485,
+              "carbs": 107.86500000000001,
+              "fat": 1.28385,
+              "data_id": "cb57ec50-085a-4153-b29a-fdf31641f43c"
+            },
+            {
+              "name": "butter",
+              "weight": 25.0,
+              "quantity": 0,
+              "calories": 161.25,
+              "protein": 5.2,
+              "carbs": 5.3,
+              "fat": 13.25,
+              "data_id": "164a464f-8710-41b0-a5ca-3ad9ba65823e"
+            },
+            {
+              "name": "wheat flour",
+              "weight": 40.0,
+              "quantity": 0,
+              "calories": 148.0,
+              "protein": 6.04,
+              "carbs": 28.480000000000004,
+              "fat": 1.092,
+              "data_id": "9e75896e-4564-4256-a87b-fc091f781730"
+            },
+            {
+              "name": "egg",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "6f23d30a-9c77-43d9-bd81-0dc2ca1f2c19"
+            },
+            {
+              "name": "mushroom",
+              "weight": 153.0,
+              "quantity": 0,
+              "calories": 60.894,
+              "protein": 3.3354000000000004,
+              "carbs": 10.3428,
+              "fat": 0.6869700000000001,
+              "data_id": "213845aa-6da0-416d-9891-76a4a3aaf24c"
+            },
+            {
+              "name": "clementine",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "c36b5bb1-499b-43de-8dca-80db2acf0b71"
+            },
+            {
+              "name": "chocolate",
+              "weight": 0.0,
+              "quantity": 0,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "ff514548-2690-4be8-b6e8-ed1d3e3a40b0"
+            }
+          ],
+          "meal_calories": 857.494,
+          "meal_protein": 25.523899999999998,
+          "meal_carbs": 151.98780000000002,
+          "meal_fat": 16.31282
+        },
+        {
+          "name": "snack",
+          "time": null,
+          "items": [
+            {
+              "name": "almonds",
+              "weight": 18.0,
+              "quantity": 0,
+              "calories": 111.96,
+              "protein": 4.715999999999999,
+              "carbs": 2.916,
+              "fat": 9.036,
+              "data_id": "110d40cf-0171-44b6-9ab6-40eec7b5d7bf"
+            },
+            {
+              "name": "pecans",
+              "weight": 10.0,
+              "quantity": 0,
+              "calories": 75.0,
+              "protein": 0.9960000000000001,
+              "carbs": 1.27,
+              "fat": 7.33,
+              "data_id": "cc837836-4c73-4635-9265-3f59e13469eb"
+            },
+            {
+              "name": "kelp knot",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "e119a5a5-5f6a-4a8a-b1d2-58dd12d83774"
+            }
+          ],
+          "meal_calories": 186.95999999999998,
+          "meal_protein": 5.712,
+          "meal_carbs": 4.186,
+          "meal_fat": 16.366
+        }
+      ],
+      "total_calories": 2279.704,
+      "total_protein": 82.8584,
+      "total_carbs": 377.31879999999995,
+      "total_fat": 75.85282
+    },
+    {
+      "date": "2025-03-03",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "nonfat greek yogurt",
+              "weight": 130.0,
+              "quantity": 0,
+              "calories": 79.3,
+              "protein": 13.39,
+              "carbs": 4.732,
+              "fat": 0.481,
+              "data_id": "077d392b-d4f8-4528-bbce-5fb1f98b33a5"
+            },
+            {
+              "name": "almond butter",
+              "weight": 10.0,
+              "quantity": 0,
+              "calories": 64.5,
+              "protein": 2.08,
+              "carbs": 2.12,
+              "fat": 5.300000000000001,
+              "data_id": "8a58f095-97ea-4d3a-b980-de95b652f661"
+            },
+            {
+              "name": "banana",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "54016f78-715e-419a-9da2-db007416120b"
+            },
+            {
+              "name": "orange",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "a98e87ae-0024-4d54-9990-cd1c55bd4a5c"
+            },
+            {
+              "name": "flour tortilla",
+              "weight": 0.0,
+              "quantity": 0,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "970958b8-7d32-4860-b4a8-030c7b333f5b"
+            }
+          ],
+          "meal_calories": 143.8,
+          "meal_protein": 15.47,
+          "meal_carbs": 6.852,
+          "meal_fat": 5.781000000000001
+        },
+        {
+          "name": "lunch",
+          "time": null,
+          "items": [
+            {
+              "name": "white rice (dry)",
+              "weight": 65.0,
+              "quantity": 0,
+              "calories": 239.85,
+              "protein": 8.32,
+              "carbs": 49.205000000000005,
+              "fat": 1.105,
+              "data_id": "9f9c3333-27e9-4ed2-9b08-3f326899d82c"
+            },
+            {
+              "name": "massaman curry",
+              "weight": 250.0,
+              "quantity": 0,
+              "calories": 812.5,
+              "protein": 35.75,
+              "carbs": 139.5,
+              "fat": 35.0,
+              "data_id": "674a31b9-135f-4ca0-b3ff-ad54e75e2e5c"
+            }
+          ],
+          "meal_calories": 1052.35,
+          "meal_protein": 44.07,
+          "meal_carbs": 188.705,
+          "meal_fat": 36.105
+        },
+        {
+          "name": "dinner",
+          "time": null,
+          "items": [
+            {
+              "name": "sage butter gnocchi",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "25f5e0cc-aa03-4b54-852b-894ee6f2322e"
+            }
+          ],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        },
+        {
+          "name": "snack",
+          "time": null,
+          "items": [
+            {
+              "name": "tortilla chips",
+              "weight": 50.0,
+              "quantity": 0,
+              "calories": 259.5,
+              "protein": 3.68,
+              "carbs": 30.4,
+              "fat": 13.7,
+              "data_id": "b954bc40-1e5d-458e-a525-5c6274868fdd"
+            },
+            {
+              "name": "guacamole",
+              "weight": 125.0,
+              "quantity": 0,
+              "calories": 193.75,
+              "protein": 2.4375,
+              "carbs": 10.5625,
+              "fat": 17.725,
+              "data_id": "b9579768-b4b1-42dc-87fe-ce00a7f567ee"
+            }
+          ],
+          "meal_calories": 453.25,
+          "meal_protein": 6.1175,
+          "meal_carbs": 40.9625,
+          "meal_fat": 31.425
+        }
+      ],
+      "total_calories": 1649.3999999999999,
+      "total_protein": 65.6575,
+      "total_carbs": 236.51950000000002,
+      "total_fat": 73.31099999999999
+    },
+    {
+      "date": "2025-03-04",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "nonfat greek yogurt",
+              "weight": 110.0,
+              "quantity": 0,
+              "calories": 67.10000000000001,
+              "protein": 11.330000000000002,
+              "carbs": 4.0040000000000004,
+              "fat": 0.40700000000000003,
+              "data_id": "62d17666-0043-46b8-a789-772bfca3a5b4"
+            },
+            {
+              "name": "honey",
+              "weight": 7.0,
+              "quantity": 0,
+              "calories": 21.28,
+              "protein": 0.021,
+              "carbs": 5.768000000000001,
+              "fat": 0.0,
+              "data_id": "984c1a48-fbf1-4264-804f-3cd1f0f3e789"
+            },
+            {
+              "name": "orange",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "252c04bd-e6fc-4bbc-a9e5-c3d314debd07"
+            },
+            {
+              "name": "banana",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "a80a5484-f1d7-4d15-8d48-e88dde68f5ff"
+            }
+          ],
+          "meal_calories": 88.38000000000001,
+          "meal_protein": 11.351000000000003,
+          "meal_carbs": 9.772000000000002,
+          "meal_fat": 0.40700000000000003
+        },
+        {
+          "name": "lunch",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        },
+        {
+          "name": "dinner",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        },
+        {
+          "name": "snack",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        }
+      ],
+      "total_calories": 88.38000000000001,
+      "total_protein": 11.351000000000003,
+      "total_carbs": 9.772000000000002,
+      "total_fat": 0.40700000000000003
+    },
+    {
+      "date": "2025-03-05",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "nonfat greek yogurt",
+              "weight": 145.0,
+              "quantity": 0,
+              "calories": 88.45,
+              "protein": 14.935,
+              "carbs": 5.278,
+              "fat": 0.5365,
+              "data_id": "efb5da4c-d55d-4e42-8a01-756bd400ac38"
+            },
+            {
+              "name": "banana",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "320da3ff-7469-4422-8661-c97c2f7888a6"
+            },
+            {
+              "name": "honey",
+              "weight": 3.0,
+              "quantity": 0,
+              "calories": 9.12,
+              "protein": 0.009,
+              "carbs": 2.472,
+              "fat": 0.0,
+              "data_id": "37b7ffcc-679f-438a-98e4-eb8e57702a44"
+            },
+            {
+              "name": "walnuts",
+              "weight": 19.0,
+              "quantity": 0,
+              "calories": 138.7,
+              "protein": 2.774,
+              "carbs": 2.071,
+              "fat": 13.243,
+              "data_id": "7748cf27-269b-4e5c-92df-8066366fb826"
+            }
+          ],
+          "meal_calories": 236.26999999999998,
+          "meal_protein": 17.718,
+          "meal_carbs": 9.821,
+          "meal_fat": 13.7795
+        },
+        {
+          "name": "lunch",
+          "time": null,
+          "items": [
+            {
+              "name": "sage butter gnocchi",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "76e194a7-089e-4c18-8e93-2106844b8708"
+            }
+          ],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        },
+        {
+          "name": "dinner",
+          "time": null,
+          "items": [
+            {
+              "name": "asparagus",
+              "weight": 125.0,
+              "quantity": 0,
+              "calories": 35.125,
+              "protein": 1.7999999999999998,
+              "carbs": 6.375,
+              "fat": 0.27,
+              "data_id": "fe9c0fe2-6439-457c-bcea-a39fa5bf298b"
+            },
+            {
+              "name": "harvest mix",
+              "weight": 60.0,
+              "quantity": 0,
+              "calories": 67.2,
+              "protein": 0.042,
+              "carbs": 8.04,
+              "fat": 0.0,
+              "data_id": "7cdd9b71-5969-4025-b283-7d7cde8253fa"
+            },
+            {
+              "name": "salmon",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "01861434-4829-407e-a4e6-ea8bb59475c7"
+            },
+            {
+              "name": "sugar cookie",
+              "weight": 0.0,
+              "quantity": 0,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "b4e7c677-d681-4ea9-80c9-b102f3372639"
+            },
+            {
+              "name": "orange",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "17662c2c-8cdb-4b6a-b72c-b6019c211522"
+            }
+          ],
+          "meal_calories": 102.325,
+          "meal_protein": 1.8419999999999999,
+          "meal_carbs": 14.415,
+          "meal_fat": 0.27
+        },
+        {
+          "name": "snack",
+          "time": null,
+          "items": [
+            {
+              "name": "scone",
+              "weight": 0.0,
+              "quantity": 0,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "67269372-bf7c-459d-a5cd-c3ef3a3ab59d"
+            },
+            {
+              "name": "biscotti",
+              "weight": 0.0,
+              "quantity": 0,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "b273a0f3-0503-4a2c-a606-952e9c945877"
+            }
+          ],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        }
+      ],
+      "total_calories": 338.59499999999997,
+      "total_protein": 19.56,
+      "total_carbs": 24.235999999999997,
+      "total_fat": 14.0495
+    },
+    {
+      "date": "2025-03-06",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "banana",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "45935f42-8697-4869-9a9e-08d0bd249bea"
+            },
+            {
+              "name": "nonfat greek yogurt",
+              "weight": 130.0,
+              "quantity": 0,
+              "calories": 79.3,
+              "protein": 13.39,
+              "carbs": 4.732,
+              "fat": 0.481,
+              "data_id": "c90a3fcb-b908-4bc5-b492-2afcaa69a107"
+            },
+            {
+              "name": "walnuts",
+              "weight": 19.0,
+              "quantity": 0,
+              "calories": 138.7,
+              "protein": 2.774,
+              "carbs": 2.071,
+              "fat": 13.243,
+              "data_id": "e53e28ec-1884-4a65-bacb-fd7c56c1be6b"
+            },
+            {
+              "name": "honey",
+              "weight": 10.0,
+              "quantity": 0,
+              "calories": 30.400000000000002,
+              "protein": 0.03,
+              "carbs": 8.24,
+              "fat": 0.0,
+              "data_id": "bd1d7904-80b3-4307-ba41-6d5a524679c5"
+            }
+          ],
+          "meal_calories": 248.4,
+          "meal_protein": 16.194000000000003,
+          "meal_carbs": 15.043000000000001,
+          "meal_fat": 13.724
+        },
+        {
+          "name": "lunch",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        },
+        {
+          "name": "dinner",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        },
+        {
+          "name": "snack",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        }
+      ],
+      "total_calories": 248.4,
+      "total_protein": 16.194000000000003,
+      "total_carbs": 15.043000000000001,
+      "total_fat": 13.724
+    },
+    {
+      "date": "2025-02-28",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "banana",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "c39ae23b-f3d0-4018-ae84-143a4c915300"
+            },
+            {
+              "name": "orange",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "d752b726-ab9c-4eee-a8d7-acae1797b321"
+            },
+            {
+              "name": "almonds",
+              "weight": 30.0,
+              "quantity": 0,
+              "calories": 186.6,
+              "protein": 7.859999999999999,
+              "carbs": 4.859999999999999,
+              "fat": 15.06,
+              "data_id": "773fb1ea-2b64-48e4-a19d-f023e8b5a35b"
+            }
+          ],
+          "meal_calories": 186.6,
+          "meal_protein": 7.859999999999999,
+          "meal_carbs": 4.859999999999999,
+          "meal_fat": 15.06
+        },
+        {
+          "name": "lunch",
+          "time": null,
+          "items": [
+            {
+              "name": "cherry tomato",
+              "weight": 80.0,
+              "quantity": 0,
+              "calories": 17.6,
+              "protein": 0.5568,
+              "carbs": 3.072,
+              "fat": 0.34,
+              "data_id": "cf9ff0b9-e6dc-43e0-af34-7e8659c27651"
+            },
+            {
+              "name": "cucumber",
+              "weight": 80.0,
+              "quantity": 0,
+              "calories": 12.72,
+              "protein": 0.5,
+              "carbs": 2.3600000000000003,
+              "fat": 0.1424,
+              "data_id": "d32a9219-fe22-498e-ae3a-dff2ea2bda44"
+            },
+            {
+              "name": "lettuce",
+              "weight": 250.0,
+              "quantity": 0,
+              "calories": 42.75,
+              "protein": 1.855,
+              "carbs": 8.425,
+              "fat": 0.1845,
+              "data_id": "7020e70d-ebb6-4637-9890-84aa49f49de9"
+            },
+            {
+              "name": "harvest mix",
+              "weight": 60.0,
+              "quantity": 0,
+              "calories": 67.2,
+              "protein": 0.042,
+              "carbs": 8.04,
+              "fat": 0.0,
+              "data_id": "cbf45211-5e06-4251-aaaa-5c867c31eafe"
+            },
+            {
+              "name": "olive oil",
+              "weight": 10.0,
+              "quantity": 0,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "028924f2-4cb9-4c34-8719-df837cd1a6d9"
+            },
+            {
+              "name": "balsamic vinegar",
+              "weight": 10.0,
+              "quantity": 0,
+              "calories": 8.8,
+              "protein": 0.049,
+              "carbs": 1.7000000000000002,
+              "fat": 0.0,
+              "data_id": "df5713f1-2bc8-446c-bf9c-f2381d0166b1"
+            },
+            {
+              "name": "corn",
+              "weight": 165.0,
+              "quantity": 0,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "62107f1c-2959-4c96-bf9e-dc8e4d9e6539"
+            },
+            {
+              "name": "carrot",
+              "weight": 90.0,
+              "quantity": 0,
+              "calories": 36.72,
+              "protein": 0.7245,
+              "carbs": 8.172,
+              "fat": 0.12420000000000002,
+              "data_id": "a5291803-b75a-4f02-9b05-ddc0a2a43598"
+            },
+            {
+              "name": "tuna",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 90.0,
+              "protein": 19.0,
+              "carbs": 0.08,
+              "fat": 0.94,
+              "data_id": "b46f1d88-5928-4386-995a-4f9cf0eb2362"
+            }
+          ],
+          "meal_calories": 275.78999999999996,
+          "meal_protein": 22.7273,
+          "meal_carbs": 31.848999999999997,
+          "meal_fat": 1.7311
+        },
+        {
+          "name": "dinner",
+          "time": null,
+          "items": [
+            {
+              "name": "taro balls",
+              "weight": 45.0,
+              "quantity": 0,
+              "calories": 50.4,
+              "protein": 0.675,
+              "carbs": 11.925,
+              "fat": 0.09000000000000001,
+              "data_id": "0ee6ce61-dbc1-4a03-a6c0-9b83cd362dfd"
+            },
+            {
+              "name": "mushroom meat",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 39.8,
+              "protein": 2.18,
+              "carbs": 6.76,
+              "fat": 0.449,
+              "data_id": "1a7f1c76-fb2c-45f7-80f1-dc344a64fa9a"
+            },
+            {
+              "name": "sweet red bean",
+              "weight": 30.0,
+              "quantity": 0,
+              "calories": 0.0,
+              "protein": 6.39,
+              "carbs": 0.0,
+              "fat": 0.348,
+              "data_id": "0d9b4e2f-027d-4e59-9026-ec23317999cf"
+            },
+            {
+              "name": "flour tortilla",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "32c00f6c-89de-4f4b-8136-9ab17755a8c9"
+            }
+          ],
+          "meal_calories": 90.19999999999999,
+          "meal_protein": 9.245000000000001,
+          "meal_carbs": 18.685000000000002,
+          "meal_fat": 0.887
+        }
+      ],
+      "total_calories": 552.5899999999999,
+      "total_protein": 39.832300000000004,
+      "total_carbs": 55.394,
+      "total_fat": 17.6781
+    },
+    {
+      "date": "2025-03-10",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "egg",
+              "weight": 0.0,
+              "quantity": 2,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "b15cc176-74d6-4f03-95d8-a14fc9da36ef"
+            },
+            {
+              "name": "zucchini",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "2bb20f93-4138-49a7-9502-ca23497bb89a"
+            },
+            {
+              "name": "walnuts",
+              "weight": 10.0,
+              "quantity": 0,
+              "calories": 73.0,
+              "protein": 1.46,
+              "carbs": 1.09,
+              "fat": 6.970000000000001,
+              "data_id": "054233bb-bbd3-458a-b582-c44e94e1b5fd"
+            },
+            {
+              "name": "olive oil",
+              "weight": 5.0,
+              "quantity": 0,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "4cc0b318-c44e-4c11-a343-0ed2b2bcf4bc"
+            }
+          ],
+          "meal_calories": 73.0,
+          "meal_protein": 1.46,
+          "meal_carbs": 1.09,
+          "meal_fat": 6.970000000000001
+        },
+        {
+          "name": "lunch",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        },
+        {
+          "name": "dinner",
+          "time": null,
+          "items": [
+            {
+              "name": "cashews",
+              "weight": 34.0,
+              "quantity": 0,
+              "calories": 192.10000000000002,
+              "protein": 5.916,
+              "carbs": 12.342,
+              "fat": 13.226,
+              "data_id": "217e6ae3-5aee-4ab5-9b46-0ec08ff6e3d7"
+            },
+            {
+              "name": "walnuts",
+              "weight": 14.0,
+              "quantity": 0,
+              "calories": 102.2,
+              "protein": 2.044,
+              "carbs": 1.5260000000000002,
+              "fat": 9.758000000000001,
+              "data_id": "9bf149dc-9d3f-4989-be9d-1b6dbf67ed41"
+            }
+          ],
+          "meal_calories": 294.3,
+          "meal_protein": 7.960000000000001,
+          "meal_carbs": 13.868,
+          "meal_fat": 22.984
+        },
+        {
+          "name": "snack",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        }
+      ],
+      "total_calories": 367.3,
+      "total_protein": 9.420000000000002,
+      "total_carbs": 14.958,
+      "total_fat": 29.954
+    },
+    {
+      "date": "2025-03-11",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "fat-free greek yogurt",
+              "weight": 185.0,
+              "quantity": 0,
+              "calories": 112.85000000000001,
+              "protein": 19.055000000000003,
+              "carbs": 6.734000000000001,
+              "fat": 0.6845,
+              "data_id": "3cd41660-372b-4908-bc09-d1a035a767d2"
+            },
+            {
+              "name": "walnuts",
+              "weight": 10.0,
+              "quantity": 0,
+              "calories": 73.0,
+              "protein": 1.46,
+              "carbs": 1.09,
+              "fat": 6.970000000000001,
+              "data_id": "f63a6b72-7a4a-4113-b51a-eaad9a46052a"
+            },
+            {
+              "name": "honey",
+              "weight": 7.0,
+              "quantity": 0,
+              "calories": 21.28,
+              "protein": 0.021,
+              "carbs": 5.768000000000001,
+              "fat": 0.0,
+              "data_id": "45b6dfeb-05fa-4f96-9458-5c090892e9a0"
+            },
+            {
+              "name": "cashews",
+              "weight": 40.0,
+              "quantity": 0,
+              "calories": 226.0,
+              "protein": 6.96,
+              "carbs": 14.52,
+              "fat": 15.56,
+              "data_id": "021c7e2b-7d7b-45f2-ad6e-9be298d3c502"
+            },
+            {
+              "name": "orange",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "47460e5e-4e3b-40ca-be9c-420c3309f45a"
+            }
+          ],
+          "meal_calories": 433.13,
+          "meal_protein": 27.496000000000006,
+          "meal_carbs": 28.112000000000002,
+          "meal_fat": 23.2145
+        },
+        {
+          "name": "lunch",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        },
+        {
+          "name": "dinner",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        },
+        {
+          "name": "snack",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        }
+      ],
+      "total_calories": 433.13,
+      "total_protein": 27.496000000000006,
+      "total_carbs": 28.112000000000002,
+      "total_fat": 23.2145
+    },
+    {
+      "date": "2025-03-12",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "banana",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "a8991807-5733-4518-a4f9-f2c0e60b2566"
+            },
+            {
+              "name": "walnuts",
+              "weight": 20.0,
+              "quantity": 0,
+              "calories": 146.0,
+              "protein": 2.92,
+              "carbs": 2.18,
+              "fat": 13.940000000000001,
+              "data_id": "c16563e0-7e88-4e76-842a-fbdf4248a673"
+            },
+            {
+              "name": "fat-free greek yogurt",
+              "weight": 180.0,
+              "quantity": 0,
+              "calories": 109.8,
+              "protein": 18.540000000000003,
+              "carbs": 6.5520000000000005,
+              "fat": 0.666,
+              "data_id": "de5379b9-9141-4304-9d6d-60873c90ffff"
+            },
+            {
+              "name": "honey",
+              "weight": 7.0,
+              "quantity": 0,
+              "calories": 21.28,
+              "protein": 0.021,
+              "carbs": 5.768000000000001,
+              "fat": 0.0,
+              "data_id": "6220338e-7362-4650-b01c-7bda58491387"
+            }
+          ],
+          "meal_calories": 277.08000000000004,
+          "meal_protein": 21.481,
+          "meal_carbs": 14.500000000000002,
+          "meal_fat": 14.606000000000002
+        },
+        {
+          "name": "lunch",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        },
+        {
+          "name": "dinner",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        },
+        {
+          "name": "snack",
+          "time": null,
+          "items": [
+            {
+              "name": "cashews",
+              "weight": 10.0,
+              "quantity": 0,
+              "calories": 56.5,
+              "protein": 1.74,
+              "carbs": 3.63,
+              "fat": 3.89,
+              "data_id": "bb232b72-7bff-4a4a-b264-d659a1a53088"
+            },
+            {
+              "name": "kelp knot",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "c9ada7fa-14b1-4b89-bf45-0bd7f363dc2c"
+            }
+          ],
+          "meal_calories": 56.5,
+          "meal_protein": 1.74,
+          "meal_carbs": 3.63,
+          "meal_fat": 3.89
+        }
+      ],
+      "total_calories": 333.58000000000004,
+      "total_protein": 23.221,
+      "total_carbs": 18.130000000000003,
+      "total_fat": 18.496000000000002
+    },
+    {
+      "date": "2025-03-13",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "walnuts",
+              "weight": 20.0,
+              "quantity": 0,
+              "calories": 146.0,
+              "protein": 2.92,
+              "carbs": 2.18,
+              "fat": 13.940000000000001,
+              "data_id": "e4c5d880-9757-44b5-99ac-6bc3180a4d86"
+            },
+            {
+              "name": "fat-free greek yogurt",
+              "weight": 145.0,
+              "quantity": 0,
+              "calories": 88.45,
+              "protein": 14.935,
+              "carbs": 5.278,
+              "fat": 0.5365,
+              "data_id": "ced87e2e-6ba8-44a1-aefc-c2a1a21f6ce8"
+            },
+            {
+              "name": "banana",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "3397108f-071e-40ec-a650-1f452d92053e"
+            },
+            {
+              "name": "honey",
+              "weight": 10.0,
+              "quantity": 0,
+              "calories": 30.400000000000002,
+              "protein": 0.03,
+              "carbs": 8.24,
+              "fat": 0.0,
+              "data_id": "04186b89-5a11-47f3-b92c-5ac1b210a7f4"
+            }
+          ],
+          "meal_calories": 264.84999999999997,
+          "meal_protein": 17.885,
+          "meal_carbs": 15.698,
+          "meal_fat": 14.476500000000001
+        },
+        {
+          "name": "lunch",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        },
+        {
+          "name": "dinner",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        },
+        {
+          "name": "snack",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        }
+      ],
+      "total_calories": 264.84999999999997,
+      "total_protein": 17.885,
+      "total_carbs": 15.698,
+      "total_fat": 14.476500000000001
+    },
+    {
+      "date": "2025-02-27",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "orange",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "a5ffbdf2-dcea-4e4b-afe8-968e7a81f22d"
+            },
+            {
+              "name": "almonds",
+              "weight": 25.0,
+              "quantity": 0,
+              "calories": 155.5,
+              "protein": 6.55,
+              "carbs": 4.05,
+              "fat": 12.55,
+              "data_id": "6ec346d9-617e-420c-9cd9-fd4d566ecfb7"
+            }
+          ],
+          "meal_calories": 155.5,
+          "meal_protein": 6.55,
+          "meal_carbs": 4.05,
+          "meal_fat": 12.55
+        },
+        {
+          "name": "lunch",
+          "time": null,
+          "items": [
+            {
+              "name": "lettuce",
+              "weight": 200.0,
+              "quantity": 0,
+              "calories": 34.2,
+              "protein": 1.484,
+              "carbs": 6.74,
+              "fat": 0.1476,
+              "data_id": "0fecf0ce-1c2e-45f9-bc24-613880d96248"
+            },
+            {
+              "name": "tuna",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 90.0,
+              "protein": 19.0,
+              "carbs": 0.08,
+              "fat": 0.94,
+              "data_id": "d553a74e-61b5-4201-a922-7bcd5835b7f1"
+            },
+            {
+              "name": "cherry tomato",
+              "weight": 110.0,
+              "quantity": 0,
+              "calories": 24.200000000000003,
+              "protein": 0.7656000000000001,
+              "carbs": 4.224,
+              "fat": 0.4675,
+              "data_id": "78289b7e-a791-4922-901f-21c8a07a9023"
+            },
+            {
+              "name": "cucumber",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 15.9,
+              "protein": 0.625,
+              "carbs": 2.95,
+              "fat": 0.178,
+              "data_id": "c0b8bf95-fd97-4791-8778-c97ea5fdd247"
+            },
+            {
+              "name": "vinaigrette",
+              "weight": 25.0,
+              "quantity": 0,
+              "calories": 48.25,
+              "protein": 1.5575,
+              "carbs": 4.6875,
+              "fat": 2.6125,
+              "data_id": "ebac0507-5b1c-4a08-8d9c-32cb509a7f49"
+            },
+            {
+              "name": "harvest mix",
+              "weight": 40.0,
+              "quantity": 0,
+              "calories": 44.800000000000004,
+              "protein": 0.028000000000000004,
+              "carbs": 5.36,
+              "fat": 0.0,
+              "data_id": "c839007e-cd73-41ce-8e09-57322f2a7884"
+            },
+            {
+              "name": "clementine",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "8ee9ca91-8502-4943-8e78-fd3f11d6d2db"
+            }
+          ],
+          "meal_calories": 257.35,
+          "meal_protein": 23.4601,
+          "meal_carbs": 24.0415,
+          "meal_fat": 4.345599999999999
+        },
+        {
+          "name": "dinner",
+          "time": null,
+          "items": [
+            {
+              "name": "lettuce",
+              "weight": 200.0,
+              "quantity": 0,
+              "calories": 34.2,
+              "protein": 1.484,
+              "carbs": 6.74,
+              "fat": 0.1476,
+              "data_id": "b7ba3f81-790a-4978-b59d-2beb26945921"
+            },
+            {
+              "name": "tuna",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 90.0,
+              "protein": 19.0,
+              "carbs": 0.08,
+              "fat": 0.94,
+              "data_id": "b6b67f3d-14c0-45aa-abc6-c11e9a5c77f3"
+            },
+            {
+              "name": "cherry tomato",
+              "weight": 110.0,
+              "quantity": 0,
+              "calories": 24.200000000000003,
+              "protein": 0.7656000000000001,
+              "carbs": 4.224,
+              "fat": 0.4675,
+              "data_id": "b60e3266-191d-4ee7-a38f-c74c19cdb420"
+            },
+            {
+              "name": "cucumber",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 15.9,
+              "protein": 0.625,
+              "carbs": 2.95,
+              "fat": 0.178,
+              "data_id": "d3b800e4-5f78-4e30-94b5-30c60b5d08c6"
+            },
+            {
+              "name": "olive oil",
+              "weight": 15.0,
+              "quantity": 0,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "94f1ca7c-f1bb-4968-ad81-8a0b1664ba45"
+            },
+            {
+              "name": "balsamic vinegar",
+              "weight": 8.0,
+              "quantity": 0,
+              "calories": 7.04,
+              "protein": 0.0392,
+              "carbs": 1.36,
+              "fat": 0.0,
+              "data_id": "97d3b3fb-d0af-493f-8550-d13d37ac9781"
+            },
+            {
+              "name": "corn",
+              "weight": 110.0,
+              "quantity": 0,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "d921b6ea-67c4-4ac9-8b97-fde4173288eb"
+            },
+            {
+              "name": "parmesan",
+              "weight": 10.0,
+              "quantity": 0,
+              "calories": 42.1,
+              "protein": 2.9600000000000004,
+              "carbs": 1.2400000000000002,
+              "fat": 2.8000000000000003,
+              "data_id": "ad351e2b-3f53-4d00-bf5a-c2f116e9f260"
+            },
+            {
+              "name": "butter",
+              "weight": 25.0,
+              "quantity": 0,
+              "calories": 161.25,
+              "protein": 5.2,
+              "carbs": 5.3,
+              "fat": 13.25,
+              "data_id": "aa13adf3-d939-4cd3-833f-bff248cf6a70"
+            },
+            {
+              "name": "king oyster mushroom",
+              "weight": 0.0,
+              "quantity": 2,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "545b7902-4903-48d2-a5e0-e0c85faa1e62"
+            }
+          ],
+          "meal_calories": 374.69,
+          "meal_protein": 30.073800000000002,
+          "meal_carbs": 21.894000000000002,
+          "meal_fat": 17.7831
+        }
+      ],
+      "total_calories": 787.54,
+      "total_protein": 60.0839,
+      "total_carbs": 49.9855,
+      "total_fat": 34.678700000000006
+    },
+    {
+      "date": "2025-03-15",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "banana",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "567e7d65-5165-41d6-ad58-64072ea0fb85"
+            },
+            {
+              "name": "nonfat greek yogurt",
+              "weight": 180.0,
+              "quantity": 0,
+              "calories": 109.8,
+              "protein": 18.540000000000003,
+              "carbs": 6.5520000000000005,
+              "fat": 0.666,
+              "data_id": "bda54513-1af9-4057-97c3-1ee7898c6680"
+            },
+            {
+              "name": "kefir",
+              "weight": 20.0,
+              "quantity": 0,
+              "calories": 8.6,
+              "protein": 0.758,
+              "carbs": 0.954,
+              "fat": 0.20400000000000001,
+              "data_id": "17e107b8-ff4b-4611-b42a-d584c2a5a12a"
+            },
+            {
+              "name": "walnuts",
+              "weight": 15.0,
+              "quantity": 0,
+              "calories": 109.5,
+              "protein": 2.19,
+              "carbs": 1.635,
+              "fat": 10.455,
+              "data_id": "3c9b95d0-5563-4b74-955f-ab91207a693f"
+            },
+            {
+              "name": "honey",
+              "weight": 15.0,
+              "quantity": 0,
+              "calories": 45.6,
+              "protein": 0.045,
+              "carbs": 12.360000000000001,
+              "fat": 0.0,
+              "data_id": "4785dc0d-33d1-42b6-88be-2c45cd705392"
+            },
+            {
+              "name": "cashews",
+              "weight": 10.0,
+              "quantity": 0,
+              "calories": 56.5,
+              "protein": 1.74,
+              "carbs": 3.63,
+              "fat": 3.89,
+              "data_id": "a8f9aa88-1668-4a89-950d-47c2aed386d6"
+            }
+          ],
+          "meal_calories": 330.0,
+          "meal_protein": 23.273000000000003,
+          "meal_carbs": 25.131,
+          "meal_fat": 15.215
+        },
+        {
+          "name": "lunch",
+          "time": null,
+          "items": [
+            {
+              "name": "tuna",
+              "weight": 150.0,
+              "quantity": 0,
+              "calories": 135.0,
+              "protein": 28.5,
+              "carbs": 0.12,
+              "fat": 1.41,
+              "data_id": "1f5b38be-f3ce-43ea-8841-0b9fc5b9515c"
+            },
+            {
+              "name": "olive oil",
+              "weight": 15.0,
+              "quantity": 0,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "1bb546d5-b00f-4999-b78c-6b7b9d5e62bf"
+            },
+            {
+              "name": "parmesan",
+              "weight": 8.0,
+              "quantity": 0,
+              "calories": 33.68,
+              "protein": 2.3680000000000003,
+              "carbs": 0.9920000000000001,
+              "fat": 2.24,
+              "data_id": "d77b3b21-4b06-420f-96dc-a71f2644a46b"
+            },
+            {
+              "name": "balsamic vinegar",
+              "weight": 8.0,
+              "quantity": 0,
+              "calories": 7.04,
+              "protein": 0.0392,
+              "carbs": 1.36,
+              "fat": 0.0,
+              "data_id": "41268643-c8df-4460-8b26-85eee816d407"
+            }
+          ],
+          "meal_calories": 175.72,
+          "meal_protein": 30.907200000000003,
+          "meal_carbs": 2.4720000000000004,
+          "meal_fat": 3.6500000000000004
+        },
+        {
+          "name": "dinner",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        },
+        {
+          "name": "snack",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        }
+      ],
+      "total_calories": 505.72,
+      "total_protein": 54.180200000000006,
+      "total_carbs": 27.603,
+      "total_fat": 18.865000000000002
+    },
+    {
+      "date": "2025-03-16",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "nonfat greek yogurt",
+              "weight": 150.0,
+              "quantity": 0,
+              "calories": 91.5,
+              "protein": 15.450000000000001,
+              "carbs": 5.46,
+              "fat": 0.5549999999999999,
+              "data_id": "5d491bbf-5d9f-455e-8222-8e50061ed21f"
+            },
+            {
+              "name": "walnuts",
+              "weight": 15.0,
+              "quantity": 0,
+              "calories": 109.5,
+              "protein": 2.19,
+              "carbs": 1.635,
+              "fat": 10.455,
+              "data_id": "9580d292-c9c5-4368-885f-997063f52f32"
+            },
+            {
+              "name": "kefir",
+              "weight": 20.0,
+              "quantity": 0,
+              "calories": 8.6,
+              "protein": 0.758,
+              "carbs": 0.954,
+              "fat": 0.20400000000000001,
+              "data_id": "8d37e534-17d9-4e13-964e-918144fd211e"
+            },
+            {
+              "name": "banana",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "c19c24f4-8974-4b55-90d8-0ebbdfe99550"
+            }
+          ],
+          "meal_calories": 209.6,
+          "meal_protein": 18.398,
+          "meal_carbs": 8.049,
+          "meal_fat": 11.214
+        },
+        {
+          "name": "lunch",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        },
+        {
+          "name": "dinner",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        },
+        {
+          "name": "snack",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        }
+      ],
+      "total_calories": 209.6,
+      "total_protein": 18.398,
+      "total_carbs": 8.049,
+      "total_fat": 11.214
+    },
+    {
+      "date": "2025-03-17",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "nonfat greek yogurt",
+              "weight": 150.0,
+              "quantity": 0,
+              "calories": 91.5,
+              "protein": 15.450000000000001,
+              "carbs": 5.46,
+              "fat": 0.5549999999999999,
+              "data_id": "63893f38-4176-4d04-ab04-cc50697cee2b"
+            },
+            {
+              "name": "banana",
+              "weight": 0.0,
+              "quantity": 1,
+              "calories": 0.0,
+              "protein": 0.0,
+              "carbs": 0.0,
+              "fat": 0.0,
+              "data_id": "5d0d3515-28d0-49dc-ae66-abd2876bce85"
+            },
+            {
+              "name": "walnuts",
+              "weight": 10.0,
+              "quantity": 0,
+              "calories": 73.0,
+              "protein": 1.46,
+              "carbs": 1.09,
+              "fat": 6.970000000000001,
+              "data_id": "0206b787-fabd-401b-b8e6-c3794cd23a11"
+            }
+          ],
+          "meal_calories": 164.5,
+          "meal_protein": 16.91,
+          "meal_carbs": 6.55,
+          "meal_fat": 7.525
+        },
+        {
+          "name": "lunch",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        },
+        {
+          "name": "dinner",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        },
+        {
+          "name": "snack",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        }
+      ],
+      "total_calories": 164.5,
+      "total_protein": 16.91,
+      "total_carbs": 6.55,
+      "total_fat": 7.525
+    },
+    {
+      "date": "2025-11-29",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "greek yogurt",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 82.0,
+              "protein": 7.23,
+              "carbs": 12.8,
+              "fat": 0.24,
+              "data_id": "20bd034b-7f9e-44f4-8f7a-5b561280767b"
+            },
+            {
+              "name": "greek yogurt",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 82.0,
+              "protein": 7.23,
+              "carbs": 12.8,
+              "fat": 0.24,
+              "data_id": "463f0904-9884-4da9-80a4-0d4985e6dd91"
+            },
+            {
+              "name": "greek yogurt",
+              "weight": 1000.0,
+              "quantity": 0,
+              "calories": 820.0,
+              "protein": 72.30000000000001,
+              "carbs": 128.0,
+              "fat": 2.4,
+              "data_id": "432db62c-e69b-4c25-8a88-d24a61992612"
+            }
+          ],
+          "meal_calories": 984.0,
+          "meal_protein": 86.76000000000002,
+          "meal_carbs": 153.6,
+          "meal_fat": 2.88
+        }
+      ],
+      "total_calories": 984.0,
+      "total_protein": 86.76000000000002,
+      "total_carbs": 153.6,
+      "total_fat": 2.88
+    },
+    {
+      "date": "2025-12-01",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [],
+          "meal_calories": 0.0,
+          "meal_protein": 0.0,
+          "meal_carbs": 0.0,
+          "meal_fat": 0.0
+        }
+      ],
+      "total_calories": 0.0,
+      "total_protein": 0.0,
+      "total_carbs": 0.0,
+      "total_fat": 0.0
+    },
+    {
+      "date": "2025-12-06",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "greek yogurt",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 82.0,
+              "protein": 7.23,
+              "carbs": 12.8,
+              "fat": 0.24,
+              "data_id": "6175225f-949e-484f-bbd2-c1df4de9e7fb"
+            },
+            {
+              "name": "greek yogurt",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 82.0,
+              "protein": 7.23,
+              "carbs": 12.8,
+              "fat": 0.24,
+              "data_id": "8c0d8da3-ce47-4ba6-8065-55afd35fd4f2"
+            },
+            {
+              "name": "greek yogurt",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 82.0,
+              "protein": 7.23,
+              "carbs": 12.8,
+              "fat": 0.24,
+              "data_id": "7ba82ecb-75d7-4855-844c-7e1ca3a43947"
+            }
+          ],
+          "meal_calories": 246.0,
+          "meal_protein": 21.69,
+          "meal_carbs": 38.400000000000006,
+          "meal_fat": 0.72
+        }
+      ],
+      "total_calories": 246.0,
+      "total_protein": 21.69,
+      "total_carbs": 38.400000000000006,
+      "total_fat": 0.72
+    },
+    {
+      "date": "2025-12-07",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "greek yogurt",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 82.0,
+              "protein": 7.23,
+              "carbs": 12.8,
+              "fat": 0.24,
+              "data_id": "46c478e5-2533-483c-922b-44d9a2e58f21"
+            },
+            {
+              "name": "greek yogurt",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 82.0,
+              "protein": 7.23,
+              "carbs": 12.8,
+              "fat": 0.24,
+              "data_id": "6d290775-acf1-4697-b335-5f9a41492eca"
+            },
+            {
+              "name": "greek yogurt",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 82.0,
+              "protein": 7.23,
+              "carbs": 12.8,
+              "fat": 0.24,
+              "data_id": "d85bf677-22aa-47d7-a0aa-137a838284b1"
+            },
+            {
+              "name": "greek yogurt",
+              "weight": 500.0,
+              "quantity": 0,
+              "calories": 410.0,
+              "protein": 36.150000000000006,
+              "carbs": 64.0,
+              "fat": 1.2,
+              "data_id": "68e3b0cd-7d94-4cca-a589-daee6a18992d"
+            },
+            {
+              "name": "greek yogurt",
+              "weight": 500.0,
+              "quantity": 0,
+              "calories": 410.0,
+              "protein": 36.150000000000006,
+              "carbs": 64.0,
+              "fat": 1.2,
+              "data_id": "e71198a7-1353-480b-ac9e-b9c377105524"
+            },
+            {
+              "name": "greek yogurt",
+              "weight": 500.0,
+              "quantity": 0,
+              "calories": 410.0,
+              "protein": 36.150000000000006,
+              "carbs": 64.0,
+              "fat": 1.2,
+              "data_id": "8913a052-4f47-41e2-8d17-0a6a24cb4168"
+            },
+            {
+              "name": "greek yogurt",
+              "weight": 500.0,
+              "quantity": 0,
+              "calories": 410.0,
+              "protein": 36.150000000000006,
+              "carbs": 64.0,
+              "fat": 1.2,
+              "data_id": "03d6791f-d3d4-4d32-a16b-67e031ccc291"
+            },
+            {
+              "name": "greek yogurt",
+              "weight": 500.0,
+              "quantity": 0,
+              "calories": 410.0,
+              "protein": 36.150000000000006,
+              "carbs": 64.0,
+              "fat": 1.2,
+              "data_id": "870b619c-881a-4ba8-9183-192a75f350dc"
+            }
+          ],
+          "meal_calories": 2296.0,
+          "meal_protein": 202.44000000000003,
+          "meal_carbs": 358.4,
+          "meal_fat": 6.720000000000001
+        }
+      ],
+      "total_calories": 2296.0,
+      "total_protein": 202.44000000000003,
+      "total_carbs": 358.4,
+      "total_fat": 6.720000000000001
+    }
+  ]
+}
