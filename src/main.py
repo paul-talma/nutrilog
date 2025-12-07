@@ -131,6 +131,9 @@ def migrate_log_data(log_data: dict) -> dict:
                         for item in meal['items']:
                             if 'data_id' not in item or not item['data_id']:
                                 item['data_id'] = str(uuid.uuid4())
+                            for k in item:
+                                if not item[k]:
+                                    item[k] = 0
     return log_data
 
 
