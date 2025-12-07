@@ -244,7 +244,6 @@ async def new_entry(entry: FoodEntry):
     food_item = FoodItem(name=entry.food_name, data_id=entry_id, weight=entry.weight)
 
     try:
-        print('HELLO')
         food_info = get_food_info(food_item.name)
     except HTTPException as e:
         logger.warning(e.detail)
@@ -549,6 +548,7 @@ async def get_all_logs():
     Returns:
         list[DailyLog]: A list of all DailyLog objects.
     """
+    logger.info('Fetching all logs.')
     user_log = get_user_log()
     daily_logs = user_log.logs
     for day in daily_logs:

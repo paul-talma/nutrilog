@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap");
+
 :root {
     --bg: #fff1e7;
     --text: #263743;
@@ -14,7 +16,7 @@
 }
 
 body {
-    font-family: "JetBrains Mono";
+    font-family: "JetBrains Mono", monospace;
     margin: 2em;
     background-color: var(--bg);
     color: var(--text);
@@ -25,12 +27,28 @@ h1 {
 }
 
 /* components */
-/* form */
-#form-desc {
-    max-width: 400px;
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+main div {
+    flex: auto;
+}
+
+#upper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#instructions {
+    min-height: 2lh;
 }
 
 form {
+    width: fit-content;
     padding: 0.5rem 0.5rem;
     padding-left: 1rem;
     border: 3px solid var(--text);
@@ -69,4 +87,26 @@ th {
     padding: 0 1rem;
 }
 /* daily summary */
+
+/* daily info */
+.numeric-cell {
+    text-align: right;
+}
+
 /* daily log */
+
+/* chart */
+#chart-div {
+    width: 800px;
+    border: solid 3px var(--text);
+    border-radius: 7px;
+}
+
+canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+#toggleBtn {
+    margin: 1rem;
+}

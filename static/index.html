@@ -19,72 +19,85 @@
                 <h1>NutriLog</h1>
             </header>
             <main>
-                <section>
-                    <div id="form-desc">
-                        <h2>Today's Meals</h2>
-                        <p>
-                            Enter what you ate today, one key ingredient at a
-                            time.
-                        </p>
-                        <form id="form">
-                            <div>
-                                <label for="date">date:</label>
-                                <input
-                                    type="date"
-                                    id="date"
-                                    name="date"
-                                    required
-                                />
-                                <button type="button" id="today-btn">
-                                    today
-                                </button>
-                            </div>
+                <div id="upper">
+                    <div>
+                        <div id="today-meal">
+                            <h2>Today's Meals</h2>
+                            <p id="instructions">
+                                Enter what you ate today, one key ingredient at
+                                a time.
+                            </p>
+                            <form id="form">
+                                <div id="date_field">
+                                    <label for="date">date:</label>
+                                    <input
+                                        type="date"
+                                        id="date"
+                                        name="date"
+                                        required
+                                    />
+                                    <button type="button" id="today-btn">
+                                        today
+                                    </button>
+                                </div>
 
-                            <div>
-                                <label for="meal">meal:</label>
-                                <select id="meal" name="meal" required>
-                                    <option value="breakfast">Breakfast</option>
-                                    <option value="lunch">Lunch</option>
-                                    <option value="dinner">Dinner</option>
-                                    <option value="snack">Snack</option>
-                                </select>
-                            </div>
+                                <div id="meal_field">
+                                    <label for="meal">meal:</label>
+                                    <select id="meal" name="meal" required>
+                                        <option value="breakfast">
+                                            Breakfast
+                                        </option>
+                                        <option value="lunch">Lunch</option>
+                                        <option value="dinner">Dinner</option>
+                                        <option value="snack">Snack</option>
+                                    </select>
+                                </div>
 
-                            <div>
-                                <label for="food_name">food:</label>
-                                <input
-                                    type="text"
-                                    name="food_name"
-                                    id="food_name"
-                                    required
-                                />
-                            </div>
+                                <div id="food_name_field">
+                                    <label for="food_name">food:</label>
+                                    <input
+                                        type="text"
+                                        name="food_name"
+                                        id="food_name"
+                                        required
+                                    />
+                                </div>
 
-                            <div>
-                                <label for="weight">weight:</label>
-                                <input
-                                    type="number"
-                                    name="weight"
-                                    id="weight"
-                                    required
-                                />
-                            </div>
+                                <div id="weight_field">
+                                    <label for="weight">weight:</label>
+                                    <input
+                                        type="number"
+                                        name="weight"
+                                        id="weight"
+                                        required
+                                    />
+                                </div>
 
-                            <div>
-                                <button type="submit">submit</button>
-                            </div>
-                        </form>
+                                <div>
+                                    <button type="submit">submit</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="daily-summary"></div>
                     </div>
-                </section>
-            </main>
 
-            <div id="daily-info">
-                <div id="daily-summary"></div>
+                    <div>
+                        <h2>Trends and Patterns</h2>
+                        <div id="chart-div">
+                            <canvas id="nutritionChart"></canvas>
+                        </div>
+                        <button id="toggleBtn" type="button">
+                            Show Nutrients
+                        </button>
+                    </div>
+                </div>
+
                 <div id="daily-log"></div>
-            </div>
+
+                <section></section>
+            </main>
         </div>
 
-        <canvas id="nutritionChart" width="400" height="200"></canvas>
         <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
         <script src="static/script.js"></script>
     </body>
