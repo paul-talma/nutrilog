@@ -65,17 +65,42 @@ button {
     font: inherit;
 }
 
+button {
+    background: transparent;
+    border-radius: 7px;
+}
+button:active {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: scale(0.98);
+}
+
+input,
+select {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
+}
+
+#food_name {
+    max-width: 10rem;
+}
+#weight {
+    max-width: 3rem;
+}
+
 /* table */
+.table-container {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 table {
     border: 3px solid var(--text);
     border-radius: 7px;
     padding: 0.5rem;
     padding-left: 0;
-}
-
-/* daily info */
-.numeric-cell {
-    text-align: right;
+    min-width: max-content;
 }
 
 th {
@@ -86,6 +111,7 @@ td,
 th {
     padding: 0 1rem;
 }
+
 /* daily summary */
 
 /* daily info */
