@@ -15,10 +15,15 @@ let chart = null;
  * Renders the daily nutritional summary table.
  * @param {object} log - The daily log object containing total nutrition data.
  */
-function drawDailySummary(log) {
+function drawLogSummary(log) {
     dailySummary.replaceChildren();
     const title = document.createElement("h2");
-    title.textContent = "Daily Summary";
+    let date = log.date;
+    if (date == new Date().toLocaleDateString("en-CA")) {
+        date = "today";
+    }
+
+    title.textContent = `Summary (${date})`;
     dailySummary.append(title);
     if (!log || isEmpty(log)) {
         const p = document.createElement("p");
@@ -60,10 +65,14 @@ function drawDailySummary(log) {
  * Renders the detailed daily log of food entries, organized by meal.
  * @param {object} log - The daily log object containing meal and food item details.
  */
-function drawDailyLog(log) {
+function drawLogDetails(log) {
     dailyLog.replaceChildren();
     const title = document.createElement("h2");
-    title.textContent = "Daily Log";
+    let date = log.date;
+    if (date == new Date().toLocaleDateString("en-CA")) {
+        date = "today";
+    }
+    title.textContent = `Details (${date})`;
     dailyLog.append(title);
     if (!log || isEmpty(log)) {
         const p = document.createElement("p");
@@ -133,6 +142,58 @@ function drawDailyLog(log) {
 /**
  * Fetches all historical logs and renders a chart displaying calorie trends over time.
  */
+async function initChart() {
+    const ctx = document.getElementById("nutritionChart").getContext("2d");
+    const calData = {
+        label: "Calories",
+        data: allLogs.map((d) => d.total_calories),
+        borderColor: "#263743",
+        tension: 0.1,
+    };
+    const proteinData = {
+        label: "Protein",
+        data: allLogs.map((d) => d.total_protein),
+        borderColor: "blue",
+        tension: 0.1,
+    };
+    const carbsData = {
+        label: "Carbs",
+        data: allLogs.map((d) => d.total_carbs),
+        borderColor: "maroon",
+        tension: 0.1,
+    };
+    const fatData = {
+        label: "Fat",
+        data: allLogs.map((d) => d.total_fat),
+        borderColor: "green",
+        tension: 0.1,
+    };
+
+    chart = new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: allLogs.map((d) => d.date),
+            datasets: [calData, proteinData, carbsData, fatData],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            aspectRatio: 2,
+            scales: {
+                y: { beginAtZero: true },
+            },
+            onClick: (event, activeElements) => {
+                if (activeElements.length > 0) {
+                    const index = activeElements[0].index;
+                    const selectedLog = allLogs[index];
+                    drawLogSummary(selectedLog);
+                    drawLogDetails(selectedLog);
+                }
+            },
+        },
+    });
+}
+
 async function drawChart(allLogs) {
     const calData = [
         {
@@ -171,7 +232,7 @@ async function drawChart(allLogs) {
             type: "line",
             data: {
                 labels: allLogs.map((d) => d.date),
-                datasets: calData,
+                // datasets: calData,
             },
             options: {
                 responsive: true,
@@ -180,20 +241,43 @@ async function drawChart(allLogs) {
                 scales: {
                     y: { beginAtZero: true },
                 },
+                onClick: (event, activeElements) => {
+                    if (activeElements.length > 0) {
+                        const index = activeElements[0].index;
+                        const selectedLog = allLogs[index];
+                        drawLogSummary(selectedLog);
+                        drawLogDetails(selectedLog);
+                    }
+                },
             },
         });
     } else {
-        chart.data.labels = allLogs.map((d) => d.date);
-        chart.data.datasets = showNutrients ? nutriData : calData;
-        chart.update();
+        updateChart();
+        // chart.data.labels = allLogs.map((d) => d.date);
+        // chart.data.datasets = showNutrients ? nutriData : calData;
+        // chart.update();
     }
 }
 
-function toggleData() {
-    showNutrients = !showNutrients;
-    // chart.data.datasets = showNutrients ? nutriData : calData;
-    drawChart();
-    // chart.update();
+async function updateChart() {
+    chart.data.labels = allLogs.map((d) => d.date);
+
+    const calories = chart.data.datasets[0];
+    const protein = chart.data.datasets[1];
+    const carbs = chart.data.datasets[2];
+    const fat = chart.data.datasets[3];
+
+    calories.data = allLogs.map((d) => d.total_calories);
+    protein.data = allLogs.map((d) => d.total_protein);
+    carbs.data = allLogs.map((d) => d.total_carbs);
+    fat.data = allLogs.map((d) => d.total_fat);
+
+    calories.hidden = showNutrients;
+    protein.hidden = !showNutrients;
+    carbs.hidden = !showNutrients;
+    fat.hidden = !showNutrients;
+
+    chart.update();
 }
 
 /**
@@ -316,9 +400,10 @@ async function newEntry(e) {
     } else {
         todayLog = await getTodayLog();
         allLogs = await getAllLogs();
-        drawDailySummary(todayLog);
-        drawDailyLog(todayLog);
-        drawChart(allLogs);
+        drawLogSummary(todayLog);
+        drawLogDetails(todayLog);
+        updateChart();
+        // drawChart(allLogs);
     }
 }
 
@@ -333,9 +418,10 @@ async function deleteEntry(dataId) {
     });
     todayLog = await getTodayLog();
     allLogs = await getTodayLog();
-    drawDailySummary(todayLog);
-    drawDailyLog(todayLog);
-    drawChart(allLogs);
+    drawLogSummary(todayLog);
+    drawLogDetails(todayLog);
+    updateChart();
+    // drawChart(allLogs);
 }
 
 // set up event listeners
@@ -361,11 +447,19 @@ function setupEventListeners() {
 
     document.querySelector("#toggleBtn").addEventListener("click", (e) => {
         showNutrients = !showNutrients;
-        drawChart(allLogs);
+        updateChart();
         document.querySelector("#toggleBtn").textContent = showNutrients
-            ? "Show Calories"
-            : "Show Nutrients";
+            ? "show calories"
+            : "show nutrients";
     });
+
+    document
+        .querySelector("#resetDateBtn")
+        .addEventListener("click", async (e) => {
+            todayLog = await getTodayLog();
+            drawLogSummary(todayLog);
+            drawLogDetails(todayLog);
+        });
 }
 
 // initialization
@@ -383,9 +477,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         setupEventListeners();
         todayLog = await getTodayLog();
         allLogs = await getAllLogs();
-        drawDailySummary(todayLog);
-        drawDailyLog(todayLog);
-        drawChart(allLogs);
+        drawLogSummary(todayLog);
+        drawLogDetails(todayLog);
+        initChart();
+        updateChart();
 
         loading.style.display = "none";
         app.style.display = "block";
