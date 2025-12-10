@@ -471,7 +471,7 @@ function setupEventListeners() {
 document.addEventListener("DOMContentLoaded", async () => {
     const loading = document.querySelector("#loading");
     const app = document.querySelector("#app");
-    // toggleTheme();
+    toggleTheme();
     try {
         populateFormWithDefault();
         setupEventListeners();
