@@ -18,19 +18,21 @@ let chart = null;
 function drawLogSummary(log) {
     dailySummary.replaceChildren();
     const title = document.createElement("h2");
-    let date = log.date;
-    if (date == new Date().toLocaleDateString("en-CA")) {
-        date = "today";
-    }
-
-    title.textContent = `Summary (${date})`;
-    dailySummary.append(title);
     if (!log || isEmpty(log)) {
+        title.textContent = "Summary";
+        dailySummary.append(title);
         const p = document.createElement("p");
         p.textContent = "No entries yet!";
         dailySummary.append(p);
         return;
     }
+
+    let date = log.date;
+    if (date == new Date().toLocaleDateString("en-CA")) {
+        date = "today";
+    }
+    title.textContent = `Summary (${date})`;
+    dailySummary.append(title);
     const table = document.createElement("table");
     const thead = document.createElement("thead");
     const tbody = document.createElement("tbody");
@@ -68,18 +70,20 @@ function drawLogSummary(log) {
 function drawLogDetails(log) {
     dailyLog.replaceChildren();
     const title = document.createElement("h2");
+    if (!log || isEmpty(log)) {
+        title.textContent = "Details";
+        dailyLog.append(title);
+        const p = document.createElement("p");
+        p.textContent = "No entries yet!";
+        dailyLog.append(p);
+        return;
+    }
     let date = log.date;
     if (date == new Date().toLocaleDateString("en-CA")) {
         date = "today";
     }
     title.textContent = `Details (${date})`;
     dailyLog.append(title);
-    if (!log || isEmpty(log)) {
-        const p = document.createElement("p");
-        p.textContent = "No entries yet!";
-        dailyLog.append(p);
-        return;
-    }
     // draw header
     const dailyLogTable = document.createElement("table");
     const thead = document.createElement("thead");
