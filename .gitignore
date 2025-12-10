@@ -12,11 +12,12 @@ wheels/
 
 .env
 
-data*
 trash/
 test.py
 todo.md
 challenges.md
 planning.md
+GEMINI.md
 
 .DS_Store
+
