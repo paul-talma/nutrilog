@@ -17,6 +17,12 @@
         <div id="app" style="display: none">
             <header>
                 <h1>NutriLog</h1>
+                <div class="toggle-switch">
+                    <label>
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
             </header>
             <main>
                 <div id="upper">
@@ -83,7 +89,7 @@
 
                     <div>
                         <h2>Trends and Patterns</h2>
-                        <p>Select datapoints to view detailed information.</p>
+                        <p>Click on datapoints to view detailed information.</p>
                         <div id="chart-div">
                             <canvas id="nutritionChart"></canvas>
                         </div>

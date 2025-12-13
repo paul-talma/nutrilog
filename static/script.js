@@ -5,6 +5,24 @@ const dailySummary = document.querySelector("#daily-summary");
 const dailyLog = document.querySelector("#daily-log");
 const form = document.querySelector("#form");
 const chartDiv = document.querySelector("#chart-div");
+const colors = {
+    calories: {
+        light: "#1e2021",
+        dark: "#fff1e7",
+    },
+    protein: {
+        light: "#006400",
+        dark: "#FFB347",
+    },
+    carbs: {
+        light: "#4682B4",
+        dark: "#87CEEB",
+    },
+    fat: {
+        light: "#8B0000",
+        dark: "#98FB98",
+    },
+};
 let todayLog = null;
 let allLogs = null;
 let showNutrients = false;
@@ -151,25 +169,29 @@ async function initChart() {
     const calData = {
         label: "Calories",
         data: allLogs.map((d) => d.total_calories),
-        borderColor: "#263743",
+        borderColor: colors.calories.light,
+        borderWidth: 5,
         tension: 0.1,
     };
     const proteinData = {
         label: "Protein",
         data: allLogs.map((d) => d.total_protein),
-        borderColor: "blue",
+        borderColor: colors.protein.light,
+        borderWidth: 5,
         tension: 0.1,
     };
     const carbsData = {
         label: "Carbs",
         data: allLogs.map((d) => d.total_carbs),
-        borderColor: "maroon",
+        borderColor: colors.carbs.light,
+        borderWidth: 5,
         tension: 0.1,
     };
     const fatData = {
         label: "Fat",
         data: allLogs.map((d) => d.total_fat),
-        borderColor: "green",
+        borderColor: colors.fat.light,
+        borderWidth: 5,
         tension: 0.1,
     };
 
@@ -196,71 +218,6 @@ async function initChart() {
             },
         },
     });
-}
-
-async function drawChart(allLogs) {
-    const calData = [
-        {
-            label: "Calories",
-            data: allLogs.map((d) => d.total_calories),
-            borderColor: "#263743",
-            tension: 0.1,
-        },
-    ];
-
-    const nutriData = [
-        {
-            label: "Protein",
-            data: allLogs.map((d) => d.total_protein),
-            borderColor: "blue",
-            tension: 0.1,
-        },
-        {
-            label: "Carbs",
-            data: allLogs.map((d) => d.total_carbs),
-            borderColor: "maroon",
-            tension: 0.1,
-        },
-        {
-            label: "Fat",
-            data: allLogs.map((d) => d.total_fat),
-            borderColor: "green",
-            tension: 0.1,
-        },
-    ];
-
-    // Create chart
-    if (!chart) {
-        const ctx = document.getElementById("nutritionChart").getContext("2d");
-        chart = new Chart(ctx, {
-            type: "line",
-            data: {
-                labels: allLogs.map((d) => d.date),
-                // datasets: calData,
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                aspectRatio: 2,
-                scales: {
-                    y: { beginAtZero: true },
-                },
-                onClick: (event, activeElements) => {
-                    if (activeElements.length > 0) {
-                        const index = activeElements[0].index;
-                        const selectedLog = allLogs[index];
-                        drawLogSummary(selectedLog);
-                        drawLogDetails(selectedLog);
-                    }
-                },
-            },
-        });
-    } else {
-        updateChart();
-        // chart.data.labels = allLogs.map((d) => d.date);
-        // chart.data.datasets = showNutrients ? nutriData : calData;
-        // chart.update();
-    }
 }
 
 async function updateChart() {
@@ -322,11 +279,23 @@ function displayFetchError(detail) {
  * Toggles the application's visual theme between light and dark modes.
  */
 function toggleTheme() {
-    if (document.documentElement.dataset.theme === "dark") {
-        document.documentElement.dataset.theme = "dark";
+    const theme = document.documentElement.dataset.theme;
+    if (theme === "dark") {
+        document.documentElement.dataset.theme = "";
+
+        chart.data.datasets[0].borderColor = colors.calories.light;
+        chart.data.datasets[1].borderColor = colors.protein.light;
+        chart.data.datasets[2].borderColor = colors.carbs.light;
+        chart.data.datasets[3].borderColor = colors.fat.light;
     } else {
         document.documentElement.dataset.theme = "dark";
+
+        chart.data.datasets[0].borderColor = colors.calories.dark;
+        chart.data.datasets[1].borderColor = colors.protein.dark;
+        chart.data.datasets[2].borderColor = colors.carbs.dark;
+        chart.data.datasets[3].borderColor = colors.fat.dark;
     }
+    chart.update();
 }
 
 // data functions
@@ -407,7 +376,6 @@ async function newEntry(e) {
         drawLogSummary(todayLog);
         drawLogDetails(todayLog);
         updateChart();
-        // drawChart(allLogs);
     }
 }
 
@@ -425,7 +393,6 @@ async function deleteEntry(dataId) {
     drawLogSummary(todayLog);
     drawLogDetails(todayLog);
     updateChart();
-    // drawChart(allLogs);
 }
 
 // set up event listeners
@@ -464,6 +431,10 @@ function setupEventListeners() {
             drawLogSummary(todayLog);
             drawLogDetails(todayLog);
         });
+
+    document
+        .querySelector(".slider")
+        .addEventListener("click", () => toggleTheme());
 }
 
 // initialization
