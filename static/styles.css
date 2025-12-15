@@ -29,6 +29,27 @@ header {
     align-items: center;
 }
 
+.navbar {
+    display: flex;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding-top: 3px;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    align-items: center;
+}
+
+nav ul li {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: 20px;
+    position: relative;
+}
+
 h1 {
     text-align: center;
 }

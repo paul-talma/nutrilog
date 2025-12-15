@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta
+            charset="UTF-8"
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>how it works</title>
+        <link rel="stylesheet" href="static/styles.css" />
+        <script>
+            const theme = localStorage.getItem("theme");
+            if (theme === "dark") {
+                document.documentElement.dataset.theme = "dark";
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>NutriLog</h1>
+            <div class="navbar">
+                <nav>
+                    <ul>
+                        <li><a href="/" id="home-link">home</a></li>
+                        <li>
+                            <a href="/how_it_works" id="how-it-works-link"
+                                >how it works</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+                <div class="toggle-switch">
+                    <label>
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <h2>How it works</h2>
+            <p>
+                Nutrilog fetches calorie and nutrient information from the
+                <a href="https://fdc.nal.usda.gov/">USDA FoodData Central</a>
+                database.
+            </p>
+            <p>
+                Nutrilog
+                <s>uses an advanced machine learning algorithm</s> returns the
+                first match from the USDA database. As such, nutrient
+                information may not be accurate. I'm working on improving the
+                match.
+            </p>
+        </main>
+
+        <script src="static/script.js"></script>
+    </body>
+</html>

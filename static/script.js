@@ -400,7 +400,13 @@ async function deleteEntry(dataId) {
  * Sets up all necessary event listeners for user interactions.
  * This includes handling delete button clicks, setting today's date, and form submissions.
  */
-function setupEventListeners() {
+function setupSharedEventListeners() {
+    document
+        .querySelector(".slider")
+        .addEventListener("click", () => toggleTheme());
+}
+
+function setupHomeEventListeners() {
     dailyLog.addEventListener("click", (e) => {
         if (e.target.classList.contains("delete-btn")) {
             const row = e.target.closest("tr");
@@ -431,10 +437,6 @@ function setupEventListeners() {
             drawLogSummary(todayLog);
             drawLogDetails(todayLog);
         });
-
-    document
-        .querySelector(".slider")
-        .addEventListener("click", () => toggleTheme());
 }
 
 // initialization
@@ -443,13 +445,28 @@ function setupEventListeners() {
  * Populates the form, sets up event listeners, fetches and displays today's log, and draws the chart.
  * Handles display of loading indicators and error states.
  */
-document.addEventListener("DOMContentLoaded", async () => {
+function loadCommon() {
+    setupSharedEventListeners();
+
+    const toggleBtn = document.querySelector(".toggle-switch input");
+    toggleBtn.checked = localStorage.getItem("theme") === "dark";
+}
+
+async function loadApp() {
     const loading = document.querySelector("#loading");
-    const app = document.querySelector("#app");
-    // toggleTheme();
+    const hasLoaded = sessionStorage.getItem("hasLoaded");
+
+    if (!hasLoaded) {
+        loading.style.display = "block";
+        app.style.display = "none";
+    } else {
+        loading.style.display = "none";
+        app.style.display = "block";
+    }
+
     try {
         populateFormWithDefault();
-        setupEventListeners();
+        setupHomeEventListeners();
         todayLog = await getTodayLog();
         allLogs = await getAllLogs();
         drawLogSummary(todayLog);
@@ -457,9 +474,18 @@ document.addEventListener("DOMContentLoaded", async () => {
         initChart();
         updateChart();
 
+        sessionStorage.setItem("hasLoaded", "true");
         loading.style.display = "none";
         app.style.display = "block";
     } catch (error) {
+        console.log(error);
         loading.textContent = "❌ Failed to load. Please refresh.";
+    }
+}
+document.addEventListener("DOMContentLoaded", async () => {
+    loadCommon();
+    const app = document.querySelector("#app");
+    if (app) {
+        loadApp();
     }
 });

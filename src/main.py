@@ -224,6 +224,16 @@ async def read_root():
     return FileResponse('static/index.html')
 
 
+@app.get('/how_it_works')
+async def read_how_it_works():
+    """Serves the 'how_it_works.html' page.
+
+    Returns:
+        FileResponse: The 'how_it_works.html' file from the static directory.
+    """
+    return FileResponse('static/how_it_works.html')
+
+
 @app.post('/logs/new_entry')
 async def new_entry(entry: FoodEntry):
     """Adds a new food entry to the user's log.
