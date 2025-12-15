@@ -12,7 +12,7 @@ const colors = {
     },
     protein: {
         light: "#006400",
-        dark: "#FFB347",
+        dark: "#98FB98",
     },
     carbs: {
         light: "#4682B4",
@@ -20,7 +20,7 @@ const colors = {
     },
     fat: {
         light: "#8B0000",
-        dark: "#98FB98",
+        dark: "#FFB347",
     },
 };
 let todayLog = null;
@@ -135,9 +135,11 @@ function drawLogDetails(log) {
             }
             const foodName = document.createElement("td");
             foodName.textContent = foodItem.name;
+
             const weight = document.createElement("td");
             weight.textContent = foodItem.weight;
             weight.style.textAlign = "right";
+
             const calories = document.createElement("td");
             calories.textContent = foodItem.calories.toFixed();
             calories.style.textAlign = "right";
@@ -279,23 +281,29 @@ function displayFetchError(detail) {
  * Toggles the application's visual theme between light and dark modes.
  */
 function toggleTheme() {
-    const theme = document.documentElement.dataset.theme;
+    const theme = localStorage.getItem("theme");
+    const toggleBtn = document.querySelector(".toggle-switch input");
     if (theme === "dark") {
         document.documentElement.dataset.theme = "";
-
-        chart.data.datasets[0].borderColor = colors.calories.light;
-        chart.data.datasets[1].borderColor = colors.protein.light;
-        chart.data.datasets[2].borderColor = colors.carbs.light;
-        chart.data.datasets[3].borderColor = colors.fat.light;
+        localStorage.setItem("theme", "light");
+        // toggleBtn.checked = false;
     } else {
         document.documentElement.dataset.theme = "dark";
-
-        chart.data.datasets[0].borderColor = colors.calories.dark;
-        chart.data.datasets[1].borderColor = colors.protein.dark;
-        chart.data.datasets[2].borderColor = colors.carbs.dark;
-        chart.data.datasets[3].borderColor = colors.fat.dark;
+        localStorage.setItem("theme", "dark");
+        // toggleBtn.checked = true;
     }
-    chart.update();
+    if (chart !== null) {
+        console.log("CHART COLORS ACCESSED");
+        chart.data.datasets[0].borderColor =
+            colors.calories[theme === "dark" ? "light" : "dark"];
+        chart.data.datasets[1].borderColor =
+            colors.protein[theme === "dark" ? "light" : "dark"];
+        chart.data.datasets[2].borderColor =
+            colors.carbs[theme === "dark" ? "light" : "dark"];
+        chart.data.datasets[3].borderColor =
+            colors.fat[theme === "dark" ? "light" : "dark"];
+        chart.update();
+    }
 }
 
 // data functions
