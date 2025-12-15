@@ -198,31 +198,32 @@ function drawLogDetails(log) {
  */
 async function initChart() {
     const ctx = document.getElementById("nutritionChart").getContext("2d");
+    const theme = localStorage.getItem("theme");
     const calData = {
         label: "Calories",
         data: allLogs.map((d) => d.total_calories),
-        borderColor: colors.calories.light,
+        borderColor: colors.calories[theme === "dark" ? "dark" : "light"],
         borderWidth: 5,
         tension: 0.1,
     };
     const proteinData = {
         label: "Protein",
         data: allLogs.map((d) => d.total_protein),
-        borderColor: colors.protein.light,
+        borderColor: colors.protein[theme === "dark" ? "dark" : "light"],
         borderWidth: 5,
         tension: 0.1,
     };
     const carbsData = {
         label: "Carbs",
         data: allLogs.map((d) => d.total_carbs),
-        borderColor: colors.carbs.light,
+        borderColor: colors.carbs[theme === "dark" ? "dark" : "light"],
         borderWidth: 5,
         tension: 0.1,
     };
     const fatData = {
         label: "Fat",
         data: allLogs.map((d) => d.total_fat),
-        borderColor: colors.fat.light,
+        borderColor: colors.fat[theme === "dark" ? "dark" : "light"],
         borderWidth: 5,
         tension: 0.1,
     };
@@ -477,6 +478,11 @@ function setupHomeEventListeners() {
         });
 }
 
+function setupThemeToggleBtn() {
+    const toggleBtn = document.querySelector(".toggle-switch input");
+    toggleBtn.checked = localStorage.getItem("theme") === "dark";
+}
+
 // initialization
 /**
  * Initializes the application once the DOM is fully loaded.
@@ -485,9 +491,7 @@ function setupHomeEventListeners() {
  */
 function loadCommon() {
     setupSharedEventListeners();
-
-    const toggleBtn = document.querySelector(".toggle-switch input");
-    toggleBtn.checked = localStorage.getItem("theme") === "dark";
+    setupThemeToggleBtn();
 }
 
 async function loadApp() {
@@ -509,7 +513,9 @@ async function loadApp() {
         allLogs = await getAllLogs();
         drawLogSummary(todayLog);
         drawLogDetails(todayLog);
-        initChart();
+        if (chart === null) {
+            initChart();
+        }
         updateChart();
 
         sessionStorage.setItem("hasLoaded", "true");
@@ -520,6 +526,7 @@ async function loadApp() {
         loading.textContent = "❌ Failed to load. Please refresh.";
     }
 }
+
 document.addEventListener("DOMContentLoaded", async () => {
     loadCommon();
     const app = document.querySelector("#app");
