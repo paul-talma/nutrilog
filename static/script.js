@@ -106,7 +106,16 @@ function drawLogDetails(log) {
     const dailyLogTable = document.createElement("table");
     const thead = document.createElement("thead");
     const header = document.createElement("tr");
-    ["meal", "food", "weight (g)", "calories (kcal)", ""].forEach((text) => {
+    [
+        "meal",
+        "food",
+        "weight (g)",
+        "calories (kcal)",
+        "protein",
+        "carbs",
+        "fat",
+        "",
+    ].forEach((text) => {
         const th = document.createElement("th");
         th.textContent = text;
         header.append(th);
@@ -144,13 +153,34 @@ function drawLogDetails(log) {
             calories.textContent = foodItem.calories.toFixed();
             calories.style.textAlign = "right";
 
+            const protein = document.createElement("td");
+            protein.textContent = foodItem.protein.toFixed();
+            protein.style.textAlign = "right";
+
+            const carbs = document.createElement("td");
+            carbs.textContent = foodItem.carbs.toFixed();
+            carbs.style.textAlign = "right";
+
+            const fat = document.createElement("td");
+            fat.textContent = foodItem.fat.toFixed();
+            fat.style.textAlign = "right";
+
             const delButton = document.createElement("button");
             delButton.textContent = "remove";
             delButton.classList.add("delete-btn");
             const delCell = document.createElement("td");
             delCell.appendChild(delButton);
 
-            row.append(mealCell, foodName, weight, calories, delCell);
+            row.append(
+                mealCell,
+                foodName,
+                weight,
+                calories,
+                protein,
+                carbs,
+                fat,
+                delCell,
+            );
 
             row.dataset.id = foodItem.data_id;
             tbody.appendChild(row);
