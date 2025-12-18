@@ -533,26 +533,27 @@ def get_fat_from_nutrients(nutrients: dict) -> float:
     return 0
 
 
-@app.get('/logs/today')
-async def get_today_logs():
+@app.get('/logs/{date_param}')
+async def get_today_logs(date_param):
     """Retrieves the daily log for the current date.
 
     Returns:
         DailyLog: The DailyLog object for today, or None if no entries exist.
     """
-    day = str(date.today())
-    logger.info(f'Fetching daily panel data for {day}.')
+    if date_param is None:
+        date_param = str(date.today())
+    logger.info(f'Fetching daily panel data for {date_param}.')
 
     user_log = get_user_log()
     for log in user_log.logs:
-        if log.date == day:
+        if log.date == date_param:
             logger.info('Found daily log')
             return log
     logger.info('No daily log found')
     return None
 
 
-@app.get('/logs/all')
+@app.get('/logs_all')
 async def get_all_logs():
     """Retrieves all historical daily logs for the user.
 

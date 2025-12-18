@@ -23,6 +23,8 @@ const colors = {
         dark: "#FFB347",
     },
 };
+
+let currentDate = null;
 let todayLog = null;
 let allLogs = null;
 let showNutrients = false;
@@ -245,6 +247,9 @@ async function initChart() {
                 if (activeElements.length > 0) {
                     const index = activeElements[0].index;
                     const selectedLog = allLogs[index];
+                    currentDate = selectedLog.date;
+                    sessionStorage.setItem("currentDate", currentDate);
+                    form.querySelector("#date").value = currentDate;
                     drawLogSummary(selectedLog);
                     drawLogDetails(selectedLog);
                 }
@@ -300,6 +305,34 @@ function populateFormWithDefault() {
     document.querySelector("#weight").value = 100;
 }
 
+function setCurrentDate(date) {
+    /*
+     * If no argument is given, sets `currentDate` to  the
+     * sessionStorage `currentDate`, if any, or to today.
+     * If a `date` argument is given, assign it to `currentDate` and
+     * update sessionStorage.
+     */
+
+    if (date === undefined) {
+        currentDate = sessionStorage.getItem("currentDate");
+        if (currentDate === null) {
+            currentDate = new Date().toLocaleDateString("en-CA");
+            sessionStorage.setItem("currentDate", currentDate);
+        }
+        // form.querySelector("#date").value = currentDate;
+        return;
+    }
+    currentDate = date;
+    sessionStorage.setItem("currentDate", currentDate);
+    // form.querySelector("#date").value = currentDate;
+}
+
+function resetCurrentDate() {
+    // TODO: get timezone aware date
+    currentDate = new Date().toLocaleDateString("en-CA");
+    sessionStorage.setItem("currentDate", currentDate);
+}
+
 function displayFetchError(detail) {
     const foodNameField = form.querySelector("#food_name_field");
     const errMsg = document.createElement("div");
@@ -342,8 +375,9 @@ function toggleTheme() {
  * Fetches today's daily log from the backend API.
  * @returns {Promise<object>} - A promise that resolves to the daily log object for today.
  */
-async function getTodayLog() {
-    const response = await fetch("/logs/today", {
+async function getLog(date) {
+    const url = `/logs/${date}`;
+    const response = await fetch(url, {
         method: "GET",
         headers: { "content-type": "application/json" },
     });
@@ -356,7 +390,8 @@ async function getTodayLog() {
  * @returns {Promise<Array<object>>} - A promise that resolves to an array of all daily log objects.
  */
 async function getAllLogs() {
-    const response = await fetch("/logs/all", {
+    const url = "/logs_all";
+    const response = await fetch(url, {
         method: "GET",
     });
 
@@ -410,7 +445,7 @@ async function newEntry(e) {
         const error = await response.json();
         displayFetchError(error.detail);
     } else {
-        todayLog = await getTodayLog();
+        todayLog = await getLog(currentDate);
         allLogs = await getAllLogs();
         drawLogSummary(todayLog);
         drawLogDetails(todayLog);
@@ -427,8 +462,8 @@ async function deleteEntry(dataId) {
     const response = await fetch(`/logs/delete_entry/${dataId}`, {
         method: "DELETE",
     });
-    todayLog = await getTodayLog();
-    allLogs = await getTodayLog();
+    todayLog = await getLog(currentDate);
+    allLogs = await getLog(currentDate);
     drawLogSummary(todayLog);
     drawLogDetails(todayLog);
     updateChart();
@@ -472,7 +507,9 @@ function setupHomeEventListeners() {
     document
         .querySelector("#resetDateBtn")
         .addEventListener("click", async (e) => {
-            todayLog = await getTodayLog();
+            resetCurrentDate();
+            form.querySelector("#date").value = currentDate;
+            todayLog = await getLog(currentDate);
             drawLogSummary(todayLog);
             drawLogDetails(todayLog);
         });
@@ -508,8 +545,9 @@ async function loadApp() {
 
     try {
         populateFormWithDefault();
+        setCurrentDate();
         setupHomeEventListeners();
-        todayLog = await getTodayLog();
+        todayLog = await getLog(currentDate);
         allLogs = await getAllLogs();
         drawLogSummary(todayLog);
         drawLogDetails(todayLog);
