@@ -1,111 +1,15 @@
 {
-  "greek yogurt": {
-    "calories_per_100g": 82.0,
-    "protein_per_100g": 7.23,
-    "carbs_per_100g": 12.8,
-    "fat_per_100g": 0.24
-  },
-  "banana": {
-    "calories_per_100g": 85.0,
-    "protein_per_100g": 0.73,
-    "carbs_per_100g": 20.1,
-    "fat_per_100g": 0.22
+  "almond butter": {
+    "calories_per_100g": 645.0,
+    "protein_per_100g": 20.8,
+    "carbs_per_100g": 21.2,
+    "fat_per_100g": 53.0
   },
   "honey": {
     "calories_per_100g": 304.0,
     "protein_per_100g": 0.3,
     "carbs_per_100g": 82.4,
     "fat_per_100g": 0.0
-  },
-  "beef": {
-    "calories_per_100g": 314.0,
-    "protein_per_100g": 11.7,
-    "carbs_per_100g": 2.89,
-    "fat_per_100g": 28.0
-  },
-  "pasta": {
-    "calories_per_100g": 45.0,
-    "protein_per_100g": 1.41,
-    "carbs_per_100g": 8.05,
-    "fat_per_100g": 1.48
-  },
-  "flour": {
-    "calories_per_100g": 357.0,
-    "protein_per_100g": 11.4,
-    "carbs_per_100g": 74.4,
-    "fat_per_100g": 1.52
-  },
-  "potato": {
-    "calories_per_100g": 361.0,
-    "protein_per_100g": 8.11,
-    "carbs_per_100g": 79.9,
-    "fat_per_100g": 0.951
-  },
-  "beet": {
-    "calories_per_100g": 44.6,
-    "protein_per_100g": 1.69,
-    "carbs_per_100g": 8.79,
-    "fat_per_100g": 0.302
-  },
-  "onion": {
-    "calories_per_100g": 44.0,
-    "protein_per_100g": 0.94,
-    "carbs_per_100g": 9.93,
-    "fat_per_100g": 0.1
-  },
-  "tortilla": {
-    "calories_per_100g": 224.0,
-    "protein_per_100g": 7.91,
-    "carbs_per_100g": 29.4,
-    "fat_per_100g": 8.31
-  },
-  "almond": {
-    "calories_per_100g": 622.0,
-    "protein_per_100g": 26.2,
-    "carbs_per_100g": 16.2,
-    "fat_per_100g": 50.2
-  },
-  "raw potato": {
-    "calories_per_100g": 73.5,
-    "protein_per_100g": 1.81,
-    "carbs_per_100g": 16.0,
-    "fat_per_100g": 0.264
-  },
-  "gouda": {
-    "calories_per_100g": 356.0,
-    "protein_per_100g": 24.9,
-    "carbs_per_100g": 2.22,
-    "fat_per_100g": 27.4
-  },
-  "walnut": {
-    "calories_per_100g": 730.0,
-    "protein_per_100g": 14.6,
-    "carbs_per_100g": 10.9,
-    "fat_per_100g": 69.7
-  },
-  "dim sum": {
-    "calories_per_100g": 176.0,
-    "protein_per_100g": 9.6,
-    "carbs_per_100g": 23.2,
-    "fat_per_100g": 5.6
-  },
-  "lava bun": {
-    "calories_per_100g": 452.0,
-    "protein_per_100g": 4.45,
-    "carbs_per_100g": 48.6,
-    "fat_per_100g": 26.6
-  },
-  "nonfat greek yogurt": {
-    "calories_per_100g": 61.0,
-    "protein_per_100g": 10.3,
-    "carbs_per_100g": 3.64,
-    "fat_per_100g": 0.37
-  },
-  "almond butter": {
-    "calories_per_100g": 645.0,
-    "protein_per_100g": 20.8,
-    "carbs_per_100g": 21.2,
-    "fat_per_100g": 53.0
   },
   "freeze-dried berries": {
     "calories_per_100g": 376.0,
@@ -131,11 +35,23 @@
     "carbs_per_100g": 32.5,
     "fat_per_100g": 3.19
   },
+  "broccolini": {
+    "calories_per_100g": 22.0,
+    "protein_per_100g": 3.17,
+    "carbs_per_100g": 2.85,
+    "fat_per_100g": 0.49
+  },
   "olive oil": {
     "calories_per_100g": 0.0,
     "protein_per_100g": 0.0,
     "carbs_per_100g": 0.0,
     "fat_per_100g": 0.0
+  },
+  "clementine": {
+    "calories_per_100g": 47.0,
+    "protein_per_100g": 0.85,
+    "carbs_per_100g": 12.0,
+    "fat_per_100g": 0.15
   },
   "flour tortilla": {
     "calories_per_100g": 357.0,
@@ -143,11 +59,35 @@
     "carbs_per_100g": 74.4,
     "fat_per_100g": 1.52
   },
+  "orange": {
+    "calories_per_100g": 47.0,
+    "protein_per_100g": 0.91,
+    "carbs_per_100g": 11.8,
+    "fat_per_100g": 0.15
+  },
+  "gouda": {
+    "calories_per_100g": 356.0,
+    "protein_per_100g": 24.9,
+    "carbs_per_100g": 2.22,
+    "fat_per_100g": 27.4
+  },
   "chocolate": {
     "calories_per_100g": 279.0,
     "protein_per_100g": 2.1,
     "carbs_per_100g": 65.1,
     "fat_per_100g": 1.13
+  },
+  "kelp knot": {
+    "calories_per_100g": 43.0,
+    "protein_per_100g": 1.68,
+    "carbs_per_100g": 9.57,
+    "fat_per_100g": 0.56
+  },
+  "nonfat greek yogurt": {
+    "calories_per_100g": 61.0,
+    "protein_per_100g": 10.3,
+    "carbs_per_100g": 3.64,
+    "fat_per_100g": 0.37
   },
   "white rice (dry)": {
     "calories_per_100g": 369.0,
@@ -161,6 +101,12 @@
     "carbs_per_100g": -0.251,
     "fat_per_100g": 18.6
   },
+  "macaron": {
+    "calories_per_100g": 467.0,
+    "protein_per_100g": 10.0,
+    "carbs_per_100g": 53.3,
+    "fat_per_100g": 23.3
+  },
   "cod": {
     "calories_per_100g": 66.0,
     "protein_per_100g": 16.1,
@@ -172,6 +118,18 @@
     "protein_per_100g": 7.19,
     "carbs_per_100g": 75.5,
     "fat_per_100g": 3.85
+  },
+  "coconut water": {
+    "calories_per_100g": 438.0,
+    "protein_per_100g": 16.1,
+    "carbs_per_100g": 58.9,
+    "fat_per_100g": 15.3
+  },
+  "banana": {
+    "calories_per_100g": 85.0,
+    "protein_per_100g": 0.73,
+    "carbs_per_100g": 20.1,
+    "fat_per_100g": 0.22
   },
   "massaman curry": {
     "calories_per_100g": 325.0,
@@ -197,6 +155,12 @@
     "carbs_per_100g": 71.2,
     "fat_per_100g": 2.73
   },
+  "egg": {
+    "calories_per_100g": 55.0,
+    "protein_per_100g": 10.7,
+    "carbs_per_100g": 2.36,
+    "fat_per_100g": 0.0
+  },
   "mushroom": {
     "calories_per_100g": 39.8,
     "protein_per_100g": 2.18,
@@ -214,6 +178,12 @@
     "protein_per_100g": 9.96,
     "carbs_per_100g": 12.7,
     "fat_per_100g": 73.3
+  },
+  "sage butter gnocchi": {
+    "calories_per_100g": 645.0,
+    "protein_per_100g": 20.8,
+    "carbs_per_100g": 21.2,
+    "fat_per_100g": 53.0
   },
   "tortilla chips": {
     "calories_per_100g": 519.0,
@@ -244,6 +214,12 @@
     "protein_per_100g": 0.07,
     "carbs_per_100g": 13.4,
     "fat_per_100g": 0.0
+  },
+  "salmon": {
+    "calories_per_100g": 197.0,
+    "protein_per_100g": 20.3,
+    "carbs_per_100g": 0.0,
+    "fat_per_100g": 13.1
   },
   "cherry tomato": {
     "calories_per_100g": 22.0,
@@ -299,6 +275,12 @@
     "carbs_per_100g": 0.0,
     "fat_per_100g": 1.16
   },
+  "zucchini": {
+    "calories_per_100g": 19.0,
+    "protein_per_100g": 0.984,
+    "carbs_per_100g": 3.27,
+    "fat_per_100g": 0.205
+  },
   "cashews": {
     "calories_per_100g": 565.0,
     "protein_per_100g": 17.4,
@@ -323,88 +305,58 @@
     "carbs_per_100g": 12.4,
     "fat_per_100g": 28.0
   },
-  "kefir": {
-    "calories_per_100g": 43.0,
-    "protein_per_100g": 3.79,
-    "carbs_per_100g": 4.77,
-    "fat_per_100g": 1.02
-  },
-  "clementine": {
-    "calories_per_100g": 47.0,
-    "protein_per_100g": 0.85,
-    "carbs_per_100g": 12.0,
-    "fat_per_100g": 0.15
-  },
-  "orange": {
-    "calories_per_100g": 47.0,
-    "protein_per_100g": 0.91,
-    "carbs_per_100g": 11.8,
-    "fat_per_100g": 0.15
-  },
-  "kelp knot": {
-    "calories_per_100g": 43.0,
-    "protein_per_100g": 1.68,
-    "carbs_per_100g": 9.57,
-    "fat_per_100g": 0.56
-  },
-  "macaron": {
-    "calories_per_100g": 467.0,
-    "protein_per_100g": 10.0,
-    "carbs_per_100g": 53.3,
-    "fat_per_100g": 23.3
-  },
-  "coconut water": {
-    "calories_per_100g": 438.0,
-    "protein_per_100g": 16.1,
-    "carbs_per_100g": 58.9,
-    "fat_per_100g": 15.3
-  },
-  "egg": {
-    "calories_per_100g": 55.0,
-    "protein_per_100g": 10.7,
-    "carbs_per_100g": 2.36,
-    "fat_per_100g": 0.0
-  },
-  "sage butter gnocchi": {
-    "calories_per_100g": 645.0,
-    "protein_per_100g": 20.8,
-    "carbs_per_100g": 21.2,
-    "fat_per_100g": 53.0
-  },
-  "salmon": {
-    "calories_per_100g": 197.0,
-    "protein_per_100g": 20.3,
-    "carbs_per_100g": 0.0,
-    "fat_per_100g": 13.1
-  },
-  "zucchini": {
-    "calories_per_100g": 19.0,
-    "protein_per_100g": 0.984,
-    "carbs_per_100g": 3.27,
-    "fat_per_100g": 0.205
-  },
   "king oyster mushroom": {
     "calories_per_100g": 46.4,
     "protein_per_100g": 2.41,
     "carbs_per_100g": 8.5,
     "fat_per_100g": 0.308
   },
-  "chinese yogurt": {
-    "calories_per_100g": 260.0,
-    "protein_per_100g": 8.88,
-    "carbs_per_100g": 25.5,
-    "fat_per_100g": 13.6
+  "kefir": {
+    "calories_per_100g": 43.0,
+    "protein_per_100g": 3.79,
+    "carbs_per_100g": 4.77,
+    "fat_per_100g": 1.02
   },
-  "whole milk yogurt": {
-    "calories_per_100g": 78.0,
-    "protein_per_100g": 3.82,
-    "carbs_per_100g": 5.57,
-    "fat_per_100g": 4.48
+  "greek yogurt": {
+    "calories_per_100g": 61.0,
+    "protein_per_100g": 10.3,
+    "carbs_per_100g": 3.64,
+    "fat_per_100g": 0.37
   },
-  "broccolini": {
-    "calories_per_100g": 22.0,
-    "protein_per_100g": 3.17,
-    "carbs_per_100g": 2.85,
-    "fat_per_100g": 0.49
+  "white bread": {
+    "calories_per_100g": 270.0,
+    "protein_per_100g": 9.43,
+    "carbs_per_100g": 49.2,
+    "fat_per_100g": 3.59
+  },
+  "yogurt": {
+    "calories_per_100g": 50.0,
+    "protein_per_100g": 4.23,
+    "carbs_per_100g": 8.08,
+    "fat_per_100g": 0.0875
+  },
+  "brioche": {
+    "calories_per_100g": 427.0,
+    "protein_per_100g": 8.96,
+    "carbs_per_100g": 36.31,
+    "fat_per_100g": 27.46
+  },
+  "grapefruit juice": {
+    "calories_per_100g": 37.0,
+    "protein_per_100g": 0.55,
+    "carbs_per_100g": 7.59,
+    "fat_per_100g": 0.7
+  },
+  "roasted chickpea": {
+    "calories_per_100g": 383.0,
+    "protein_per_100g": 21.3,
+    "carbs_per_100g": 60.4,
+    "fat_per_100g": 6.27
+  },
+  "gruyere cheese": {
+    "calories_per_100g": 408.0,
+    "protein_per_100g": 23.3,
+    "carbs_per_100g": 2.44,
+    "fat_per_100g": 34.0
   }
 }

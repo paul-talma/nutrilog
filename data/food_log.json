@@ -1443,19 +1443,19 @@
             },
             {
               "name": "orange",
-              "weight": 0.0,
-              "quantity": 1,
-              "calories": 0.0,
-              "protein": 0.0,
-              "carbs": 0.0,
-              "fat": 0.0,
-              "data_id": "47460e5e-4e3b-40ca-be9c-420c3309f45a"
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 47.0,
+              "protein": 0.91,
+              "carbs": 11.8,
+              "fat": 0.15,
+              "data_id": "10c96077-6cb0-44a5-bff1-39b94b134a8b"
             }
           ],
-          "meal_calories": 433.13,
-          "meal_protein": 27.496000000000006,
-          "meal_carbs": 28.112000000000002,
-          "meal_fat": 23.2145
+          "meal_calories": 480.13,
+          "meal_protein": 28.406000000000006,
+          "meal_carbs": 39.912000000000006,
+          "meal_fat": 23.3645
         },
         {
           "name": "lunch",
@@ -1485,10 +1485,10 @@
           "meal_fat": 0.0
         }
       ],
-      "total_calories": 433.13,
-      "total_protein": 27.496000000000006,
-      "total_carbs": 28.112000000000002,
-      "total_fat": 23.2145
+      "total_calories": 480.13,
+      "total_protein": 28.406000000000006,
+      "total_carbs": 39.912000000000006,
+      "total_fat": 23.3645
     },
     {
       "date": "2025-03-12",
@@ -2232,43 +2232,43 @@
               "name": "greek yogurt",
               "weight": 100.0,
               "quantity": 0,
-              "calories": 82.0,
-              "protein": 7.23,
-              "carbs": 12.8,
-              "fat": 0.24,
+              "calories": 61.0,
+              "protein": 10.3,
+              "carbs": 3.64,
+              "fat": 0.37,
               "data_id": "20bd034b-7f9e-44f4-8f7a-5b561280767b"
             },
             {
               "name": "greek yogurt",
               "weight": 100.0,
               "quantity": 0,
-              "calories": 82.0,
-              "protein": 7.23,
-              "carbs": 12.8,
-              "fat": 0.24,
+              "calories": 61.0,
+              "protein": 10.3,
+              "carbs": 3.64,
+              "fat": 0.37,
               "data_id": "463f0904-9884-4da9-80a4-0d4985e6dd91"
             },
             {
               "name": "greek yogurt",
               "weight": 1000.0,
               "quantity": 0,
-              "calories": 820.0,
-              "protein": 72.30000000000001,
-              "carbs": 128.0,
-              "fat": 2.4,
+              "calories": 610.0,
+              "protein": 103.0,
+              "carbs": 36.4,
+              "fat": 3.7,
               "data_id": "432db62c-e69b-4c25-8a88-d24a61992612"
             }
           ],
-          "meal_calories": 984.0,
-          "meal_protein": 86.76000000000002,
-          "meal_carbs": 153.6,
-          "meal_fat": 2.88
+          "meal_calories": 732.0,
+          "meal_protein": 123.6,
+          "meal_carbs": 43.68,
+          "meal_fat": 4.44
         }
       ],
-      "total_calories": 984.0,
-      "total_protein": 86.76000000000002,
-      "total_carbs": 153.6,
-      "total_fat": 2.88
+      "total_calories": 732.0,
+      "total_protein": 123.6,
+      "total_carbs": 43.68,
+      "total_fat": 4.44
     },
     {
       "date": "2025-12-01",
@@ -2299,43 +2299,43 @@
               "name": "greek yogurt",
               "weight": 100.0,
               "quantity": 0,
-              "calories": 82.0,
-              "protein": 7.23,
-              "carbs": 12.8,
-              "fat": 0.24,
+              "calories": 61.0,
+              "protein": 10.3,
+              "carbs": 3.64,
+              "fat": 0.37,
               "data_id": "6175225f-949e-484f-bbd2-c1df4de9e7fb"
             },
             {
               "name": "greek yogurt",
               "weight": 100.0,
               "quantity": 0,
-              "calories": 82.0,
-              "protein": 7.23,
-              "carbs": 12.8,
-              "fat": 0.24,
+              "calories": 61.0,
+              "protein": 10.3,
+              "carbs": 3.64,
+              "fat": 0.37,
               "data_id": "8c0d8da3-ce47-4ba6-8065-55afd35fd4f2"
             },
             {
               "name": "greek yogurt",
               "weight": 100.0,
               "quantity": 0,
-              "calories": 82.0,
-              "protein": 7.23,
-              "carbs": 12.8,
-              "fat": 0.24,
+              "calories": 61.0,
+              "protein": 10.3,
+              "carbs": 3.64,
+              "fat": 0.37,
               "data_id": "7ba82ecb-75d7-4855-844c-7e1ca3a43947"
             }
           ],
-          "meal_calories": 246.0,
-          "meal_protein": 21.69,
-          "meal_carbs": 38.400000000000006,
-          "meal_fat": 0.72
+          "meal_calories": 183.0,
+          "meal_protein": 30.900000000000002,
+          "meal_carbs": 10.92,
+          "meal_fat": 1.1099999999999999
         }
       ],
-      "total_calories": 246.0,
-      "total_protein": 21.69,
-      "total_carbs": 38.400000000000006,
-      "total_fat": 0.72
+      "total_calories": 183.0,
+      "total_protein": 30.900000000000002,
+      "total_carbs": 10.92,
+      "total_fat": 1.1099999999999999
     },
     {
       "date": "2025-12-07",
@@ -2348,93 +2348,356 @@
               "name": "greek yogurt",
               "weight": 100.0,
               "quantity": 0,
-              "calories": 82.0,
-              "protein": 7.23,
-              "carbs": 12.8,
-              "fat": 0.24,
+              "calories": 61.0,
+              "protein": 10.3,
+              "carbs": 3.64,
+              "fat": 0.37,
               "data_id": "46c478e5-2533-483c-922b-44d9a2e58f21"
             },
             {
               "name": "greek yogurt",
               "weight": 100.0,
               "quantity": 0,
-              "calories": 82.0,
-              "protein": 7.23,
-              "carbs": 12.8,
-              "fat": 0.24,
-              "data_id": "6d290775-acf1-4697-b335-5f9a41492eca"
-            },
-            {
-              "name": "greek yogurt",
-              "weight": 100.0,
-              "quantity": 0,
-              "calories": 82.0,
-              "protein": 7.23,
-              "carbs": 12.8,
-              "fat": 0.24,
+              "calories": 61.0,
+              "protein": 10.3,
+              "carbs": 3.64,
+              "fat": 0.37,
               "data_id": "d85bf677-22aa-47d7-a0aa-137a838284b1"
             },
             {
               "name": "greek yogurt",
               "weight": 500.0,
               "quantity": 0,
-              "calories": 410.0,
-              "protein": 36.150000000000006,
-              "carbs": 64.0,
-              "fat": 1.2,
+              "calories": 305.0,
+              "protein": 51.5,
+              "carbs": 18.2,
+              "fat": 1.85,
               "data_id": "68e3b0cd-7d94-4cca-a589-daee6a18992d"
             },
             {
               "name": "greek yogurt",
               "weight": 500.0,
               "quantity": 0,
-              "calories": 410.0,
-              "protein": 36.150000000000006,
-              "carbs": 64.0,
-              "fat": 1.2,
+              "calories": 305.0,
+              "protein": 51.5,
+              "carbs": 18.2,
+              "fat": 1.85,
               "data_id": "e71198a7-1353-480b-ac9e-b9c377105524"
             },
             {
               "name": "greek yogurt",
               "weight": 500.0,
               "quantity": 0,
-              "calories": 410.0,
-              "protein": 36.150000000000006,
-              "carbs": 64.0,
-              "fat": 1.2,
+              "calories": 305.0,
+              "protein": 51.5,
+              "carbs": 18.2,
+              "fat": 1.85,
               "data_id": "8913a052-4f47-41e2-8d17-0a6a24cb4168"
             },
             {
               "name": "greek yogurt",
               "weight": 500.0,
               "quantity": 0,
-              "calories": 410.0,
-              "protein": 36.150000000000006,
-              "carbs": 64.0,
-              "fat": 1.2,
+              "calories": 305.0,
+              "protein": 51.5,
+              "carbs": 18.2,
+              "fat": 1.85,
               "data_id": "03d6791f-d3d4-4d32-a16b-67e031ccc291"
             },
             {
               "name": "greek yogurt",
               "weight": 500.0,
               "quantity": 0,
-              "calories": 410.0,
-              "protein": 36.150000000000006,
-              "carbs": 64.0,
-              "fat": 1.2,
+              "calories": 305.0,
+              "protein": 51.5,
+              "carbs": 18.2,
+              "fat": 1.85,
               "data_id": "870b619c-881a-4ba8-9183-192a75f350dc"
             }
           ],
-          "meal_calories": 2296.0,
-          "meal_protein": 202.44000000000003,
-          "meal_carbs": 358.4,
-          "meal_fat": 6.720000000000001
+          "meal_calories": 1647.0,
+          "meal_protein": 278.1,
+          "meal_carbs": 98.28,
+          "meal_fat": 9.989999999999998
         }
       ],
-      "total_calories": 2296.0,
-      "total_protein": 202.44000000000003,
-      "total_carbs": 358.4,
-      "total_fat": 6.720000000000001
+      "total_calories": 1647.0,
+      "total_protein": 278.1,
+      "total_carbs": 98.28,
+      "total_fat": 9.989999999999998
+    },
+    {
+      "date": "2025-12-09",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "greek yogurt",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 61.0,
+              "protein": 10.3,
+              "carbs": 3.64,
+              "fat": 0.37,
+              "data_id": "05c22111-a6fb-44ca-8821-d8e26b4f8072"
+            }
+          ],
+          "meal_calories": 61.0,
+          "meal_protein": 10.3,
+          "meal_carbs": 3.64,
+          "meal_fat": 0.37
+        }
+      ],
+      "total_calories": 61.0,
+      "total_protein": 10.3,
+      "total_carbs": 3.64,
+      "total_fat": 0.37
+    },
+    {
+      "date": "2025-12-11",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "greek yogurt",
+              "weight": 150.0,
+              "quantity": 0,
+              "calories": 91.5,
+              "protein": 15.450000000000001,
+              "carbs": 5.46,
+              "fat": 0.5549999999999999,
+              "data_id": "944e1984-8bca-46d7-84d1-2b556c107efb"
+            },
+            {
+              "name": "white bread",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 270.0,
+              "protein": 9.43,
+              "carbs": 49.2,
+              "fat": 3.59,
+              "data_id": "d9b3ef44-b123-4853-aa39-8ef24487ff72"
+            }
+          ],
+          "meal_calories": 361.5,
+          "meal_protein": 24.880000000000003,
+          "meal_carbs": 54.660000000000004,
+          "meal_fat": 4.145
+        }
+      ],
+      "total_calories": 361.5,
+      "total_protein": 24.880000000000003,
+      "total_carbs": 54.660000000000004,
+      "total_fat": 4.145
+    },
+    {
+      "date": "2025-12-13",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "white bread",
+              "weight": 200.0,
+              "quantity": 0,
+              "calories": 540.0,
+              "protein": 18.86,
+              "carbs": 98.4,
+              "fat": 7.18,
+              "data_id": "778dae2a-bde7-4b5b-81ca-8c01aec7ccd9"
+            }
+          ],
+          "meal_calories": 540.0,
+          "meal_protein": 18.86,
+          "meal_carbs": 98.4,
+          "meal_fat": 7.18
+        }
+      ],
+      "total_calories": 540.0,
+      "total_protein": 18.86,
+      "total_carbs": 98.4,
+      "total_fat": 7.18
+    },
+    {
+      "date": "2025-12-15",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "greek yogurt",
+              "weight": 500.0,
+              "quantity": 0,
+              "calories": 305.0,
+              "protein": 51.5,
+              "carbs": 18.2,
+              "fat": 1.85,
+              "data_id": "4621e33b-89e6-4cda-bcb4-e0579000a69e"
+            }
+          ],
+          "meal_calories": 305.0,
+          "meal_protein": 51.5,
+          "meal_carbs": 18.2,
+          "meal_fat": 1.85
+        }
+      ],
+      "total_calories": 305.0,
+      "total_protein": 51.5,
+      "total_carbs": 18.2,
+      "total_fat": 1.85
+    },
+    {
+      "date": "2025-12-16",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "brioche",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 427.0,
+              "protein": 8.96,
+              "carbs": 36.31,
+              "fat": 27.46,
+              "data_id": "cbe95fd8-e8be-490e-a32f-df0ad9592d84"
+            },
+            {
+              "name": "greek yogurt",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 61.0,
+              "protein": 10.3,
+              "carbs": 3.64,
+              "fat": 0.37,
+              "data_id": "818c2479-e222-4bbc-af15-f31841cb7b87"
+            },
+            {
+              "name": "white bread",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 270.0,
+              "protein": 9.43,
+              "carbs": 49.2,
+              "fat": 3.59,
+              "data_id": "58947356-57ac-470c-9e08-32ed6ef1b2ec"
+            }
+          ],
+          "meal_calories": 758.0,
+          "meal_protein": 28.69,
+          "meal_carbs": 89.15,
+          "meal_fat": 31.42
+        },
+        {
+          "name": "lunch",
+          "time": null,
+          "items": [
+            {
+              "name": "roasted chickpea",
+              "weight": 80.0,
+              "quantity": 0,
+              "calories": 306.40000000000003,
+              "protein": 17.040000000000003,
+              "carbs": 48.32,
+              "fat": 5.016,
+              "data_id": "4255e256-db28-4624-8d22-8eb9d5c1a6c1"
+            },
+            {
+              "name": "gruyere cheese",
+              "weight": 30.0,
+              "quantity": 0,
+              "calories": 122.39999999999999,
+              "protein": 6.99,
+              "carbs": 0.732,
+              "fat": 10.2,
+              "data_id": "735a9a39-8ddb-4331-b952-1bcd3e1e6f10"
+            },
+            {
+              "name": "white bread",
+              "weight": 100.0,
+              "quantity": 0,
+              "calories": 270.0,
+              "protein": 9.43,
+              "carbs": 49.2,
+              "fat": 3.59,
+              "data_id": "8449d2d6-56db-44a0-881e-f16c2aafad15"
+            }
+          ],
+          "meal_calories": 698.8,
+          "meal_protein": 33.46,
+          "meal_carbs": 98.25200000000001,
+          "meal_fat": 18.805999999999997
+        }
+      ],
+      "total_calories": 1456.8,
+      "total_protein": 62.150000000000006,
+      "total_carbs": 187.40200000000002,
+      "total_fat": 50.226
+    },
+    {
+      "date": "2025-12-17",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "greek yogurt",
+              "weight": 300.0,
+              "quantity": 0,
+              "calories": 183.0,
+              "protein": 30.900000000000002,
+              "carbs": 10.92,
+              "fat": 1.1099999999999999,
+              "data_id": "0112a12d-70c1-4e14-9834-885e6fa925d9"
+            }
+          ],
+          "meal_calories": 183.0,
+          "meal_protein": 30.900000000000002,
+          "meal_carbs": 10.92,
+          "meal_fat": 1.1099999999999999
+        }
+      ],
+      "total_calories": 183.0,
+      "total_protein": 30.900000000000002,
+      "total_carbs": 10.92,
+      "total_fat": 1.1099999999999999
+    },
+    {
+      "date": "2025-12-18",
+      "meals": [
+        {
+          "name": "breakfast",
+          "time": null,
+          "items": [
+            {
+              "name": "greek yogurt",
+              "weight": 300.0,
+              "quantity": 0,
+              "calories": 183.0,
+              "protein": 30.900000000000002,
+              "carbs": 10.92,
+              "fat": 1.1099999999999999,
+              "data_id": "a8bb6127-7126-4875-9c78-66e3820bb855"
+            }
+          ],
+          "meal_calories": 183.0,
+          "meal_protein": 30.900000000000002,
+          "meal_carbs": 10.92,
+          "meal_fat": 1.1099999999999999
+        }
+      ],
+      "total_calories": 183.0,
+      "total_protein": 30.900000000000002,
+      "total_carbs": 10.92,
+      "total_fat": 1.1099999999999999
     }
   ]
 }
