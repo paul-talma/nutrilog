@@ -463,7 +463,7 @@ async function deleteEntry(dataId) {
         method: "DELETE",
     });
     todayLog = await getLog(currentDate);
-    allLogs = await getLog(currentDate);
+    allLogs = await getAllLogs();
     drawLogSummary(todayLog);
     drawLogDetails(todayLog);
     updateChart();
