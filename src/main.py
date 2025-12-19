@@ -224,14 +224,14 @@ async def read_root():
     return FileResponse('static/index.html')
 
 
-@app.get('/how_it_works')
-async def read_how_it_works():
+@app.get('/about')
+async def read_about():
     """Serves the 'how_it_works.html' page.
 
     Returns:
         FileResponse: The 'how_it_works.html' file from the static directory.
     """
-    return FileResponse('static/how_it_works.html')
+    return FileResponse('static/about.html')
 
 
 @app.post('/logs/new_entry')
@@ -426,10 +426,6 @@ def convert_api_response_to_FoodInfo(food_info_list: list[dict]) -> FoodInfo:
     # TODO: better sort through options
     food_info = food_info_list[0]
     nutrients = food_info['foodNutrients']
-    # values = {
-    #     f'{nutrient_name}_per_100g': get_nutrient(nutrient_id, nutrients)
-    #     for nutrient_name, nutrient_id in NUTRIENTS.items()
-    # }
     values = {
         'calories_per_100g': get_calories_from_nutrients(nutrients),
         'protein_per_100g': get_protein_from_nutrients(nutrients),

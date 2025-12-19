@@ -58,7 +58,7 @@ h1 {
 main {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    column-gap: 2rem;
 }
 
 main div {
@@ -218,4 +218,10 @@ input:checked ~ .slider::before {
     transform: translateX(calc(48px * var(--scale)));
     background-color: var(--switch-dark);
     box-shadow: none;
+}
+
+/* about */
+
+.about-text {
+    max-width: 800px;
 }
