@@ -46,8 +46,6 @@ async def lifespan(app: FastAPI):
     load_dotenv()
     global API_KEY
     API_KEY = os.environ['USDA_API_KEY']
-    global API_URL
-    API_URL = 'https://api.nal.usda.gov/fdc/v1/foods/search'
     global NUTRIENTS
     NUTRIENTS = {
         'calories': 1008,
@@ -367,18 +365,20 @@ def get_food_info_from_api(query: str) -> FoodInfo:
     Raises:
         HTTPException: If no nutrition data is found for the query.
     """
-    api_response = query_api(query)
-    if not api_response:
+    search_results = query_api_search(query)
+    if not search_results:
         raise HTTPException(
             status_code=404,
             detail=f'No nutrition data found for {query}. Check spelling or try another description.',
         )
+    id = get_food_id_from_food_info_list(search_results)
+    food_item = query_api_id(id)
 
-    food_info = convert_api_response_to_FoodInfo(api_response)
+    food_info = convert_api_response_to_FoodInfo(food_item)
     return food_info
 
 
-def query_api(query: str):
+def query_api_search(query: str):
     """Queries the USDA FoodData Central API for food items.
 
     Searches across different data types (Foundation, SR Legacy, Survey, Branded)
@@ -399,8 +399,9 @@ def query_api(query: str):
             'pageSize': 5,
         }
         results = []
+        url = 'https://api.nal.usda.gov/fdc/v1/foods/search'
         try:
-            response = requests.get(API_URL, params=params)
+            response = requests.get(url, params=params)
             response.raise_for_status()  # Raise an HTTPError for bad responses (4xx or 5xx)
             results = response.json()['foods']
         except requests.exceptions.RequestException as e:
@@ -414,7 +415,30 @@ def query_api(query: str):
     return foods
 
 
-def convert_api_response_to_FoodInfo(food_info_list: list[dict]) -> FoodInfo:
+def get_food_id_from_food_info_list(foods: list[dict]) -> int:
+    food = foods[0]
+    id = food['fdcId']
+    return id
+
+
+def query_api_id(id: int) -> dict:
+    params = {
+        'api_key': API_KEY,
+    }
+    url = f'https://api.nal.usda.gov/fdc/v1/food/{id}'
+    try:
+        response = requests.get(url, params=params)
+        response.raise_for_status()  # Raise an HTTPError for bad responses (4xx or 5xx)
+    except requests.exceptions.RequestException as e:
+        logger.error(f'Request error: could not fetch data for id {id}: {e}')
+    # Log any JSON decoding errors.
+    except json.JSONDecodeError as e:
+        logger.error(f'Error decoding JSON for id {id}: {e}')
+
+    return response.json()
+
+
+def convert_api_response_to_FoodInfo(food_item: dict) -> FoodInfo:
     """Converts a raw API response list of food information into a structured FoodInfo object.
 
     Args:
@@ -423,15 +447,25 @@ def convert_api_response_to_FoodInfo(food_info_list: list[dict]) -> FoodInfo:
     Returns:
         FoodInfo: A Pydantic model containing the extracted nutritional information.
     """
-    # TODO: better sort through options
-    food_info = food_info_list[0]
-    nutrients = food_info['foodNutrients']
-    values = {
-        'calories_per_100g': get_calories_from_nutrients(nutrients),
-        'protein_per_100g': get_protein_from_nutrients(nutrients),
-        'carbs_per_100g': get_carbs_from_nutrients(nutrients),
-        'fat_per_100g': get_fat_from_nutrients(nutrients),
-    }
+    # TODO: this is ugly and brittle
+    nutrients = food_item['foodNutrients']
+    values = {}
+    for nutrient in nutrients:
+        if nutrient['nutrient']['id'] in [NUTRIENTS['calories'], NUTRIENTS['energy_atwater_general'], NUTRIENTS['energy_atwater_specific']]:
+            values['calories_per_100g'] = nutrient['amount']
+        elif nutrient['nutrient']['id'] == NUTRIENTS['protein']:
+            values['protein_per_100g'] = nutrient['amount']
+        elif nutrient['nutrient']['id'] == NUTRIENTS['carbs']:
+            values['carbs_per_100g'] = nutrient['amount']
+        elif nutrient['nutrient']['id'] == NUTRIENTS['fat']:
+            values['fat_per_100g'] = nutrient['amount']
+
+    # values = {
+    #     'calories_per_100g': get_calories_from_nutrients(nutrients),
+    #     'protein_per_100g': get_protein_from_nutrients(nutrients),
+    #     'carbs_per_100g': get_carbs_from_nutrients(nutrients),
+    #     'fat_per_100g': get_fat_from_nutrients(nutrients),
+    # }
     return FoodInfo(**values)
 
 
@@ -469,11 +503,20 @@ def get_calories_from_nutrients(nutrients: dict) -> float:
     # TODO: validate
     for n in nutrients:
         if n['nutrientId'] == NUTRIENTS['calories']:
-            return float(n['value'])
+            if 'value' in n:
+                return float(n['value'])
+            elif 'amount' in n:
+                return float(n['amount'])
         elif n['nutrientId'] == NUTRIENTS['energy_atwater_specific']:
-            return float(n['value'])
+            if 'value' in n:
+                return float(n['value'])
+            elif 'amount' in n:
+                return float(n['amount'])
         elif n['nutrientId'] == NUTRIENTS['energy_atwater_general']:
-            return float(n['value'])
+            if 'value' in n:
+                return float(n['value'])
+            elif 'amount' in n:
+                return float(n['amount'])
     logger.warning('No energy calue found.')
     return 0
 
