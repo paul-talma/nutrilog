@@ -13,7 +13,8 @@
 [data-theme="dark"] {
     --bg: #1e2021;
     --text: #fff1e7;
-    --link: #4169e1;
+    --link: orange;
+    --visited-link: #d45c1c;
 }
 
 body {
@@ -52,6 +53,14 @@ nav ul li {
 
 h1 {
     text-align: center;
+}
+
+a:link {
+    color: var(--link);
+}
+
+a:visited {
+    color: var(--visited-link);
 }
 
 /* components */
@@ -203,7 +212,7 @@ input:checked ~ .slider {
 .slider::before {
     content: "";
     position: absolute;
-    top: calc(7px * var(--scale));
+    top: calc(6.5px * var(--scale));
     left: calc(8px * var(--scale));
     width: calc(38px * var(--scale));
     height: calc(38px * var(--scale));
